@@ -77,10 +77,10 @@
     <section id="work">
       <div class="bg-outer">
         <div class="bg-inner">
-          <header class="center-header">
+          <h2>
             <span>Work</span>
             <a href="https://amdouglas.com/work/">View all</a>
-          </header>
+          </h2>
           <div class="container">
             <article class="c c1">
               <a href="https://orbitalview.co.uk/">
@@ -143,10 +143,10 @@
     <section id="blog">
       <div class="bg-outer">
         <div class="bg-inner">
-          <header class="center-header">
+          <h2>
             <span>Blog</span>
             <a href="https://amdouglas.com/blog/">View all</a>
-          </header>
+          </h2>
           <div class="container">
             <article class="c c1">
               <a href="https://amdouglas.com/blog/">
@@ -209,10 +209,10 @@
     <section id="labs">
       <div class="bg-outer">
         <div class="bg-inner">
-          <header class="center-header">
+          <h2>
             <span>Labs</span>
             <a href="https://amdouglas.com/labs/">View all</a>
-          </header>
+          </h2>
           <div class="container">
             <article class="c c1">
               <a href="https://toad.js.org/">
@@ -275,9 +275,9 @@
     <section id="talk">
       <div class="bg-outer">
         <div class="bg-inner">
-          <header class="center-header">
+          <h2>
             <span>Talk</span>
-          </header>
+          </h2>
           <div class="container container-f">
             <article class="f">
               <h3>Speak your mind!</h3>
@@ -285,20 +285,19 @@
                 <fieldset>
                   <legend>Let&rsquo;s discuss your project &mdash; be it a shiny new website, or a killer new JSON API, or perhaps even an existing website in need of some TLC&hellip;</legend>
                   <div class="ff">
-                    <input type="text" name="name" pattern=".{1,}" required disabled>
+                    <input type="text" id="name" name="name" pattern=".{1,}" required disabled>
                     <label for="name"><span>Your Name</span></label>
                   </div>
                   <div class="ff">
-                    <input type="email" name="email" pattern=".{5,}" required disabled>
+                    <input type="email" id="email" name="email" pattern=".{5,}" required disabled>
                     <label for="email"><span>Your Email</span></label>
                   </div>
                   <div class="ff">
-                    <textarea rows="6" name="text" minlength="5" required disabled></textarea>
+                    <textarea rows="6" id="text" name="text" minlength="5" required disabled></textarea>
                     <label for="text"><span>Your Message</span></label>
                   </div>
                   <div class="ff" hidden>
                     <input type="text" name="confirm" value="" hidden disabled>
-                    <label for="confirm" hidden>Leave blank</label>
                   </div>
                   <div class="ff">
                     <button type="submit">Send</button>
