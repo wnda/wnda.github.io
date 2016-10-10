@@ -223,7 +223,7 @@ article>a{
   section:nth-of-type(2n) h2>span{
     left:auto;
     right: 0;
-    -webkit-transform: rotate(90deg)
+    -webkit-transform: rotate(90deg);
     transform: rotate(90deg)
   }
 }
