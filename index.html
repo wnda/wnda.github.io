@@ -344,7 +344,7 @@
         function handleLoad(){
           win.removeEventListener('load',handleLoad,false);
           updateNavigation('#home');
-          loadStylesheets(['/assets/css/svg.css']);
+          //loadStylesheets(['/assets/css/svg.css']);
           appendJSONLD();
           var a=doc.querySelectorAll('input,textarea');
           for(var j=0;j<a.length;++j){
