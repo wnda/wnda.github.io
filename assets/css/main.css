@@ -28,7 +28,7 @@ section{
   backface-visibility:hidden;
   will-change:transform;
 }
-aside{
+h1{
   display:none;
   position:fixed;
   z-index:99;
@@ -175,7 +175,7 @@ article>a{
 }
 @media screen and (min-width:768px){
   article>a{top:16px;bottom:16px}
-  aside{display:block}
+  h1{display:block}
   .c9{display:block}
   .c1,.c2,.c3{top:0;bottom:66%}
   .c4,.c5,.c6{top:33%;bottom:33%}
