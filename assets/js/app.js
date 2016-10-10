@@ -12,7 +12,7 @@
   var i = nav_links.length;
   var j = 0;
 
-  loadStylesheets(['https://fonts.googleapis.com/css?family=Rubik:400,700,700i','https://amdouglas.com/assets/css/main.css']);
+  loadStylesheets(['https://amdouglas.com/assets/css/fonts.css','https://amdouglas.com/assets/css/main.css']);
 
   for(;j<i;++j) {
     nav_links[j].addEventListener('click',handleNav,false);
@@ -25,7 +25,6 @@
     for(var i = 0;i<urls.length;++i){
       var css  = doc.createElement('link');
       css.rel  = 'stylesheet';
-      css.type = 'text/css';
       css.href = urls[i];
       head.appendChild(css);
     }
