@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /payment/success
+Disallow: /payment/failed
+Disallow: /contact/success
+Disallow: /contact/failed
+Disallow: /contact/error
