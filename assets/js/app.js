@@ -1,4 +1,3 @@
-
 ;(function(win,doc,head,body){
 
   if(!('addEventListener' in win)) return;
