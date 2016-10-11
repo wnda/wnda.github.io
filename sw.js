@@ -2,7 +2,7 @@
 
 self.importScripts( 'https://amdouglas.com/assets/js/serviceworker-cache-polyfill.js' );
 
-var CACHE_VERSION = 21;
+var CACHE_VERSION = 24;
 var CURRENT_CACHES = {
   prefetch: 'prefetch-cache-v' + CACHE_VERSION
 };
@@ -10,7 +10,6 @@ var CURRENT_CACHES = {
 self.addEventListener('install', function(event) {
   var urlsToPrefetch = [
     'https://amdouglas.com/',
-    'https://amdouglas.com/404',
     'https://amdouglas.com/assets/css/main.css',
     'https://amdouglas.com/assets/css/fonts.css',
     'https://amdouglas.com/assets/js/app.js',
@@ -20,7 +19,6 @@ self.addEventListener('install', function(event) {
     'https://amdouglas.com/assets/fonts/Rubik-Bold.woff2',
     'https://amdouglas.com/manifest.json'
   ];
-  console.log('Handling install event. Resources to prefetch:', urlsToPrefetch);
   self.skipWaiting();
   event.waitUntil(
     caches.open(CURRENT_CACHES.prefetch).then(function(cache){
@@ -38,7 +36,6 @@ self.addEventListener('activate', function(event){
       return Promise.all(
         cacheNames.map(function(cacheName){
           if (expectedCacheNames.indexOf(cacheName) === -1){
-            console.log('Deleting out of date cache:', cacheName);
             return caches.delete(cacheName);
           }
         })
