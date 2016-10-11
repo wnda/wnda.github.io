@@ -71,18 +71,17 @@
     var xhr = new XMLHttpRequest();
     xhr.open('GET', 'https://amdouglas.com/manifest.json', true);
     xhr.onreadystatechange = function(){
-      if(xhr.readyState === 4 && xhr.status >= 200 && xhr.status < 300){
-        var data = JSON.parse(xhr.responseText);
-        for(var j=0;j<data.icons.length;++j){
-          var icon = doc.createElement('link');
-          icon.rel = 'apple-touch-icon-precomposed';
-          icon.href = data.icons[j].src;
-          icon.setAttribute('sizes', data.icons[j].sizes);
-          head.appendChild(icon);
+      if(xhr.readyState === 4){
+        if(xhr.status >= 200 && xhr.status < 300){
+          var data = JSON.parse(xhr.responseText);
+          for(var j=0;j<data.icons.length;++j){
+            var icon = doc.createElement('link');
+            icon.rel = 'apple-touch-icon-precomposed';
+            icon.href = data.icons[j].src;
+            icon.setAttribute('sizes', data.icons[j].sizes);
+            head.appendChild(icon);
+          }
         }
-      }
-      else{
-        console.warn('Error: ' + xhr.status);
       }
     };
     xhr.send();
@@ -106,11 +105,11 @@
     var xhr = new XMLHttpRequest();
     xhr.open('GET', 'https://amdouglas.com/data.jsonld', true);
     xhr.onreadystatechange = function(){
-      if(xhr.readyState === 4 && xhr.status >= 200 && xhr.status < 300){
-        s_data.textContent = xhr.responseText;
-      }
-      else{
-        console.warn('Error: ' + xhr.status);
+      if(xhr.readyState === 4){
+        if(xhr.status >= 200 && xhr.status < 300){
+          s_data.textContent = xhr.responseText;
+          body.appendChild(s_data);
+        }
       }
     };
     xhr.send();
