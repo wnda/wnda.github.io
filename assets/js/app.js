@@ -52,19 +52,19 @@
         console.warn("SW failed to register [" + err + "]");
       });
     }
-  }
-
-  function handleMenu(){
-    if(menuEl.classList.contains('closed')){
-      overlayEl.className = '';
-      menuEl.classList.remove('closed');
-      rootEl.classList.add('no-scroll');
-    }
-    else{
-      overlayEl.className = 'hidden';
-      menuEl.classList.add('closed');
-      rootEl.classList.remove('no-scroll');
-    }
+    win.GoogleAnalyticsObject = win.ga;
+    win.ga = win.ga || function(){
+      for(var p = 0; p < arguments.length; ++p){
+        (win.ga.q = win.ga.q || []).push(arguments[p]);
+      }
+    };
+    win.ga.l = 1 * new Date();
+    var uas = doc.createElement('script');
+    uas.async=!0;
+    uas.src='https://www.google-analytics.com/analytics.js';
+    body.appendChild(uas);
+    win.ga('create','UA-70873652-1','auto');
+    win.ga('send','pageview');
   }
 
   function appendTouchIcons(){
