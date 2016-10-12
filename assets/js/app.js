@@ -142,7 +142,7 @@
       var this_rect = this_section.getBoundingClientRect();
       switch(scroll_dir){
         case 'u':
-          if(this_rect.bottom<(hght/3)&&this_rect.bottom>=0) updateNavigation(this_hash,scroll_dir);
+          if(this_rect.bottom<(hght/4)&&this_rect.bottom>=0) updateNavigation(this_hash,scroll_dir);
           break;
         case 'd':
           if(this_rect.top<(hght/3)&&this_rect.top>=0) updateNavigation(this_hash,scroll_dir);
