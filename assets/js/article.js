@@ -1,7 +1,7 @@
 ;(function(win,doc,head,body){
 
   if(!('addEventListener' in win)) return;
-  loadStylesheets(['https://fonts.googleapis.com/css?family=Rubik:400,700|Crimson+Text:600,700','https://amdouglas.com/assets/css/article.css']);
+  loadStylesheets(['https://amdouglas.com/assets/css/fonts.css','https://amdouglas.com/assets/css/article.css']);
 
   win.addEventListener('load',handleLoad,false);
   
