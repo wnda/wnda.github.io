@@ -4,6 +4,8 @@
 
   win.addEventListener('DOMContentLoaded',handleLoad,false);
   
+  loadStylesheets(['https://amdouglas.com/assets/css/labs.css']);
+  
   function loadStylesheets(urls){
     for(var i = 0;i<urls.length;++i){
       var css  = doc.createElement('link');
