@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,user-scalable=no,shrink-to-fit=no">
+    <base href="https://amdouglas.com/">
+    <title>Asynchronous CSS: the Easy Way · A. M. Douglas · Leeds, UK</title>
+    <link rel="manifest" href="https://amdouglas.com/manifest.json">
+    <link rel="dns-prefetch preconnect" href="https://fonts.gstatic.com">
+    <link rel="canonical" href="https://amdouglas.com/blog/asynchronous-css-the-easy-way/">
+    <link rel="publisher" href="https://plus.google.com/+AMDouglasCom">
+    <link rel="icon" href="https://amdouglas.com/favicon.ico">
+    <meta name="description" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:creator" content="A. M. Douglas">
+    <meta name="twitter:url" content="https://amdouglas.com/blog/asynchronous-css-the-easy-way/">
+    <meta name="twitter:domain" content="amdouglas.com">
+    <meta name="twitter:title" content="Asynchronous CSS: the Easy Way">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image:src" content="https://amdouglas.com/assets/img/favicon-196x196.png">
+    <meta property="fb:admins" content="407402372749613">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="A. M. Douglas">
+    <meta property="og:title" content="Asynchronous CSS: the Easy Way">
+    <meta property="og:description" content="">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:url" content="https://amdouglas.com/blog/asynchronous-css-the-easy-way/">
+    <meta property="og:image" content="https://amdouglas.com/assets/img/favicon-196x196.png">
+    <meta property="og:image:secure_url" content="https://amdouglas.com/assets/img/favicon-196x196.png">
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+    <style>
+      html{-webkit-text-size-adjust:100%;-webkit-font-smoothing:antialiased;-webkit-font-smoothing:subpixel-antialiased;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-overflow-scrolling:touch;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;touch-action:manipulation;font:normal normal 400 16px/1.2 Roboto,-apple-system,Arial,Helmet,Freesans,sans-serif}html,body{height:100%}*,:before,:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;touch-action:manipulation;margin:0;padding:0;border:0;font:inherit}:active,:focus{outline:0}article,footer,header,main,nav,section,video{display:block}a{-webkit-text-decoration-skip:objects;text-decoration:none}button,input,textarea{-webkit-appearance:none;-webkit-border-radius:0;border-radius:0;background:0 0}button,img,video{-webkit-touch-callout:none}button,a,img,video{-webkit-user-select:none;-moz-user-select:none}button,a{color:inherit;cursor:pointer}textarea{resize:none}[disabled]{opacity:.6;cursor:not-allowed}[hidden],video::-webkit-media-controls,video::-webkit-media-controls-play-button,video::-webkit-media-controls-volume-slider,video::-webkit-media-controls-mute-button,video::-webkit-media-controls-timeline,video::-webkit-media-controls-current-time-display{display:none}::-webkit-scrollbar{width:0}::-webkit-scrollbar-thumb{background:#07071c}::-webkit-scrollbar-track{background-color:transparent;background:rgba(0,0,0,0)}::selection{background:#07071c;color:#fff}::-moz-selection{background:#07071c;color:#fff}
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <a href="https://amdouglas.com/">A. M. Douglas</a>
+      </header>
+      <nav>
+        <a href="https://amdouglas.com/">Home</a> &bull;
+        <a href="https://amdouglas.com/blog/">Archive</a>
+      </nav>
+      <article>
+        <h1>Asynchronous CSS: the Easy Way</h1>
+        <section>
+          <p>If you've ever looked into asynchronously handling fonts, you've probably read about FilamentGroup's method:</p>
+          <pre>
+            <code>
+  &lt;link rel=preload href=/assets/css/main.css as=style onload=this.rel=stylesheet;this.type=text/css;&gt;
+            </code>
+          </pre>
+          
+          <p>It might look like a hack, but this is actually what the <code>link rel=preload</code> spec is intended for.</p>
+          
+          <p>The problem is that this will do absolutely nothing in browsers which do not support <code>link rel=preload</code>, and that is a non-trivial number of browsers. You also can't just stick your stylesheet in a <code>noscript</code> element and hope for the best.</p>
+          
+          <p>FilamentGroup offers a <a href="https://github.com/filamentgroup/loadCSS">big solution</a> which obviously works well, but I think I prefer a rather more simple approach.</p>
+          
+          <pre>
+            <code>
+  var inertCSS = document.querySelectorAll( '[rel="preload"][as="style"]' );
+          
+  while ( inertCSS.length-- ){
+    var css  = document.createElement( 'link' );
+    css.rel  = 'stylesheet';
+    css.href = inertCSS[i].href;
+    ( document.head || document.getElementsByTagName( 'head' )[0] ).appendChild( css );
+  }
+            </code>
+          </pre>
+          <p>My solution isn't bulletproof. You still need <code>querySelectorAll</code> and you'll need to be careful that you check for unloaded CSS on the <code>DOMContentLoaded</code> event—otherwise, you run the risk of loading your stylesheet(s) twice.</p>
+          <p><span class="cursor">&#9608;</span></p>
+        </section>
+        <footer>
+          <a href="">
+            <header>Up next</header>
+            <section>
+              <h4>CSS Selectors You Really Haven't Heard Of</h4>
+              <p class=bio>Mea suas vituperatoribus et, virtute corpora quaestio cum ut. Ne solet nostrum complectitur pri, vis ut inani populo.</p>
+              <hr>
+              <p><time datetime="2016-03-08 00:00">08 Mar 2016</time></p>
+            </section>
+          </a>
+          <a href="">
+            <header>Previously</header>
+            <section>
+              <h4>CSS Selectors You Really Haven't Heard Of</h4>
+              <p>Mea suas vituperatoribus et, virtute corpora quaestio cum ut. Ne solet nostrum complectitur pri, vis ut inani populo.</p>
+              <hr>
+              <p><time datetime="2016-03-08 00:00">08 Mar 2016</time></p>
+            </section>
+          </a>
+        </footer>
+      </article>
+    </main>
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "NewsArticle",
+        "mainEntityOfPage": "https://amdouglas.com/blog/asynchronous-css-the-easy-way/",
+        "headline": "Asynchronous CSS: the Easy Way",
+        "datePublished": "2016-03-08T00:00:00+00:00",
+        "dateModified": "2016-03-08T00:00:00+00:00",
+        "description": "",
+        "author": {
+          "@type": "Person",
+          "name": "A. M. Douglas"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "A. M. Douglas",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://amdouglas.com/assets/img/apple-touch-icon-60x60.png",
+            "width": 60,
+            "height": 60
+          }
+        },
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://amdouglas.com/assets/img/apple-touch-icon-60x60.png",
+          "height": 60,
+          "width": 60
+        }
+      }
+    </script>
+    <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script><![endif]--><!--[if IE]><script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/2014.01.31/classList.min.js"></script><![endif]-->
+    <script async defer src="https://amdouglas.com/assets/js/article.js"></script>
+  </body>
+</html>
