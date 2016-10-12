@@ -63,8 +63,8 @@
           <pre>
             <code>
 var inertCSS = document.querySelectorAll( '[rel="preload"][as="style"]' );
-          
-while ( inertCSS.length-- ){
+var i = inertCSS.length;          
+while ( i-- ){
   var css  = document.createElement( 'link' );
   css.rel  = 'stylesheet';
   css.href = inertCSS[i].href;
