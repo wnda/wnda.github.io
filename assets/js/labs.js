@@ -19,7 +19,7 @@
 
   win.addEventListener('load',handleLoad,false);
   
-  loadStylesheets(['https://amdouglas.com/assets/css/labs.css']);
+  loadStylesheets(['https://amdouglas.com/assets/css/fonts.css','https://amdouglas.com/assets/css/labs.css']);
   
   function loadStylesheets(urls){
     for(var i = 0;i<urls.length;++i){
