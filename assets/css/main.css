@@ -165,6 +165,14 @@ article>a{
 .c3{top:50%;bottom:25%}
 .c4{top:75%;bottom:0}
 @media screen and (min-width:480px){
+  article>a{
+    left:8px;
+    right:16px;
+  }
+  article:nth-child(odd)>a{
+    left:16px;
+    right:8px;
+  }
   .c5,.c6,.c7,.c8{display:block}
   .c1,.c3,.c5,.c7{left:0;right:50%}
   .c2,.c4,.c6,.c8{left:50%;right:0}
@@ -174,7 +182,11 @@ article>a{
   .c7,.c8{top:75%;bottom:0}
 }
 @media screen and (min-width:768px){
-  article>a{top:16px;bottom:16px}
+  article>a{
+    left:8px;
+    right:8px;
+  }
+  article:nth-child(odd)>a{left:8px;right:8px}
   h1{display:block}
   .c9{display:block}
   .c1,.c2,.c3{top:0;bottom:66%}
@@ -228,12 +240,6 @@ article>a{
   }
 }
 @media only screen and (min-width:992px){
-  article>a{
-    top:16px;
-    left:16px;
-    right:16px;
-    bottom:16px;
-  }
   .container{right:48px}
   section:nth-of-type(2n) .container{left:48px;right:auto;}
   .container,.c{
@@ -245,9 +251,29 @@ article>a{
     transform:rotate(9deg);
   }
   section:nth-of-type(2n) .container{-webkit-transform:rotate(-9deg);transform:rotate(-9deg)}
-  .c{-webkit-transition:.3s cubic-bezier(.4,0,.2,1) transform;transition:.3s cubic-bezier(.4,0,.2,1) transform;-webkit-transform:translate3d(0,0,0) scale(1.0,1.0);transform:translate3d(0,0,0) scale(1.0,1.0);-webkit-perspective:1000px;perspective:1000px;-webkit-font-smoothing:antialiased;-webkit-font-smoothing:subpixel-antialiased;font-smoothing:antialiased;font-smoothing:subpixel-antialiased;text-rendering:geometricPrecision}
-  .c:hover{-webkit-transform:translate3d(0,0,0) rotate(-9deg) scale(1.1,1.1);transform:translate3d(0,0,0) rotate(-9deg) scale(1.1,1.1)}
-  section:nth-of-type(2n) .c:hover{-webkit-transform:translate3d(0,0,0) rotate(9deg) scale(1.1,1.1);transform:translate3d(0,0,0) rotate(9deg) scale(1.1,1.1)}
+  .c{
+    -webkit-transition:.3s cubic-bezier(.4,0,.2,1) transform;
+    transition:.3s cubic-bezier(.4,0,.2,1) transform;
+    -webkit-transform:translate3d(0,0,0) rotate(9deg);
+    transform:translate3d(0,0,0) rotate(9deg);
+    -webkit-perspective:1000px;
+    perspective:1000px;
+    -webkit-font-smoothing:antialiased;
+    -webkit-font-smoothing:subpixel-antialiased;
+    text-rendering:geometricPrecision
+  }
+  .section:nth-of-type(2n) .c{
+    -webkit-transform:translate3d(0,0,0) rotate(-9deg);
+    transform:translate3d(0,0,0) rotate(-9deg);
+  }
+  .c:hover{
+    -webkit-transform:translate3d(0,0,0) rotate(-9deg);
+    transform:translate3d(0,0,0) rotate(-9deg)
+  }
+  section:nth-of-type(2n) .c:hover{
+    -webkit-transform:translate3d(0,0,0) rotate(9deg);
+    transform:translate3d(0,0,0) rotate(9deg)
+  }
   section h2>a{
     display:block;
     position: absolute;
