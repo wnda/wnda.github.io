@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,user-scalable=no,shrink-to-fit=no">
+    <base href="https://amdouglas.com/">
+    <title> · A. M. Douglas · Leeds, UK</title>
+    <link rel="manifest" href="https://amdouglas.com/manifest.json">
+    <link rel="prefetch" href="https://amdouglas.com/assets/fonts/Rubik-Regular.woff">
+    <link rel="prefetch" href="https://amdouglas.com/assets/fonts/Rubik-Bold.woff">
+    <link rel="prefetch" href="https://amdouglas.com/assets/fonts/Rubik-Regular.woff2">
+    <link rel="prefetch" href="https://amdouglas.com/assets/fonts/Rubik-Bold.woff2">
+    <link rel="canonical" href="https://amdouglas.com/blog/lazyloading-css-background-images/">
+    <link rel="publisher" href="https://plus.google.com/+AMDouglasCom">
+    <link rel="icon" href="https://amdouglas.com/favicon.ico">
+    <meta name="description" content="As a rule, I generally prefer, for the purposes of accessibility and SEO, to use IMG elements to display images over the background-image approach...">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:creator" content="A. M. Douglas">
+    <meta name="twitter:url" content="https://amdouglas.com/blog/lazyloading-css-background-images/">
+    <meta name="twitter:domain" content="amdouglas.com">
+    <meta name="twitter:title" content="Lazyloading CSS Background Images">
+    <meta name="twitter:description" content="As a rule, I generally prefer, for the purposes of accessibility and SEO, to use IMG elements to display images over the background-image approach...">
+    <meta name="twitter:image:src" content="https://amdouglas.com/assets/img/favicon-196x196.png">
+    <meta property="fb:admins" content="407402372749613">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="A. M. Douglas">
+    <meta property="og:title" content="Lazyloading CSS Background Images">
+    <meta property="og:description" content="As a rule, I generally prefer, for the purposes of accessibility and SEO, to use IMG elements to display images over the background-image approach...">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:url" content="https://amdouglas.com/blog/lazyloading-css-background-images/">
+    <meta property="og:image" content="https://amdouglas.com/assets/img/favicon-196x196.png">
+    <meta property="og:image:secure_url" content="https://amdouglas.com/assets/img/favicon-196x196.png">
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+    <style>
+      html{-webkit-text-size-adjust:100%;-webkit-font-smoothing:antialiased;-webkit-font-smoothing:subpixel-antialiased;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-overflow-scrolling:touch;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;touch-action:manipulation;font:normal normal 400 16px/1.2 Roboto,-apple-system,Arial,Helmet,Freesans,sans-serif}html,body{height:100%}*,:before,:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;touch-action:manipulation;margin:0;padding:0;border:0;font:inherit}:active,:focus{outline:0}article,footer,header,main,nav,section,video{display:block}a{-webkit-text-decoration-skip:objects;text-decoration:none}button,input,textarea{-webkit-appearance:none;-webkit-border-radius:0;border-radius:0;background:0 0}button,img,video{-webkit-touch-callout:none}button,a,img,video{-webkit-user-select:none;-moz-user-select:none}button,a{color:inherit;cursor:pointer}textarea{resize:none}[disabled]{opacity:.6;cursor:not-allowed}[hidden],video::-webkit-media-controls,video::-webkit-media-controls-play-button,video::-webkit-media-controls-volume-slider,video::-webkit-media-controls-mute-button,video::-webkit-media-controls-timeline,video::-webkit-media-controls-current-time-display{display:none}::-webkit-scrollbar{width:0}::-webkit-scrollbar-thumb{background:#07071c}::-webkit-scrollbar-track{background-color:transparent;background:rgba(0,0,0,0)}::selection{background:#07071c;color:#fff}::-moz-selection{background:#07071c;color:#fff}
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <a href="https://amdouglas.com/">A. M. Douglas</a>
+      </header>
+      <nav>
+        <a href="https://amdouglas.com/">Home</a> &bull;
+        <a href="https://amdouglas.com/blog/">Archive</a>
+      </nav>
+      <article>
+        <h1>Lazyloading CSS Background Images</h1>
+        <section>
+          <p>As a rule, I generally prefer, for the purposes of accessibility and SEO, to use <code>IMG</code> elements to display images over the <code>background-image</code> approach. However, getting an image to display in a certain way — say, in such a way that it expands to fill a given space while maintaining aspect ratio — is not a trivial matter, and the solution (much the same as <a href="https://amdouglas.com/useful-css-tricks/">my prior demonstration of making a video background</a>) raises some concerns for users of older browsers.</p>
+          <p>While not conceptually difficult, it is also more time-consuming and potentially buggy to implement as opposed to the obvious answer: <code>background-size: cover</code> (which is equivalent to <code>background-size: auto 100%</code>, if you were wondering). CSS background images offer a very convenient and malleable way to display images, and if you don&rsquo;t care about your images being picked up by screen readers and Google Image Search, why not use them?</p>
+          <p>Well, it might also appear to be a bit of a bummer that most prêt-à-porter image lazy-loading snippets/&lsquo;plugins&rsquo; are intended for loading <code>IMG</code> elements. I&rsquo;m not sure why this is the case, since it seems straightforward to lazy-load a background-image by applying it as an attribute style, having retrieved the image source from, say, a <code>data-</code> attribute.</p>
+          <p>Since I couldn&rsquo;t find a JS lib that would do both, I rolled my own, which I called toad because it leaps into action (and because toad rhymes with load, obviously). The key to creating a library to do both is to test whether an image source should be cloned to the <code>src</code> attribute or as a background-image in an attribute style.</p>
+          <p>The easiest way to discern whether you need to apply a <code>background-image</code> style is to test the element in question and see if it&rsquo;s an <code>IMG</code> element. Your function to test for this might look like this:</p>
+          <pre>
+            <code>
+function isImg( element ) {
+  if ( !element || el.nodeType !== 1 )   return false;
+  if ( el.tagName !== 'IMG' || !el.src ) return false;
+  return true;
+}
+            </code>
+          </pre>
+          <p>First, make sure you have a something. Make sure it&rsquo;s a valid element while you&rsquo;re at it. Then make sure it&rsquo;s an <code>IMG</code> element. And finally, may as well test to see if the image has already been loaded and send that down as the boolean that will decide ultimately whether you lazy-load or not.</p>
+          <p>It&rsquo;s also important, however, to make sure you don't overwrite the background-images you've already set. To do this, we want to loop through the element&rsquo;s style attribute and check if background-image is anywhere in there. This is all we need to check, because if <code>background</code> is set using the short-hand, it will overwrite the background-image anyway.</p>
+          <p>Once you&rsquo;ve discerned how to load the image, you need to make sure that if an element already has a source, be it <code>src</code> or <code>url()</code>, you need to remove that element&rsquo;s <code>data-</code> attribute. This will prevent your lazy-loader from firing when it does not need to.</p>
+          <p>Finally, something you should definitely have is a means of throttling the <code>scroll</code> and <code>resize</code> events. lodash and underscore both offer well-tested and robust throttle and debounce functions which can simply wrap other functions. However, I wanted to use requestAnimationFrame, and I came up with a handy little ditty to enable a similarly easy means to wrap functions for a kind of auto-throttle.</p>
+          <pre>
+            <code>
+function rebounce(f){
+  var scheduled, context, args, len, i;
+
+  return function(){
+    context = this;
+    args = [];
+
+    for(var i = 0; i &lt; arguments.length; ++i){
+      args[i] = arguments[i];
+    }
+
+    window.cancelAnimationFrame(scheduled);
+
+    scheduled = window.requestAnimationFrame(function(){
+      f.apply(context, args);
+      scheduled = null;
+    });
+  }
+}
+            </code>
+          </pre>
+          <blockquote>
+            <p>Note how we do not touch <code>arguments</code> directly, only via <code>arguments.length</code> or <code>arguments<sub>[n]</sub></code>&mdash;this ensures that V8 still optimises our code at runtime.</p>
+          </blockquote>
+          <p>This then enables you to apply your scroll handler in this very simple way:</p>
+          <pre>
+            <code>
+window.addEventListener( 'load',   lazyload, false );
+window.addEventListener( 'scroll', rebounce( lazyload ), false );
+window.addEventListener( 'resize', rebounce( lazyload ), false );
+            </code>
+          </pre>
+
+          <p>Nota bene: lazy-load initially on <code>DOMContentLoaded</code> or <code>load</code>/<code>onload</code>, because you&rsquo;ll presumably have removed all of your <code>src</code> attributes from your markup, leaving blank space without triggering the first lazy-load as soon as the document is ready.</p>
+          <p>Final tip: obviously removing all of your <code>src</code> attributes and whatnot will cause an issue for users who do not have JavaScript enabled. To solve this problem, include all of your images in the normal way but wrapped in <code>noscript</code> elements, like ghostly twins to your lazy-loaded elements.</p>
+          <p>You can see <a href="https://toad.js.org">my lazy-loading implementation in action here</a> &middot; <a href="https://github.com/wnda/toad/">Full source</a> on Github.</p>
+          <p><span class="cursor">&#9608;</span></p>
+        </section>
+        <footer>
+          <a href="https://amdouglas.com/blog/stripe-custom-form-in-vanilla-js/">
+            <header>Up next</header>
+            <section>
+              <h4>Stripe Custom Form in vanilla JavaScript</h4>
+              <p>Given that it's coming up to Christmas, there obviously couldn't be a more appropriate time to think about adding or customising an e-commerce experience with your own take on the Stripe form</p>
+              <hr>
+              <p><time datetime="2016-08-21 21:38">21 August 2016</time></p>
+            </section>
+          </a>
+          <a href="https://amdouglas.com/blog/why-the-new-fetch-api-is-broken/">
+            <header>Previously</header>
+            <section>
+              <h4>Why the new fetch API is broken</h4>
+              <p>There is probably no DOM API more loathed than the <code>XMLHttpRequest</code>, but is the hatred really justified? It probably was when web browsers did not implement it consistently...</p>
+              <hr>
+              <p><time datetime="2016-08-12 21:38">12 August 2016</time></p>
+            </section>
+          </a>
+        </footer>
+      </article>
+    </main>
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "NewsArticle",
+        "mainEntityOfPage": "https://amdouglas.com/blog/lazyloading-css-background-images/",
+        "headline": "Lazyloading CSS Background Images",
+        "datePublished": "2016-08-20T21:35:46+00:00",
+        "dateModified": "2016-08-20T21:35:46+00:00",
+        "description": "As a rule, I generally prefer, for the purposes of accessibility and SEO, to use IMG elements to display images over the background-image approach...",
+        "author": {
+          "@type": "Person",
+          "name": "A. M. Douglas"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "A. M. Douglas",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://amdouglas.com/assets/img/apple-touch-icon-60x60.png",
+            "width": 60,
+            "height": 60
+          }
+        },
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://amdouglas.com/assets/img/apple-touch-icon-60x60.png",
+          "height": 60,
+          "width": 60
+        }
+      }
+    </script>
+    <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script><![endif]--><!--[if IE]><script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/2014.01.31/classList.min.js"></script><![endif]-->
+    <script async defer src="https://amdouglas.com/assets/js/article.js"></script>
+  </body>
+</html>
