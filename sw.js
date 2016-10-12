@@ -1,24 +1,24 @@
 'use strict';
 
-self.importScripts( 'https://amdouglas.com/assets/js/serviceworker-cache-polyfill.js' );
+self.importScripts('https://amdouglas.com/assets/js/serviceworker-cache-polyfill.js');
 
-var CACHE_VERSION = 30;
+var CACHE_VERSION = 31;
 var CURRENT_CACHES = {
   prefetch: 'prefetch-cache-v' + CACHE_VERSION
 };
 
 self.addEventListener('install', function(event) {
   var urlsToPrefetch = [
-    'https://amdouglas.com/',
-    'https://amdouglas.com/assets/css/main.css',
-    'https://amdouglas.com/assets/css/fonts.css',
-    'https://amdouglas.com/assets/js/app.js',
-    'https://amdouglas.com/offline.html',
-    'https://amdouglas.com/assets/js/serviceworker-cache-polyfill.js',
-    'https://amdouglas.com/assets/img/favicon.ico',
-    'https://amdouglas.com/assets/fonts/Rubik-Regular.woff2', // if a browser doesn't support woff2, it certainly won't support SW
-    'https://amdouglas.com/assets/fonts/Rubik-Bold.woff2',
-    'https://amdouglas.com/manifest.json'
+    '/',
+    '/assets/css/main.css',
+    '/assets/css/fonts.css',
+    '/assets/js/app.js',
+    '/assets/js/serviceworker-cache-polyfill.js',
+    '/assets/fonts/Rubik-Regular.woff2', // if a browser doesn't support woff2, it certainly won't support SW
+    '/assets/fonts/Rubik-Bold.woff2',
+    '/favicon.ico',
+    '/offline.html',
+    '/manifest.json'
   ];
   self.skipWaiting();
   event.waitUntil(
@@ -50,7 +50,7 @@ self.addEventListener('fetch', function(event){
     event.respondWith(
       fetch(event.request.url)
         .catch(function(){
-          return caches.match('https://amdouglas.com/offline.html');
+          return caches.match('/offline.html');
         })
     );
   }
