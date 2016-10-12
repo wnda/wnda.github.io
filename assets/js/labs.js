@@ -17,14 +17,14 @@
     }
   };
 
-  win.addEventListener('DOMContentLoaded',handleLoad,false);
+  win.addEventListener('load',handleLoad,false);
   
   loadStylesheets(['https://amdouglas.com/assets/css/labs.css']);
   
   function loadStylesheets(urls){
     for(var i = 0;i<urls.length;++i){
-      var css  = doc.createElement('link');
-      css.rel  = 'stylesheet';
+      var css = doc.createElement('link');
+      css.rel = 'stylesheet';
       css.href = urls[i];
       head.appendChild(css);
     }
@@ -40,7 +40,7 @@
   }
   
   function handleLoad(){
-    win.removeEventListener('DOMContentLoaded',handleLoad,false);
+    win.removeEventListener('load',handleLoad,false);
     
     loadScripts(['https://api.github.com/users/wnda/repos?callback=z','https://www.google-analytics.com/analytics.js']);
     
