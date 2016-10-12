@@ -2,7 +2,7 @@
 
 self.importScripts('https://amdouglas.com/assets/js/serviceworker-cache-polyfill.js');
 
-var CACHE_VERSION = 31;
+var CACHE_VERSION = 33;
 var CURRENT_CACHES = {
   prefetch: 'prefetch-cache-v' + CACHE_VERSION
 };
@@ -55,12 +55,11 @@ self.addEventListener('fetch', function(event){
     );
   }
   else{
-    event.respondWith(caches.match(event.request)
-      .then(function(response){return response||fetch(event.request);})
-      .catch(function(error){
-        console.error('Fetching failed:', error);
-        throw error;
-      });
+    event.respondWith(
+      caches.match(event.request)
+        .then(function(response){
+          return response||fetch(event.request);
+        })
     );
   }
 });
