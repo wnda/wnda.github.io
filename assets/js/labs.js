@@ -1,6 +1,21 @@
 ;(function(win,doc,head,body){
 
   if(!('addEventListener' in win)) return;
+  
+  win.z = function(a){
+    var x=a.data.length,
+        b=0,
+        c=doc.getElementById("repos");
+    c.removeAttribute("hidden");
+    for(;x>b;b++){
+      var e=doc.createElement("div"),
+          f=a.data[b].homepage?a.data[b].homepage:a.data[b].html_url;
+      e.className=(b%6===0?'cell cell-sm-12 cell-md-4 cell-lg-3 repo block':(b%5===0?'cell cell-sm-12 cell-md-6 cell-lg-7 block repo':'cell cell-sm-12 cell-md-6 cell-lg-5 block repo'));
+      e.style.animationDelay=(win.Math.floor(win.Math.random()*500)+300)+'ms';
+      e.innerHTML='<a href="'+f+'" title="'+a.data[b].name+'"><h4>'+a.data[b].name+'</h4>'+'<small class="desc">'+a.data[b].description+'</small>'+'<small class="tags">'+a.data[b].language+'</small>'+'</a>';
+      c.appendChild(e);
+    }
+  };
 
   win.addEventListener('DOMContentLoaded',handleLoad,false);
   
@@ -54,21 +69,6 @@
     win.ga.l = 1 * new Date();
     win.ga('create','UA-70873652-1','auto');
     win.ga('send','pageview');
-  }
-
-  function z(a){
-    var x=a.data.length,
-        b=0,
-        c=doc.getElementById("repos");
-    c.removeAttribute("hidden");
-    for(;x>b;b++){
-      var e=doc.createElement("div"),
-          f=a.data[b].homepage?a.data[b].homepage:a.data[b].html_url;
-      e.className=(b%6===0?'cell cell-sm-12 cell-md-4 cell-lg-3 repo block':(b%5===0?'cell cell-sm-12 cell-md-6 cell-lg-7 block repo':'cell cell-sm-12 cell-md-6 cell-lg-5 block repo'));
-      e.style.animationDelay=(Math.floor(Math.random()*500)+300)+"ms";
-      e.innerHTML='<a href="'+f+'" title="'+a.data[b].name+'"><h4>'+a.data[b].name+'</h4>'+'<small class="desc">'+a.data[b].description+'</small>'+'<small class="tags">'+a.data[b].language+'</small>'+'</a>';
-      c.appendChild(e);
-    }
   }
   
   function appendTouchIcons(){
