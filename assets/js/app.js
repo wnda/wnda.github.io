@@ -75,11 +75,13 @@
         if(xhr.status >= 200 && xhr.status < 300){
           var data = JSON.parse(xhr.responseText);
           for(var j=0;j<data.icons.length;++j){
-            var icon = doc.createElement('link');
-            icon.rel = 'apple-touch-icon-precomposed';
-            icon.href = data.icons[j].src;
-            icon.setAttribute('sizes', data.icons[j].sizes);
-            head.appendChild(icon);
+            if(data.icons[j].src.indexOf('apple') > -1){
+              var icon = doc.createElement('link');
+              icon.rel = 'apple-touch-icon-precomposed';
+              icon.href = data.icons[j].src;
+              icon.setAttribute('sizes', data.icons[j].sizes);
+              head.appendChild(icon);
+            }
           }
         }
       }
