@@ -3,7 +3,7 @@ main{margin:0 auto;max-width:720px;padding:56px 16px 16px;position:relative;z-in
 main>header{position:absolute;z-index:99;top:20px;left:16px;color:#07071c;text-transform:uppercase;letter-spacing:4px;font-weight:700}
 main>nav{position:absolute;z-index:99;top:20px;right:16px}
 article{padding:20px 0;border-bottom:1px solid #f2f2f0}
-h1{font-weight:700;letter-spacing:-0.02em;font-size:42px;line-height:1.1;margin-bottom:50px}
+h1{font-weight:700;letter-spacing:-0.02em;font-size:42px;line-height:1.1;margin-bottom:30px}
 article>section,article>footer{font-family:'Crimson Text','Times New Roman',Times,serif}
 h2,h3,h4,h5,h6,footer header,footer hr~p{font-family:'Rubik',Roboto,-apple-system,Arial,Helvetica,sans-serif}
 h3,h4,h5,h6,footer header{letter-spacing:-0.02em;font-weight:700;font-size:24px;line-height:1.3;margin-top:50px;margin-bottom:0px}
