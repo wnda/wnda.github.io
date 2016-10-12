@@ -1,4 +1,4 @@
-body{font-family:'Rubik',Roboto,-apple-system,Arial,Helvetica,sans-serif;position:relative;margin:0 auto;color:#07071c;background:#fff;z-index:1}
+body{font-family:'Rubik',Roboto,-apple-system,Arial,Helvetica,sans-serif;position:relative;margin:0 auto;color:#07071c;background:#fff;z-index:1;-webkit-font-feature-settings:'liga','dlig';font-feature-settings:'liga','dlig'}
 main{margin:0 auto;max-width:720px;padding:56px 16px 16px;position:relative;z-index:2;background-color:#fff}
 main>header{position:absolute;z-index:99;top:20px;left:16px;color:#07071c;text-transform:uppercase;letter-spacing:4px;font-weight:700}
 main>nav{position:absolute;z-index:99;top:20px;right:16px}
