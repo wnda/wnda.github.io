@@ -6,7 +6,10 @@
     <base href="https://amdouglas.com/">
     <title>Asynchronous CSS: the Easy Way · A. M. Douglas · Leeds, UK</title>
     <link rel="manifest" href="https://amdouglas.com/manifest.json">
-    <link rel="dns-prefetch preconnect" href="https://fonts.gstatic.com">
+    <link rel="prefetch" href="https://amdouglas.com/assets/fonts/Rubik-Regular.woff">
+    <link rel="prefetch" href="https://amdouglas.com/assets/fonts/Rubik-Bold.woff">
+    <link rel="prefetch" href="https://amdouglas.com/assets/fonts/Rubik-Regular.woff2">
+    <link rel="prefetch" href="https://amdouglas.com/assets/fonts/Rubik-Bold.woff2">
     <link rel="canonical" href="https://amdouglas.com/blog/asynchronous-css-the-easy-way/">
     <link rel="publisher" href="https://plus.google.com/+AMDouglasCom">
     <link rel="icon" href="https://amdouglas.com/favicon.ico">
@@ -47,7 +50,7 @@
           <p>If you've ever looked into asynchronously handling fonts, you've probably read about FilamentGroup's method:</p>
           <pre>
             <code>
-  &lt;link rel=preload href=/assets/css/main.css as=style onload=this.rel=stylesheet;this.type=text/css;&gt;
+&lt;link rel=preload href=/assets/css/main.css as=style onload=this.rel=stylesheet;this.type=text/css;&gt;
             </code>
           </pre>
           
@@ -59,14 +62,14 @@
           
           <pre>
             <code>
-  var inertCSS = document.querySelectorAll( '[rel="preload"][as="style"]' );
+var inertCSS = document.querySelectorAll( '[rel="preload"][as="style"]' );
           
-  while ( inertCSS.length-- ){
-    var css  = document.createElement( 'link' );
-    css.rel  = 'stylesheet';
-    css.href = inertCSS[i].href;
-    ( document.head || document.getElementsByTagName( 'head' )[0] ).appendChild( css );
-  }
+while ( inertCSS.length-- ){
+  var css  = document.createElement( 'link' );
+  css.rel  = 'stylesheet';
+  css.href = inertCSS[i].href;
+  ( document.head || document.getElementsByTagName( 'head' )[0] ).appendChild( css );
+}
             </code>
           </pre>
           <p>My solution isn't bulletproof. You still need <code>querySelectorAll</code> and you'll need to be careful that you check for unloaded CSS on the <code>DOMContentLoaded</code> event—otherwise, you run the risk of loading your stylesheet(s) twice.</p>
