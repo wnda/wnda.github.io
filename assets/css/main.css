@@ -262,7 +262,7 @@ article>a{
     -webkit-font-smoothing:subpixel-antialiased;
     text-rendering:geometricPrecision
   }
-  .section:nth-of-type(2n) .c{
+  section:nth-of-type(2n) .c{
     -webkit-transform:translate3d(0,0,0) rotate(-9deg);
     transform:translate3d(0,0,0) rotate(-9deg);
   }
