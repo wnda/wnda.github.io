@@ -17,13 +17,13 @@
     nav_links[j].addEventListener('click',handleNav,false);
   }
   win.addEventListener('load',handleLoad,false);
-  win.addEventListener('scroll', rebouncedScrollHandler, false);
+  win.addEventListener('scroll',rebouncedScrollHandler,false);
   win.addEventListener('keydown',keyNav,false);
 
   function loadStylesheets(urls){
     for(var i = 0;i<urls.length;++i){
-      var css  = doc.createElement('link');
-      css.rel  = 'stylesheet';
+      var css = doc.createElement('link');
+      css.rel = 'stylesheet';
       css.href = urls[i];
       head.appendChild(css);
     }
@@ -91,7 +91,7 @@
 
   function appendOptionalMetaTags(){
     var metatags = ['format-detection','apple-mobile-web-app-status-bar-style','apple-touch-fullscreen','apple-mobile-web-app-capable','mobile-web-app-capable','application-name','MobileOptimized','HandheldFriendly'];
-    var metacontents = ['telephone=no,email=no','black-translucent','yes','yes','yes','A. M. Douglas','width','true'];
+    var metacontents = ['telephone=no;email=no','black-translucent','yes','yes','yes','A. M. Douglas','width','true'];
     var mtl = 8;
     while(mtl--){
       var metatag = doc.createElement('meta');
