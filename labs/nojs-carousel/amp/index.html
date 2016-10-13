@@ -1,0 +1,116 @@
+<!doctype html>
+<html ⚡ lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+<title>No-JS Carousel &middot; A. M. Douglas</title>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+<style amp-custom>
+*,:before,:after{box-sizing:border-box;margin:0;padding:0;text-rendering:optimizeSpeed;-webkit-text-size-adjust:100%;-moz-text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-o-user-select:none;user-select:none}:root,html,body{overflow:hidden;color:#222;font:400 16px/1.27 Roboto,-apple-system,sans-serif;}body>div{display:block;position:absolute;top:0;left:20%;right:0;bottom:0;}body>h1,body>a{display:block;position:fixed;z-index:5000;left:0;right:80%;top:0;line-height:3rem;font-size:1rem;font-weight:700;text-decoration:none;color:#777;text-align:center;background-color:#fff;border-bottom:1px solid #efefef;-moz-transition:background-color .6s,border-color .5s,color .3s;-webkit-transition:background-color .6s,border-color .5s,color .3s;-o-transition:background-color .6s,border-color .5s,color .3s;transition:background-color .6s,border-color .5s,color .3s;}body>h1{top:0;}body>a:nth-child(3){top:3rem;}body>a:nth-child(5){top:6rem;}body>a:nth-child(7){top:9rem;}body>a:nth-child(9){top:12rem;}body>a:nth-child(11){top:15rem;}body>a:nth-child(13){top:18rem;}body>a:nth-child(15){top:21rem;}body>a:nth-child(17){top:24rem;}body>a:nth-child(17):after{content:'';display:block;position:fixed;top:27rem;bottom:0;left:0;right:80%;background-color:#fff;}article{position:absolute;top:0;left:0;bottom:0;right:0;background-color:#777;opacity:0;-webkit-transform:translate3d(0,200%,0);-moz-transform:translate3d(0,200%,0);-o-transform:translate3d(0,200%,0);transform:translate3d(0,200%,0);-webkit-transition:-webkit-transform 0.8s,opacity 1s;-moz-transition:-moz-transform 0.8s,opacity 1s;-o-transition:-o-transform 0.8s,opacity 1s;transition:transform 0.8s,opacity 1s;}:target article{opacity:1;-webkit-transform:translate3d(0,0,0);-moz-transform:translate3d(0,0,0);-o-transform:translate3d(0,0,0);transform:translate3d(0,0,0);}article>header{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:3000;background-color:crimson;padding:5% 7%;}header>h2,header>p{color:#fff}header>h2{font-size:32px;font-weight:700;text-align:center;}header>p{font-size:16px;font-weight:400;text-align:left;}p>code{font:400 16px/1.27 monospace;}p>a{color:#fff;font-weight:700;text-decoration:none;cursor:pointer;box-shadow:0 1px #fff;transition:.5s box-shadow;}p>a:hover,p>a:focus,p>a:active{box-shadow:0 2px #fff;}:target+a,body>a:hover,body>a:active,body>a:focus{background-color:crimson;border-bottom-color:crimson;color:#fff}@media screen and (min-width: 420px) {header>h2{font-size:calc(32px + 18 * ((100vw - 420px)/ 860))}header>p{font-size:calc(14px + 7 * ((100vw - 420px)/ 860))}}@media screen and (min-width: 1280px) {header>h2{font-size:50px}header>p{font-size:21px}}
+article{background:#efefef center/cover no-repeat;}
+div:nth-child(2) > article{background-image:url(https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/1173183_1768919649994251_393979818_n.jpg?ig_cache_key=MTE1NjcxNzU2Mzg2NTcyNTA4MQ%3D%3D.2);}
+div:nth-child(4) > article{background-image:url(https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/12224069_1515781895381455_2092363626_n.jpg?ig_cache_key=MTEyNDA4NDM2NjY2NTU3OTUxMQ%3D%3D.2);}
+div:nth-child(6) > article{background-image:url(https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/11910437_1664306837115475_1432296900_n.jpg?ig_cache_key=MTEwOTU4NDU4ODU4MTg5NDQ4OQ%3D%3D.2);}
+div:nth-child(8) > article{background-image:url(https://i.imgur.com/2uSibyQ.jpg);}
+div:nth-child(10) > article{background-image:url(https://i.imgur.com/cIGiGen.jpg);}
+div:nth-child(12) > article{background-image:url(https://i.imgur.com/XgP7CNU.jpg);}
+div:nth-child(14) > article{background-image:url(https://scontent-lhr3-1.cdninstagram.com/t51.2885-15/e15/11355156_826571434046147_2114567404_n.jpg?ig_cache_key=NTIwNDA5Nzg0ODM0MDYyNDY0.2);}
+div:nth-child(16) > article{background-image:url(https://i.imgur.com/ecer84T.jpg);}
+</style>
+<link href="https://dev.amdouglas.com" rel="canonical">
+<script async src="https://cdn.ampproject.org/v0.js"></script>
+</head>
+<body>
+<h1>
+Slides
+</h1>
+<div id="div1">
+<article>
+<header>
+<h2>No-JS Carousel</h2>
+<p>Why use JavaScript when you've got CSS?</p>
+</header>
+</article>
+</div>
+<a href="#div1">
+I
+</a>
+<div id="div2">
+<article>
+<header>
+<h2>Why is it useful?</h2>
+<p>You can show off your cats. In a slideshow. Because everybody likes slideshows.</p>
+</header>
+</article>
+</div>
+<a href="#div2">
+II
+</a>
+<div id="div3">
+<article>
+<header>
+<h2>And there's really no JavaScript?</h2>
+<p>This technique will work without any dynamic scripting at all.</p>
+</header>
+</article>
+</div>
+<a href="#div3">
+III
+</a>
+<div id="div4">
+<article>
+<header>
+<h2>So how does it work?</h2>
+<p>The key lies in the use of the little known <code>:target</code> pseudo-selector.</p>
+</header>
+</article>
+</div>
+<a href="#div4">
+IV
+</a>
+<div id="div5">
+<article>
+<header>
+<h2>What's the browser support like?</h2>
+<p><code>:target</code> is a core CSS3 selector. So it's supported by pretty much everything.</p>
+</header>
+</article>
+</div>
+<a href="#div5">
+V
+</a>
+<div id="div6">
+<article>
+<header>
+<h2>Why wouldn't I use JavaScript?</h2>
+<p>Because JavaScript slows everything down for mobile devices. CSS is lean and mean.</p>
+</header>
+</article>
+</div>
+<a href="#div6">
+VI
+</a>
+<div id="div7">
+<article>
+<header>
+<h2>Are there alternatives?</h2>
+<p>Sure, there are alternative ways of achieving a similar effect, like <a href="https://codepen.io/paulnoble/full/ZYOzLG">this one using checkboxes and sibling selectors</a>. Unfortunately, it only allows you to go in one direction.</p>
+</header>
+</article>
+</div>
+<a href="#div7">
+VII
+</a>
+<div id="div8">
+<article>
+<header>
+<h2>The End</h2>
+<p>Thanks for viewing!</p>
+</header>
+</article>
+</div>
+<a href="#div8">
+VIII
+</a>
+</body>
+</html>
