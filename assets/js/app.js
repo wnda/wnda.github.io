@@ -40,7 +40,6 @@
     }
     doc.querySelector('.sms').href='\u0073\u006D\u0073\u003a\u002b\u0034\u0034\u0037\u0039\u0033\u0031\u0035\u0036\u0035\u0038\u0034\u0036';
     if('devicePixelRatio' in win && win.devicePixelRatio > 1 && wdth < 992){
-      appendOptionalMetaTags();
       appendTouchIcons();
     }
     if('serviceWorker' in navigator){
@@ -88,19 +87,7 @@
     };
     xhr.send();
   }
-
-  function appendOptionalMetaTags(){
-    var metatags = ['format-detection','apple-mobile-web-app-status-bar-style','apple-touch-fullscreen','apple-mobile-web-app-capable','mobile-web-app-capable','application-name','MobileOptimized','HandheldFriendly'];
-    var metacontents = ['telephone=no;email=no','black-translucent','yes','yes','yes','A. M. Douglas','width','true'];
-    var mtl = 8;
-    while(mtl--){
-      var metatag = doc.createElement('meta');
-      metatag.name = metatags[mtl];
-      metatag.content = metacontents[mtl];
-      head.appendChild(metatag);
-    }
-  }
-
+  
   function appendJSONLD(){
     var s_data = doc.createElement('script');
     s_data.type = 'application/ld+json';
