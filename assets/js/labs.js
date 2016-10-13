@@ -45,7 +45,6 @@
     loadScripts(['https://api.github.com/users/wnda/repos?callback=z','https://www.google-analytics.com/analytics.js']);
     
     if('devicePixelRatio' in win && win.devicePixelRatio > 1 && wdth < 992){
-      appendOptionalMetaTags();
       appendTouchIcons();
     }
     
@@ -92,18 +91,5 @@
     };
     xhr.send();
   }
-
-  function appendOptionalMetaTags(){
-    var metatags = ['format-detection','apple-mobile-web-app-status-bar-style','apple-touch-fullscreen','apple-mobile-web-app-capable','mobile-web-app-capable','application-name','MobileOptimized','HandheldFriendly'];
-    var metacontents = ['telephone=no,email=no','black-translucent','yes','yes','yes','A. M. Douglas','width','true'];
-    var mtl = 8;
-    while(mtl--){
-      var metatag = doc.createElement('meta');
-      metatag.name = metatags[mtl];
-      metatag.content = metacontents[mtl];
-      head.appendChild(metatag);
-    }
-  }
-  
 
 })(window,window.document,window.document.head,window.document.body);
