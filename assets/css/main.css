@@ -276,8 +276,8 @@ article>a{
 }
 .i{
   padding:16px;
-  background: #fff;
-  color: #07071c;
+  background: #07071c;
+  color: #fff
 }
 .f{
   left:16px;
@@ -298,8 +298,7 @@ article>a{
 @media screen and (min-width:768px){
   .container-i,.container-f{
     left:auto;
-    right:48px;
-    padding:32px;
+    right:48px
   }
   .ff{
     display:block;
