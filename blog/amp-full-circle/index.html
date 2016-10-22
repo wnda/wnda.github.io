@@ -1,1 +1,115 @@
-
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,user-scalable=no,shrink-to-fit=no">
+    <base href="https://amdouglas.com/">
+    <title>AMP: Full Circle · A. M. Douglas · Leeds, UK</title>
+    <link rel="manifest" href="https://amdouglas.com/manifest.json">
+    <link rel="prefetch" href="https://amdouglas.com/assets/fonts/Rubik-Regular.woff">
+    <link rel="prefetch" href="https://amdouglas.com/assets/fonts/Rubik-Bold.woff">
+    <link rel="prefetch" href="https://amdouglas.com/assets/fonts/Rubik-Regular.woff2">
+    <link rel="prefetch" href="https://amdouglas.com/assets/fonts/Rubik-Bold.woff2">
+    <link rel="canonical" href="https://amdouglas.com/blog/amp-full-circle/">
+    <link rel="publisher" href="https://plus.google.com/+AMDouglasCom">
+    <link rel="icon" href="https://amdouglas.com/favicon.ico">
+    <meta name="description" content="autoform.js is a vanilla (i.e. no jQuery) JavaScript library which looks for HTML forms in the DOM and automatically handles the submit event via AJAX.">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:creator" content="A. M. Douglas">
+    <meta name="twitter:url" content="https://amdouglas.com/blog/amp-full-circle/">
+    <meta name="twitter:domain" content="amdouglas.com">
+    <meta name="twitter:title" content="AMP: Full Circle">
+    <meta name="twitter:description" content="autoform.js is a vanilla (i.e. no jQuery) JavaScript library which looks for HTML forms in the DOM and automatically handles the submit event via AJAX.">
+    <meta name="twitter:image:src" content="https://amdouglas.com/assets/img/favicon-196x196.png">
+    <meta property="fb:admins" content="407402372749613">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="A. M. Douglas">
+    <meta property="og:title" content="AMP: Full Circle">
+    <meta property="og:description" content="autoform.js is a vanilla (i.e. no jQuery) JavaScript library which looks for HTML forms in the DOM and automatically handles the submit event via AJAX.">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:url" content="https://amdouglas.com/blog/amp-full-circle/">
+    <meta property="og:image" content="https://amdouglas.com/assets/img/favicon-196x196.png">
+    <meta property="og:image:secure_url" content="https://amdouglas.com/assets/img/favicon-196x196.png">
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+    <style>
+      html{-webkit-text-size-adjust:100%;-webkit-font-smoothing:antialiased;-webkit-font-smoothing:subpixel-antialiased;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-overflow-scrolling:touch;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;touch-action:manipulation;font:normal normal 400 16px/1.2 Roboto,-apple-system,Arial,Helmet,Freesans,sans-serif}html,body{height:100%}*,:before,:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;touch-action:manipulation;margin:0;padding:0;border:0;font:inherit}:active,:focus{outline:0}article,footer,header,main,nav,section,video{display:block}a{-webkit-text-decoration-skip:objects;text-decoration:none}button,input,textarea{-webkit-appearance:none;-webkit-border-radius:0;border-radius:0;background:0 0}button,img,video{-webkit-touch-callout:none}button,a,img,video{-webkit-user-select:none;-moz-user-select:none}button,a{color:inherit;cursor:pointer}textarea{resize:none}[disabled]{opacity:.6;cursor:not-allowed}[hidden],video::-webkit-media-controls,video::-webkit-media-controls-play-button,video::-webkit-media-controls-volume-slider,video::-webkit-media-controls-mute-button,video::-webkit-media-controls-timeline,video::-webkit-media-controls-current-time-display{display:none}::-webkit-scrollbar{width:0}::-webkit-scrollbar-thumb{background:#07071c}::-webkit-scrollbar-track{background-color:transparent;background:rgba(0,0,0,0)}::selection{background:#07071c;color:#fff}::-moz-selection{background:#07071c;color:#fff}
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <a href="https://amdouglas.com/">A. M. Douglas</a>
+      </header>
+      <nav>
+        <a href="https://amdouglas.com/">Home</a> &bull;
+        <a href="https://amdouglas.com/blog/">Archive</a>
+      </nav>
+      <article>
+        <h1>AMP: Full Circle</h1>
+        <section>
+          <p>A few months ago I declared that AMP-HTML was of little use to a blog, especially one has finely-tuned for performance as mine, which serves nothing but text and <code>woff2</code> fonts.</p>
+          <p>And yet, up until a few days ago, if you were to open your web inspector tools you would have seen that this was a valid AMP-HTML page. Why did I implement it anyway?</p>
+          <p>My primary motivation for implementing AMP-HTML on my own site was to learn the ins and outs of the system. What I discovered was that, while very easy to integrate into existing systems, the benefits are somewhat negligible for anybody publishing content on a less than real-time basis.</p>
+          <p>What do I mean by this? Well, AMP has one selling point for businesses: a place in the AMP carousel on mobile, literally the top spot, along with instant content delivery from the AMP CDN. Very nice. The problem is that your business probably doesn't generate daily news articles like The Guardian or The Washington Post does, so your content is unlikely to qualify for the AMP carousel.</p>
+          <p>Blog articles certainly don't, as I discovered through experience, and while this might be expanded in the future, I was generally finding the experience a little futile. For starters, my pages were blank on my iPhone 5 running iOS10β5. While this is to be expected with a developing library/framework, it still annoyed me and made me fear for a website's theoretical readership (probably 2 people in my case) who would be unable to see content or navigate further.</p>
+          <p>Analytics is also far from a state of readiness, and while some interesting things are in the pipeline like <code>amp-list</code>, a custom element for fetching related content from a REST API, I just couldn't see a benefit to persevering with the AMP framework.</p>
+          <p>So, once again, I've decided to go it alone without AMP. Another motivating factor behind this decision was my recent composition of the <code>pfetch</code> JavaScript library and my desire to expand and use it on my site in place of <code>pjax</code>, which is obviously not really applicable in the case of a site using AMP. AJAXing content around improves perceived performance more than a potentially blank screen and bragging rights about a thunderbolt emoji in my root element ever will.</p>
+          <p><span class="cursor">&#9608;</span></p>
+        </section>
+        <footer>
+          <a href="https://amdouglas.com/blog/labs-autoform-js/">
+            <header>Up next</header>
+            <section>
+              <h4>Labs: Autoform.js</h4>
+              <p>autoform.js is a vanilla (i.e. no jQuery) JavaScript library which looks for HTML forms in the DOM and automatically handles the submit event via AJAX.</p>
+              <hr>
+              <p><time datetime="2016-08-14 22:49">14 August 2016</time></p>
+            </section>
+          </a>
+          <a href="https://amdouglas.com/blog/amp-full-circle/">
+            <header>Previously</header>
+            <section>
+              <h4>CSS selectors you really may not have heard of</h4>
+              <p>While attribute/partial selectors can be considered quite “advanced”, the author forgot to mention something important...</p>
+              <hr>
+              <p><time datetime="2016-03-12 20:05"></time></p>
+            </section>
+          </a>
+        </footer>
+      </article>
+    </main>
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "NewsArticle",
+        "mainEntityOfPage": "https://amdouglas.com/blog/amp-full-circle/",
+        "headline": "AMP: Full Circle",
+        "datePublished": "2016-08-12T20:23:50+00:00",
+        "dateModified": "2016-08-12T20:23:50+00:00",
+        "description": "A few months ago I declared that AMP-HTML was of little use to a blog, especially one has finely-tuned for performance as mine, which serves nothing but text, SVG and woff2 fonts.",
+        "author": {
+          "@type": "Person",
+          "name": "A. M. Douglas"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "A. M. Douglas",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://amdouglas.com/assets/img/apple-touch-icon-60x60.png",
+            "width": 60,
+            "height": 60
+          }
+        },
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://amdouglas.com/assets/img/apple-touch-icon-60x60.png",
+          "height": 60,
+          "width": 60
+        }
+      }
+    </script>
+    <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script><![endif]--><!--[if IE]><script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/2014.01.31/classList.min.js"></script><![endif]-->
+    <script async defer src="https://amdouglas.com/assets/js/article.js"></script>
+  </body>
+</html>
