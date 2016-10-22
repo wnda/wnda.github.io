@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title><![CDATA[Blog &#xb7; A. M. Douglas &#xb7; Full-stack Web Developer &#xb7; Leeds, UK]]></title>
+    <description><![CDATA[ The blog of Adam Michael Douglas, a web developer operating on a freelance basis in the city of Leeds, UK. ]]></description>
+    <link>https://amdouglas.com/</link>
+    <generator>AMD 3.1.0</generator>
+    <lastBuildDate></lastBuildDate>
+    <atom:link href="https://amdouglas.com/rss/" rel="self" type="application/rss+xml"/>
+    <ttl>60</ttl>
+    <item>
+      <title><![CDATA[ ]]></title>
+      <link>https://amdouglas.com/asynchronous-css-the-easy-way/</link>
+    </item>
+    <item>
+      <title><![CDATA[ ]]></title>
+      <description><![CDATA[ ]]></description>
+      <link>https://amdouglas.com/blog/</link>
+      <guid isPermaLink="false">e5421570-4e72-466b-bae7-3669c4eb7ef5</guid>
+      <category><![CDATA[ ]]></category>
+      <category><![CDATA[ ]]></category>
+      <dc:creator><![CDATA[A. M. Douglas]]></dc:creator>
+      <pubDate>Tue, 20 Sep 2016 21:38:34 GMT</pubDate>
+      <content:encoded><![CDATA[ ]]></content:encoded>
+    </item>
+  </channel>
+</rss>
