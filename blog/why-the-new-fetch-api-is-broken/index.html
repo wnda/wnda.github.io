@@ -59,12 +59,9 @@ var xhr = new XMLHttpRequest();
 xhr.open( 'GET', url );
 
 xhr.onreadystatechange = function(){
-  if ( this.readyState === )
+  if ( this.readyState === 4 &amp;&amp; this.status &gt;= 200 &amp;&amp; this.status &lt; 300 )
   {
-    if ( 4 &amp;&amp; this.status &gt;= 200 &amp;&amp; this.status &lt; 300 )
-    {
-      // do stuff;
-    }
+    // do stuff;
   }
 };
 
