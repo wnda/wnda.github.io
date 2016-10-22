@@ -200,7 +200,7 @@ article>a{
     bottom: 0;
     line-height: 75vh;
     -webkit-transform:rotate(-90deg);
-    transform:rotate(-90deg);
+    transform:rotate(-90deg)
   }
   section:nth-of-type(2n) h2>span{
     left:auto;
@@ -212,29 +212,22 @@ article>a{
 @media only screen and (min-width:992px){
   .container{right:48px}
   section:nth-of-type(2n) .container{left:48px;right:auto;}
-  .container,.c{
-    -webkit-backface-visibility:hidden;
-    backface-visibility:hidden;
-  }
   .container{
     -webkit-transform:rotate(9deg);
-    transform:rotate(9deg);
+    transform:rotate(9deg)
   }
   section:nth-of-type(2n) .container{-webkit-transform:rotate(-9deg);transform:rotate(-9deg)}
   .c{
     -webkit-transition:.3s cubic-bezier(.4,0,.2,1) transform;
     transition:.3s cubic-bezier(.4,0,.2,1) transform;    
-    -webkit-transform:translate3d(0,0,0) rotate(-9deg);
-    transform:translate3d(0,0,0) rotate(-9deg);
-    -webkit-perspective:1000px;
-    perspective:1000px;
+    -webkit-transform:rotate(-9deg);
+    transform:rotate(-9deg);
     -webkit-font-smoothing:antialiased;
-    -webkit-font-smoothing:subpixel-antialiased;
-    text-rendering:geometricPrecision
+    -webkit-font-smoothing:subpixel-antialiased
   }
   section:nth-of-type(2n) .c{
-    -webkit-transform:translate3d(0,0,0) rotate(9deg);
-    transform:translate3d(0,0,0) rotate(9deg);
+    -webkit-transform:rotate(9deg);
+    transform:rotate(9deg);
   }
   section h2>a{
     display:block;
@@ -270,7 +263,7 @@ article>a{
   bottom:32px;
 }
 .ff{display:none}
- [type="submit"]{display:none;}
+ [type="submit"]{display:none}
 .i,.f{
   position: absolute;
   top: 32px;
