@@ -104,40 +104,10 @@ nav>a:before{
   transition-timing-function:cubic-bezier(.4,0,.2,1);
   transition-duration:.2s;
 }
-.search{
-  position: fixed;
-  z-index: 99;
-  top: 12px;
-  left: 33%;
-  right:33%;
-  background: rgba(0,0,0,.5);
-  padding:8px;
-  -webkit-border-radius:6px;
-  border-radius:6px;
-  -webkit-backdrop-filter:blur(20px);
-  backdrop-filter:blur(20px);
-}
-.search input{
-  padding-left:24px;
-}
-.search form{
-  position:relative;
-
-}
-.search form:before{
-  content:'';
-  position:absolute;
-  top:2px;
-  left:2px;
-  line-height:1;
-  width:16px;
-  height:16px;
-  background:url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20width%3D%2216%22%20height%3D%2216%22%3E%3Cg%3E%3Cpath%20fill%3D%22#fff%22%20d%3D%22M15.5%2014h-.79l-.28-.27C15.41%2012.59%2016%2011.11%2016%209.5%2016%205.91%2013.09%203%209.5%203S3%205.91%203%209.5%205.91%2016%209.5%2016c1.61%200%203.09-.59%204.23-1.57l.27.28v.79l5%204.99L20.49%2019l-4.99-5zm-6%200C7.01%2014%205%2011.99%205%209.5S7.01%205%209.5%205%2014%207.01%2014%209.5%2011.99%2014%209.5%2014z%22%3E%3C/path%3E%3C/g%3E%3C/svg%3E);
-}
 section h2>a{display:none}
-section:nth-of-type(2) .bg-inner{background:#f44336;}
-section:nth-of-type(4) .bg-inner{background:#ffc107;}
-section:nth-of-type(2n) .bg-inner article>a{background:#fff;color:#07071c;}
+section:nth-of-type(2) .bg-inner{background:#f44336}
+section:nth-of-type(4) .bg-inner{background:#ffc107}
+section:nth-of-type(2n) .bg-inner article>a{background:#fff;color:#07071c}
 article>a{
   position:absolute;
   top:8px;
@@ -167,11 +137,11 @@ article>a{
 @media screen and (min-width:480px){
   article>a{
     left:8px;
-    right:16px;
+    right:16px
   }
   article:nth-child(odd)>a{
     left:16px;
-    right:8px;
+    right:8px
   }
   .c5,.c6,.c7,.c8{display:block}
   .c1,.c3,.c5,.c7{left:0;right:50%}
@@ -184,7 +154,7 @@ article>a{
 @media screen and (min-width:768px){
   article>a{
     left:8px;
-    right:8px;
+    right:8px
   }
   article:nth-child(odd)>a{left:8px;right:8px}
   h1{display:block}
@@ -253,9 +223,9 @@ article>a{
   section:nth-of-type(2n) .container{-webkit-transform:rotate(-9deg);transform:rotate(-9deg)}
   .c{
     -webkit-transition:.3s cubic-bezier(.4,0,.2,1) transform;
-    transition:.3s cubic-bezier(.4,0,.2,1) transform;
-    -webkit-transform:translate3d(0,0,0) rotate(9deg);
-    transform:translate3d(0,0,0) rotate(9deg);
+    transition:.3s cubic-bezier(.4,0,.2,1) transform;    
+    -webkit-transform:translate3d(0,0,0) rotate(-9deg);
+    transform:translate3d(0,0,0) rotate(-9deg);
     -webkit-perspective:1000px;
     perspective:1000px;
     -webkit-font-smoothing:antialiased;
@@ -263,16 +233,8 @@ article>a{
     text-rendering:geometricPrecision
   }
   section:nth-of-type(2n) .c{
-    -webkit-transform:translate3d(0,0,0) rotate(-9deg);
-    transform:translate3d(0,0,0) rotate(-9deg);
-  }
-  .c:hover{
-    -webkit-transform:translate3d(0,0,0) rotate(-9deg);
-    transform:translate3d(0,0,0) rotate(-9deg)
-  }
-  section:nth-of-type(2n) .c:hover{
     -webkit-transform:translate3d(0,0,0) rotate(9deg);
-    transform:translate3d(0,0,0) rotate(9deg)
+    transform:translate3d(0,0,0) rotate(9deg);
   }
   section h2>a{
     display:block;
