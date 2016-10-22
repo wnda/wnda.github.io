@@ -1,1 +1,152 @@
-
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,user-scalable=no,shrink-to-fit=no">
+    <base href="https://amdouglas.com/">
+    <title>Abstracting the DOM · A. M. Douglas · Leeds, UK</title>
+    <link rel="manifest" href="https://amdouglas.com/manifest.json">
+    <link rel="prefetch" href="https://amdouglas.com/assets/fonts/Rubik-Regular.woff">
+    <link rel="prefetch" href="https://amdouglas.com/assets/fonts/Rubik-Bold.woff">
+    <link rel="prefetch" href="https://amdouglas.com/assets/fonts/Rubik-Regular.woff2">
+    <link rel="prefetch" href="https://amdouglas.com/assets/fonts/Rubik-Bold.woff2">
+    <link rel="canonical" href="https://amdouglas.com/blog/abstracting-the-dom/">
+    <link rel="publisher" href="https://plus.google.com/+AMDouglasCom">
+    <link rel="icon" href="https://amdouglas.com/favicon.ico">
+    <meta name="description" content="Summary: neither of these solutions can be considered performant. On the one hand, you're loading dozens of resources for shadow DOM trees...">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:creator" content="A. M. Douglas">
+    <meta name="twitter:url" content="https://amdouglas.com/blog/abstracting-the-dom/">
+    <meta name="twitter:domain" content="amdouglas.com">
+    <meta name="twitter:title" content="Abstracting the DOM">
+    <meta name="twitter:description" content="Summary: neither of these solutions can be considered performant. On the one hand, you're loading dozens of resources for shadow DOM trees...">
+    <meta name="twitter:image:src" content="https://amdouglas.com/assets/img/favicon-196x196.png">
+    <meta property="fb:admins" content="407402372749613">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="A. M. Douglas">
+    <meta property="og:title" content="Abstracting the DOM">
+    <meta property="og:description" content="Summary: neither of these solutions can be considered performant. On the one hand, you're loading dozens of resources for shadow DOM trees...">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:url" content="https://amdouglas.com/blog/abstracting-the-dom/">
+    <meta property="og:image" content="https://amdouglas.com/assets/img/favicon-196x196.png">
+    <meta property="og:image:secure_url" content="https://amdouglas.com/assets/img/favicon-196x196.png">
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+    <style>
+      html{-webkit-text-size-adjust:100%;-webkit-font-smoothing:antialiased;-webkit-font-smoothing:subpixel-antialiased;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-overflow-scrolling:touch;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;touch-action:manipulation;font:normal normal 400 16px/1.2 Roboto,-apple-system,Arial,Helmet,Freesans,sans-serif}html,body{height:100%}*,:before,:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;touch-action:manipulation;margin:0;padding:0;border:0;font:inherit}:active,:focus{outline:0}article,footer,header,main,nav,section,video{display:block}a{-webkit-text-decoration-skip:objects;text-decoration:none}button,input,textarea{-webkit-appearance:none;-webkit-border-radius:0;border-radius:0;background:0 0}button,img,video{-webkit-touch-callout:none}button,a,img,video{-webkit-user-select:none;-moz-user-select:none}button,a{color:inherit;cursor:pointer}textarea{resize:none}[disabled]{opacity:.6;cursor:not-allowed}[hidden],video::-webkit-media-controls,video::-webkit-media-controls-play-button,video::-webkit-media-controls-volume-slider,video::-webkit-media-controls-mute-button,video::-webkit-media-controls-timeline,video::-webkit-media-controls-current-time-display{display:none}::-webkit-scrollbar{width:0}::-webkit-scrollbar-thumb{background:#07071c}::-webkit-scrollbar-track{background-color:transparent;background:rgba(0,0,0,0)}::selection{background:#07071c;color:#fff}::-moz-selection{background:#07071c;color:#fff}
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <a href="https://amdouglas.com/">A. M. Douglas</a>
+      </header>
+      <nav>
+        <a href="https://amdouglas.com/">Home</a> &bull;
+        <a href="https://amdouglas.com/blog/">Archive</a>
+      </nav>
+      <article>
+        <h1>Abstracting the DOM</h1>
+        <section>
+          <p>Summary: neither of these solutions can be considered performant. On the one hand, you're loading dozens of resources for shadow DOM trees; on the other, you've got an in-memory copy of the entire DOM. Both methods presume some arguably unfair minimum requirements.</p>
+          <p>As Google continues to push for the Web Components standard&mdash;even roping in its puppet-competitor Mozilla&mdash;and while Facebook's React.js continues to grow in its influence and maturity, an important question arises which will be significant in determining the likely victor between these related technologies: which is better, the shadow DOM or the virtual DOM?</p>
+          <p>It's necessary for us to first establish what each of these actually is in order to make an informed judgement on which is better. The shadow DOM is one of the concepts that is driving the push for the Web Components standard. It's not strictly necessary to use a shadow DOM for a Web Component, except that what you have then is not really a Web Component, but a <code>custom-element</code>.</p>
+          <p>A Web Component is a set of DOM elements packed as an isolated and portable block, with its own style/script context, separate from the &ldquo;true&rdquo; DOM. We call this isolation of styling/scripting <strong>encapsulation</strong> and it's very attractive over the incumbent iFrame, a noted performance hog. Take out the shadow DOM, aka the diet iFrame, and you have a custom element, literally HTML elements for which you can provide custom tag names&mdash;basically, a means by which to take the notion of semantic DOM nodes to the extreme.</p>
+          <p>Sure, it's nice to have semantically-named UI components as clean blocks that you can essentially copy and paste into the <code>document</code>, but the performance cost is astronomical in Safari and Firefox with all of the polyfills, and it's no spring chicken in Chrome compared to regular HTML.</p>
+          <h3>React</h3>
+          <p>Facebook's React.js promises similar modularity of components, but without the expense of performance. In fact, performance is alleged to see an improvement thanks to its 'virtual DOM', literally a JavaScript object which serves to centralise UI state. </p>
+          <p>The performance improvement over other frameworks results from the virtual DOM not actually being a rendering engine, it's essentially version control for the native DOM. Change something and, rather than rewrite the DOM, it tracks the changes and updates (hence the name &ldquo;React&rdquo; rather than &ldquo;jQuery 3&rdquo;) and this should, in theory, keep costly DOM manipulation to a regulated minimum.</p>
+          <p>And it's true, React is a nimple alternative to frameworks like Angular, but this is a common misinterpretation of what React is and what other frameworks are. Angular, and Polymer to an extent, <strong>are ASP.NET WebForms reimagined</strong>, while React is a diffing algorithm and an abstracted handler for UI state. <a href="http://hackflow.com/blog/2015/03/08/boiling-react-down-to-few-lines-in-jquery/" title="Boiling React Down to a Few Lines in jQuery">You can even implement React's benefits in jQuery</a> if you don't like how React does things, or you could roll your own framework adopting React's <strong>approach</strong> rather than getting tangled up in the React fad of using JSX, attribute styles, and so on. The core ideal of delta copying, of tracking revisions to the DOM, is (or should be) the (only) reason behind React's prevalence in recent months.</p>
+          <h3>Apples and Oranges</h3>
+          <p>You should see by now that the shadow DOM and the virtual DOM are basically incomparable, or at least that to compare them is to take them out of the context of what they are intended to achieve, despite often being mentioned in the same sentence when developers are comparing the latest JavaScript framework flavours of the month that they want to evangelize. </p>
+          <p>Minimising/abstracting DOM revisions and separating the DOM into lots of sub-DOMs are different solutions to different problems. Eventually, Web Components/Polymer will probably end up taking some concepts from React on board and do away with DOMs within DOMs (seriously, they removed support <code>&lt;style scoped&gt;</code> from Chrome due to complexity, but nesting a different DOM context for every major UI component is supposed to be simpler?</p>
+          <h3>Should I be interested in any of these?</h3>
+          <p>I mean, it depends on your requirements, how good you are at writing portable vanilla JavaScript, and whether you're part of a vanilla-compatible team. I'm with Google's AMP-HTML team when it comes to the vast majority of websites on the internet: you do not need a web application to serve articles to readers. </p>
+          <p>JavaScript has been heavily abused to serve people obnoxious-yet-profitable advertisements for years, starting at first with low-level, native functions like <code>alert</code> and these days creating modals and overlays block users from consuming content without first doing something profitable.</p>
+          <p>JavaScript should, for most of these websites, be reserved for basic or <strong>necessary</strong> functionality. What do I mean by necessary? I mean not even form validation. Don't even talk to me about form validation. For starters, validation only makes sense server-side, where the user cannot switch the validation of. </p>
+          <p>Even if, for the sake of good UX, you want to give some immediate (i.e. not post-<code>post</code> or post-reload) feedback regarding the validity of user input, you can&mdash;and should&mdash;validate on the client side using <strong>HTML5 attributes</strong> like <code>pattern</code> and <code>required</code>, along with <code>:valid</code> or <code>:invalid</code> CSS3 selectors to indicate state. </p>
+          <p>The most you could possibly need on the client side for polished UX would be an <code>onblur</code> handler to throw into the mix.</p>
+          <h3>Why Web Components are crazy</h3>
+          <p>Scope is nice and everything, but just watch the network timeline for a Polymer site. HTTP2 is coming soon, but not <strong>that</strong> soon. Sure, you can hit up the Polymer Project website and not find yourself waiting around too long, but that's probably thanks to much of the website's resources being served up by Google's CDN. </p>
+          <p>The reality is that serving up a Polymer app will incur some performance penalties on the HTTP1 spec, and they're just not worth it. Encapsulation basically enables lazier development with little to no gain for the user. There is enough front-end tooling available to trivialise the production of optimised clean, modular CSS. Write your CSS properly and you shouldn't <strong>need</strong> encapsulation.</p>
+          <p>Additional DOMs aren't necessarily horrendous for performance in and of themselves, and they might simplify tracking your app's behaviour, but if you're aiming for isomorphism you can kiss these shadow DOMs goodbye. Do without isomorphism and clients with JavaScript switched off or with no JavaScript at all won't actually see a website. </p>
+          <p>It is true that the number of clients lacking JavaScript is, well, pretty low these days&mdash;chances are the users who switch JavaScript off or who use Lynx probably won't be your target demographic/niche anyway. However, you've still the FOUC to consider if you opt out of isomorphism. And then there's stale-copying/caching/offline support to think about. Seems like a helluva lot to cache.</p>
+          <p>In my opinion, the whole point of the web and the reason for its use as an app vector orthogonal to native apps is:</p>
+          <ul>
+            <li>The web should be light</li>
+            <li>The web should be trustworthy</li>
+            <li>The web should be universal/cross-platform</li>
+          </ul>
+          <p>When you start thinking about Web Components and offline web apps, you're really not far from just installing a native app. It'll be heavier than a website should be, it'll need to essentially install itself or a copy in order for it to work offline, and the complexity of the web app itself and the development time will likely skyrocket. Plus Web Components are only natively supported in Chrome, which means that the Web just stopped being cross-platform which is its singular <strong>financial</strong>/<strong>business-translatable</strong> advantage over native apps. </p>
+          <p>And then there is an issue of trust: where are you getting your components from? JavaScript/jQuery plugins are one thing, but now entire components and eventually page models? And what APIs will these web apps start to access, how much privacy will they start to invade?</p>
+          <h3>Why you <em>still</em> shouldn't consider React</h3>
+          <p>Thanks to its render method and virtual DOM, React.js is pretty much the only sane approach for reusable HTML components. It's also the only sane approach for nesting said components. However, unless you really need a JavaScript MVC framework and thence a React view layer, my suggestion is leave it the hell alone. </p>
+          <p>Write lean, clean HTML5, write elegant CSS3, and add <strong>a dash</strong> of vanilla JavaScript if/when it is necessary. Recognise your use-case and don't waste time thinking about some fancy thing you heard about. All JavaScript use comes with a cost to performance on mobile. I write browser-native JS as much as I can but DOM manipulation is <strong>always</strong> costly.</p>
+          <p>I mean, you do get something of a budget on modern smartphones, and having Chrome available on iPhone and Android is a big help, but you have to remember that just because Chrome is the rational browser choice, that does not mean that it will be the browser of choice for the majority of users. It won't be.</p>
+          <p>Oh and don't trust React's virtual DOM to save you from the performance cost of DOM manipulation. The virtual DOM isn't an infinitesimal or a nearly massless neutrino; it is part of a UI library, so add a HTTP request. Then do some intensive DOM manipulation with the virtual DOM.</p>
+          <p>Sure, it might seem like it's more performant in the beginning, but as time and manipulation go up, the vDOM's powers go down. Don't forget, it works by bundling manipulations and dumping them on the DOM in one go, which means at some point it's guaranteed to bottleneck where native JavaScript won't.</p>
+          <p>(In all fairness, you can hardly blame iOS users for sticking with Safari since you cannot change the <strong>default</strong> browser, just install additional ones, making Chrome a bit of a hassle to use if you need to open a link from within an app or email.)</p>
+          <p>If somebody comes to you with some serious money, a sane deadline that permits for extensive testing and a desire for a performant web app, then you can think about React.</p>
+          <h3>Isomorphism</h3>
+          <p>NB: if you must opt for an SPA, please use React and render it on the server. Angular 1.* is dead and Angular 2.* is still going to be Google WebForms. Sure, it works, but if the alternatives are lighter, cleaner, and quicker to develop (once you achieve a reasonable level of proficiency) things like Angular really start to make less sense.</p>
+          <h3>The Future</h3>
+          <p>Lots of developers should be thinking about these technologies and approaches to the web. Native apps are a serious threat to the future of the web and web applications need to be demonstrably equal to or better than native applications in more ways than relative cheapness. Web applications need offline support, high performance, high framerate, real-time notifications and so on. All of these are possible, but with varying degrees of success/stability. </p>
+          <p>With businesses developing mobile apps just for user engagement, without having any function or service in the app, it's clear that users just like apps and to interact. Suffice it to say that, if performant native apps were written in a common language and thus costed less to develop, the web would not have time to respond. We web developers ought to actually thank Apple, Google and Microsoft for adopting Objective-C, Java and C#.NET respectively.</p>
+          <p><span class="cursor">&#9608;</span></p>
+        </section>
+        <footer>
+          <a href="https://amdouglas.com/blog/css-selectors-you-really-may-not-have-heard-of/">
+            <header>Up next</header>
+            <section>
+              <h4>Future CSS Grids</h4>
+              <p>By now, if you're a frequent web trawler like me, you'll have come across articles discussing the new CSS Grid spec. The Grid is touted as a harbinger of an end to markup-dependent grid systems...</p>
+              <hr>
+              <p><time datetime="2016-12-16 20:59">16 December 2015</time></p>
+            </section>
+          </a>
+          <a href="https://amdouglas.com/blog/future-css-grids/">
+            <header>Previously</header>
+            <section>
+              <h4>You Might Not Need Masonry</h4>
+              <p>Masonry. It's the drop-in answer to the variable-content grid problem (a grid that will accommodate post excerpts/images of varying heights). It works. It works in pretty much all browsers that you should realistically give a crap about (yeah, even IE8).</p>
+              <hr>
+              <p><time datetime="2015-10-25 20:24">25 October 2015</time></p>
+            </section>
+          </a>
+        </footer>
+      </article>
+    </main>
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "NewsArticle",
+        "mainEntityOfPage": "https://amdouglas.com/blog/abstracting-the-dom/",
+        "headline": "Abstracting the DOM",
+        "datePublished": "2016-12-03T23:22:00+00:00",
+        "dateModified": "2016-12-03T23:22:00+00:00",
+        "description": "Summary: neither of these solutions can be considered performant. On the one hand, you're loading dozens of resources for shadow DOM trees...",
+        "author": {
+          "@type": "Person",
+          "name": "A. M. Douglas"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "A. M. Douglas",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://amdouglas.com/assets/img/apple-touch-icon-60x60.png",
+            "width": 60,
+            "height": 60
+          }
+        },
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://amdouglas.com/assets/img/apple-touch-icon-60x60.png",
+          "height": 60,
+          "width": 60
+        }
+      }
+    </script>
+    <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script><![endif]--><!--[if IE]><script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/2014.01.31/classList.min.js"></script><![endif]-->
+    <script async defer src="https://amdouglas.com/assets/js/article.js"></script>
+  </body>
+</html>
