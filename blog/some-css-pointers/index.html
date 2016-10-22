@@ -1,1 +1,182 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,user-scalable=no,shrink-to-fit=no">
+    <base href="https://amdouglas.com/">
+    <title>Some CSS Pointers · A. M. Douglas · Leeds, UK</title>
+    <link rel="manifest" href="https://amdouglas.com/manifest.json">
+    <link rel="prefetch" href="https://amdouglas.com/assets/fonts/Rubik-Regular.woff">
+    <link rel="prefetch" href="https://amdouglas.com/assets/fonts/Rubik-Bold.woff">
+    <link rel="prefetch" href="https://amdouglas.com/assets/fonts/Rubik-Regular.woff2">
+    <link rel="prefetch" href="https://amdouglas.com/assets/fonts/Rubik-Bold.woff2">
+    <link rel="canonical" href="https://amdouglas.com/blog/some-css-pointers/">
+    <link rel="publisher" href="https://plus.google.com/+AMDouglasCom">
+    <link rel="icon" href="https://amdouglas.com/favicon.ico">
+    <meta name="description" content="If you're a regular reader of articles in web development, you've probably seen a lot of literature being generated about the topic of developing client-side, single page applications...">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:creator" content="A. M. Douglas">
+    <meta name="twitter:url" content="https://amdouglas.com/blog/some-css-pointers/">
+    <meta name="twitter:domain" content="amdouglas.com">
+    <meta name="twitter:title" content="Some CSS Pointers">
+    <meta name="twitter:description" content="If you're a regular reader of articles in web development, you've probably seen a lot of literature being generated about the topic of developing client-side, single page applications...">
+    <meta name="twitter:image:src" content="https://amdouglas.com/assets/img/favicon-196x196.png">
+    <meta property="fb:admins" content="407402372749613">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="A. M. Douglas">
+    <meta property="og:title" content="Some CSS Pointers">
+    <meta property="og:description" content="If you're a regular reader of articles in web development, you've probably seen a lot of literature being generated about the topic of developing client-side, single page applications...">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:url" content="https://amdouglas.com/blog/some-css-pointers/">
+    <meta property="og:image" content="https://amdouglas.com/assets/img/favicon-196x196.png">
+    <meta property="og:image:secure_url" content="https://amdouglas.com/assets/img/favicon-196x196.png">
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+    <style>
+      html{-webkit-text-size-adjust:100%;-webkit-font-smoothing:antialiased;-webkit-font-smoothing:subpixel-antialiased;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-overflow-scrolling:touch;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;touch-action:manipulation;font:normal normal 400 16px/1.2 Roboto,-apple-system,Arial,Helmet,Freesans,sans-serif}html,body{height:100%}*,:before,:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;touch-action:manipulation;margin:0;padding:0;border:0;font:inherit}:active,:focus{outline:0}article,footer,header,main,nav,section,video{display:block}a{-webkit-text-decoration-skip:objects;text-decoration:none}button,input,textarea{-webkit-appearance:none;-webkit-border-radius:0;border-radius:0;background:0 0}button,img,video{-webkit-touch-callout:none}button,a,img,video{-webkit-user-select:none;-moz-user-select:none}button,a{color:inherit;cursor:pointer}textarea{resize:none}[disabled]{opacity:.6;cursor:not-allowed}[hidden],video::-webkit-media-controls,video::-webkit-media-controls-play-button,video::-webkit-media-controls-volume-slider,video::-webkit-media-controls-mute-button,video::-webkit-media-controls-timeline,video::-webkit-media-controls-current-time-display{display:none}::-webkit-scrollbar{width:0}::-webkit-scrollbar-thumb{background:#07071c}::-webkit-scrollbar-track{background-color:transparent;background:rgba(0,0,0,0)}::selection{background:#07071c;color:#fff}::-moz-selection{background:#07071c;color:#fff}
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <a href="https://amdouglas.com/">A. M. Douglas</a>
+      </header>
+      <nav>
+        <a href="https://amdouglas.com/">Home</a> &bull;
+        <a href="https://amdouglas.com/blog/">Archive</a>
+      </nav>
+      <article>
+        <h1>Some CSS Pointers</h1>
+        <section>
+          <p>If you're a regular reader of articles in web development, you've probably seen a lot of literature being generated about the topic of developing client-side, single page applications using React.js (and all the baggage it more or less requires to be a good idea) and the shift away from CSS and toward attribute styles in JSX, in order to create discrete components.</p>
+          <p>This is not one of those articles. Nope, this is just a humble list of CSS gotchas that can result in noticeably poor perceived performance on your website&mdash;even if you don't use any JavaScript at all, complex and poorly planned visual effects composed with CSS3 transitions, animations and properties can cause a very real drop in framerate, which is ultimately the same complaint many users have with heavy JavaScript applications. Client-side apps use significant abstractions on vanilla JavaScript objects/methods in order to make the developer's life easier and to make a more fully rounded product&mdash;at the expense of operations per second and thence, perceived frames per second.</p>
+          <h3>Don't use 'background-attachment: fixed'</h3>
+          <p>I've seen <code>background-attachment: fixed</code> many times, usually where a web developer wanted to create a pseudo-parallax scrolling effect with no JavaScript involvement, due to the performance issues involved with true parallax scrolling, only to drop frames due to this ill-advised approach to CSS.</p>
+          <p>The problem is that <code>background-attachment: fixed</code> causes the browser to repaint on every scroll, which is damned expensive. You can watch your silky 60fps slashed by 75% even on a laptop because there is no simple way to get the GPU involved in processing this more complex visual effect.</p>
+          <p>Its use is not the crime, however. It's a nice effect and effortlessly nice to look at in many cases. The crime is not using the hardware-accelerated and simple alternative: <code>position: fixed</code>. Or, to put it more comprehensively:</p>
+          <pre>
+            <code>
+.parallax-bg
+  {
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    will-change:transform;
+    z-index:-1
+  }
+            </code>
+          </pre>
+          <p>That's pretty much it. <code>will-change</code> creates a new compositing layer and gets the GPU to step up a gear, giving you silky smooth performance again. <code>will-change</code> is a standard property and not specific to any browser, but obviously that does not mean that it is implemented everywhere yet. </p>
+          <p>For those cases, like Safari (<a href="http://caniuse.com/#feat=will-change">excluding 9.1 and above</a>) and obviously IE, the GPU can be levied by adding <code>transform: translateZ(0)</code> which is a well known workaround, but this old approach presents a risk to performance if abused, especially on mobile devices which have less memory to play with. Scrolling past these elements can be smooth, but the elements themselves might look a little rough&mdash;it has been recommended to add <code>backface-visibility: hidden</code> and <code>perspective: 1000</code> to try to mitigate this. On the whole, though, the old method does precisely the same thing as <code>will-change</code>&mdash;translates an element in dimension Z by 0&#119899; where 𝓷 is some unit like <code>px</code> or <code>%</code>, thereby preparing the element for GPU accelerated movement. Obviously some details will be specific to your use case: you may wish to define a height as a percentage of the viewport with <code>vh</code> and so on.</p>
+          <h4>Responsive squares</h4>
+          <p>Yes, it's funny, but creating things that are <strong>perfectly</strong> square in all viewports can seem challenging at first. You can imagine the problem: you want to display a grid of items&mdash;perhaps photographs&mdash;and, upon being floated, those elements lose their height.</p>
+          <p>Now, sure, if you supply square images, it's not a problem&mdash;<code>max-width:100%;height:auto</code> and you're more or less done; but what if you're making a real website, for real people, who do not have a process for photographic content on the web, who do not have you or your grid's ergonomics in mind.</p>
+          <p>Obviously, you'd use <code>background-image</code> and <code>background-size:cover</code>. That solves the responsive image issue&mdash;now any image will fit your containing element. Except now your photo has no height again, and it'd be understandably quite difficult to construct a square without a value for &#119910;. Sure, floated elements can at least be assigned a <code>min-height</code> to prevent this, but you'll end up with inconsistent heights&mdash; and we all know what happens in a traditional float-based grid when you just throw elements of different heights together (I discuss this in my previous post <a href="https://amdouglas.com/you-might-not-need-masonry">You Might Not Need Masonry</a>).</p>
+          <p>One way some misguided developers try to achieve height equivalence is to use a min-height or height that is all but guaranteed to exceed the content the element will contain. This can be seen in many implementations of &ldquo;card&rdquo; design patterns, though the flexible box model offers a more reliable approach. But sometimes, you really need to display a square.</p>
+          <p>The correct (and by correct, I mean reliable) way to achieve this is to float your grid items and add a child element with a total vertical padding of 100% and no height or content. <a href="https://amdouglas.uk/css-examples/squares/">You can see this CSS technique demonstrated here</a>.</p>
+          <p>Users of this technique, or more complex variants of it, include <a href="https://www.instagram.com">Instagram</a> and the <a href="http://www.bbc.co.uk/radio1/playlist">BBC</a>.</p>
+          <h3>Don't use inline-block</h3>
+          <p>There is no justification for using inline-block. It's quite possibly the most useless thing in your CSS toolkit that you could ever be tempted to use. There was once an argument for its use over <code>float</code> in grid systems, if you were willing to <a href="https://css-tricks.com/fighting-the-space-between-inline-block-elements/">hack your way around</a> the <a href="http://robertnyman.com/2010/02/24/css-display-inline-block-why-it-rocks-and-why-it-sucks/">white space problem</a>, because inline-block elements behave like <code>flex-flow:row wrap</code> with better browser support.</p>
+          <p>However, setting your font-size to zero, eliminating white space in one particular part of your HTML, or not closing your HTML tags, are not exemplary practices in terms of maintaining clean code. After temporarily daring to use flexbox in a couple of small projects, I have concluded that the United Kingdom is not ready for it, and so I continue to use <code>float</code> based grid systems for my work, though I at least include <code>calc</code> with a percentage fallback for my own satisfaction. And float works very nicely for the most part, but there's one troublesome region of the typical web page where float sometimes doesn't cut it: the navigation bar.</p>
+          <h3>Centering without flexbox</h3>
+          <p>Navigation bars are pretty straightforward for your average website, but sometimes you get fed a design which just happens to stick a logo or main menu smack bang in the middle of said navigation bar. But you don't need to fear, you're a worldly front-ender, it's easy. Just use <code>margin:0 auto</code> and you'll be fine.</p>
+          <p>Oh dear. It looks like the design calls for social media icons on the left, and something else even dafter on the right. So you can either <code>float</code> those left and right respectively and then center the logo&mdash;or you could just use your grid system for a trio of columns in the navigation bar. Which will work great, except perhaps you want to vertically align these things as well. Not out of the woods yet. Some might say that you should use the following method:</p>
+          <pre>
+            <code>
+.navbar
+  {
+    position:relative
+  }
 
+.valigned
+  {
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%)
+  }
+            </code>
+          </pre>
+          <p>Sure, it'll work, but I recommend caution, especially if you need to support IE8.</p>
+          <p>If you need to support antiquated browsers, you should use <code>display:table</code> and <code>display:table-cell</code> which gives you the vertical alignment powers of those <code>&lt;table&gt;</code> elements that most of us don't have to think about much any more (as an email coder as well as a web developer, I unfortunately have to deal with table elements every week&mdash;I do not think it is an activity for people who happen to possess souls).</p>
+          <p>You might be wondering how the hell you can make a table-navbar responsive. It's very simple actually: let your elements start as block elements floated left and then above a minimum width adjust their display property to table/table-cell.</p>
+          <h3>background: url(video.webm) 50% / cover;</h3>
+          <p>Nope, I'm sorry, this is not something newly implemented and I do not today have the pleasure of unveiling this amazing leap forward in CSS. But I can show you how to achieve the same effect:</p>
+          <pre>
+            <code>
+.bg-video
+  {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1
+  }
+            </code>
+          </pre>
+          <p>You can see this
+            <a href="https://amdouglas.com/404/">CSS in action on my 404 page</a>.
+          </p>
+          <p><span class="cursor">&#9608;</span></p>
+        </section>
+        <footer>
+          <a href="https://amdouglas.com/blog/css-selectors-you-really-may-not-have-heard-of/">
+            <header>Up next</header>
+            <section>
+              <h4>CSS Selectors You Really May Not Have Heard Of</h4>
+              <p>While attribute/partial selectors can be considered quite “advanced”, the author forgot to mention something important...</p>
+              <hr>
+              <p><time datetime="2016-03-12 20:05">12 March 2016</time></p>
+            </section>
+          </a>
+          <a href="https://amdouglas.com/blog/future-css-grids/">
+            <header>Previously</header>
+            <section>
+              <h4>Future CSS Grids</h4>
+              <p>By now, if you're a frequent web trawler like me, you'll have come across articles discussing the new CSS Grid spec. The Grid is touted as a harbinger of an end to markup-dependent grid systems...</p>
+              <hr>
+              <p><time datetime="2015-12-16 20:59">16 December 2015</time></p>
+            </section>
+          </a>
+        </footer>
+      </article>
+    </main>
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "NewsArticle",
+        "mainEntityOfPage": "https://amdouglas.com/blog/some-css-pointers/",
+        "headline": "Some CSS Pointers",
+        "datePublished": "2016-01-28T00:19:11+00:00",
+        "dateModified": "2016-01-28T00:19:11+00:00",
+        "description": "If you're a regular reader of articles in web development, you've probably seen a lot of literature being generated about the topic of developing client-side, single page applications...",
+        "author": {
+          "@type": "Person",
+          "name": "A. M. Douglas"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "A. M. Douglas",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://amdouglas.com/assets/img/apple-touch-icon-60x60.png",
+            "width": 60,
+            "height": 60
+          }
+        },
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://amdouglas.com/assets/img/apple-touch-icon-60x60.png",
+          "height": 60,
+          "width": 60
+        }
+      }
+    </script>
+    <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script><![endif]--><!--[if IE]><script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/2014.01.31/classList.min.js"></script><![endif]-->
+    <script async defer src="https://amdouglas.com/assets/js/article.js"></script>
+  </body>
+</html>
