@@ -162,7 +162,7 @@
           <p>and you'll also need all of the elements to be the same width. It seems like quite a lot, but actually it's fairly reasonable to expect that your products will be displayed as squares of equal width, and that your back-end is setup to display, say, 12 products with a 'view more' button nearby.</p>
           <p>If, however, you really did get such a situation as my imaginary scrolling marquee/carousel featuring, say, photographs of different widths, how would you use animations then?</p>
           <h3>Enter WAAPI</h3>
-          <p>Let's imagine our gallery:</p>
+          <p>Let's imagine our gallery. Our end result will look like this:</p>
           <div class="marquee">
             <div class="cell">
               <div class="content">1</div>
@@ -189,6 +189,7 @@
               <div class="content">8</div>
             </div>
           </div>
+          <p>I've used CSS to create that marquee, which is easy enough with a known number of equal-width elements. 8 elements, 25% each, so that's a translation in X of -100%. Let's have a look at how to achieve this for an unknown number of random-width elements:</p>
           <p><strong>The HTML:</strong></p>
           <pre class="language-html">
             <code class="language-html">
