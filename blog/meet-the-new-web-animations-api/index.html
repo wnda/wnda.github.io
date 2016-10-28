@@ -52,26 +52,29 @@
         }
       }
       .demo {
-                   animation-name: demo;
+        animation-name: demo;
         animation-timing-function: cubic-bezier(0.4,0,0.2,1);
-               animation-duration: 1s;
+        animation-duration: 1s;
         animation-iteration-count: infinite;
-              animation-fill-mode: forwards;
-              animation-direction: normal;
-                  animation-delay: 0;
-             animation-play-state: initial;
-                       background: #07071c;
-                            color: #fff;
+        animation-fill-mode: forwards;
+        animation-direction: normal;
+        animation-delay: 0;
+        animation-play-state: initial;
+        padding: 8px;
+        display: inline-block;
+        background: #07071c;
+        color: #fff;
       }
       @keyframes marquee1 {
         from, 0% {
           transform: translate3d(0,0,0);
         }
         to, 100% {
-          transform: translate3d(-200%,0,0);
+          transform: translate3d(-100%,0,0);
         }
       }
       .marquee {
+        display: block;
         white-space: nowrap;
         padding: 16px;
         font-size: 0;
@@ -88,6 +91,7 @@
         font-size: 16px;
         width: 25%;
         padding: 8px;
+        height: 100px;
       }
       .marquee .cell .content {
         position: absolute;
