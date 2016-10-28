@@ -399,8 +399,59 @@ function createMarquee(){
 }
             </code>
           </pre>
-          <p>This might look hideously complicated, but this kind of brevity to unlock the kind of performance and fluidity of animation is unprecedented. With jQuery and $(element).animate(), you'd have plenty of framedropping and jankiness to enjoy. With GSAP/Velocity.js, the story is a good deal better, but it's still an additional JavaScript library at the end of the day.</p>
-          <p>This is a function.</p>
+          <p>This might look hideously complicated, but this kind of brevity to unlock the kind of performance and fluidity of animation is unprecedented. With jQuery and $(element).animate(), you'd have plenty of framedropping and jankiness to enjoy. With GSAP/Velocity.js, the story is a good deal better, but they both still represent an additional JavaScript library and HTTP request at the end of the day.</p>
+          <p>This is just a function.</p>
+          <p>Now, maybe you don't think it's particularly brief/terse. But if I just remove my comments...</p>
+          <pre>
+            <code>
+var marquee;
+var marquee_el=document.querySelector('.grid.marquee');
+var children=marquee_el.querySelectorAll('.cell');
+if('animate'in marquee_el&amp;&amp;typeof marquee_el.animate==='function'){
+  createMarquee();
+  marquee_el.addEventListener('mouseenter',pauseMarquee,false);
+  marquee_el.addEventListener('mouseleave',playMarquee,false);
+  window.addEventListener('resize',debounce(createMarquee),false);
+}
+function createMarquee(){
+  if(typeof marquee!=='undefined') marquee.cancel();
+  var displacement=0;
+  marquee_el.style.whiteSpace='nowrap';
+  for(var j=0;j&lt;children.length;++j)displacement+=children[j].clientWidth;
+  displacement=(displacement-marquee_el.clientWidth)&lt;&lt;0;
+  marquee=marquee_el.animate([
+    {transform:'matrix(1,0.00,0.00,1, 0, 0)',offset:0},
+    {transform:'matrix(1,0.00,0.00,1,'+-displacement+',0)',offset:1}
+  ],{
+    duration:children.length * 1e3,
+    easing:'linear',
+    delay:0,
+    iterations:Infinity,
+    direction:'alternate',
+    fill:'forwards'
+  });
+}
+function playMarquee(){
+  if(marquee.playState&amp;&amp;marquee.playState==='paused')
+    marquee.play();
+}
+function pauseMarquee(){
+  if(marquee.playState&amp;&amp;marquee.playState==='running')
+    marquee.pause();
+}
+function debounce(func){
+  var scheduled,context,args;
+  return function(){
+    context=this;args=[];
+    for(var i=0;i&lt;arguments.length;++i)args[i]=arguments[i];
+    !!scheduled&amp;&amp;window.cancelAnimationFrame(scheduled);
+    scheduled=window.requestAnimationFrame(function(){
+      func.apply(context,args);scheduled=null;
+    });
+  }
+}
+            </code>
+          </pre>
           <p>Of course, you still need to check to see if your user's browser supports WAAPI and then you ought to plan for things like a browser viewport resize, and add some event handlers to take care of the user hovering on one of the scrolling items for a closer look:</p>
           <pre class="language-javascript">
             <code class="language-javascript">
