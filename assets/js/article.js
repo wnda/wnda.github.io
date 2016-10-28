@@ -2,21 +2,30 @@
 
   if(!('addEventListener' in win)) return;
   loadStylesheets(['https://amdouglas.com/assets/css/fonts.css','https://amdouglas.com/assets/css/article.css']);
-
+  
   win.addEventListener('load',handleLoad,false);
   
   function loadStylesheets(urls){
     for(var i = 0;i<urls.length;++i){
-      var css  = doc.createElement('link');
-      css.rel  = 'stylesheet';
-      css.href = urls[i];
-      head.appendChild(css);
+      var _css  = doc.createElement('link');
+      _css.rel  = 'stylesheet';
+      _css.href = urls[i];
+      head.appendChild(_css);
+    }
+  }
+  
+  function loadScripts(urls){
+    for(var i = 0;i<urls.length;++i){
+      var _js  = doc.createElement('script');
+      _js.async  = !0;
+      _js.src = urls[i];
+      head.appendChild(_js);
     }
   }
 
   function handleLoad(){
     win.removeEventListener('load',handleLoad,false);
-    var a=doc.querySelectorAll('input,textarea');
+    loadScripts(['https://amdouglas.com/assets/js/prism.js']);
     if('devicePixelRatio' in win && win.devicePixelRatio > 1 && wdth < 992){
       appendTouchIcons();
     }
