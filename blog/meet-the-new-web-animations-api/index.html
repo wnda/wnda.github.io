@@ -305,7 +305,8 @@ body  { margin: 0; overflow: hidden; background: #08f }
           <p>If that sounds complicated, it's not about to get any simpler:</p>
           <pre class="language-javascript">
             <code class="language-javascript">
-// First, create a variable to be a reference to our animation later, so by using a closure, we can start, stop and cancel the animation.
+// First, create a variable to be a reference to our animation later, 
+// so by using a closure, we can start, stop and cancel the animation.
 var marquee;
 
 // Then let's grab the element we're going to move around
@@ -316,63 +317,73 @@ var children = marquee_el.querySelectorAll( '.cell');
 
 function createMarquee(){
 
-  // we're going to recreate the marquee animation when the viewport is resized
-  // so get rid of any existing animation first
+  // We're going to recreate the marquee animation 
+  // when the viewport is resized, so get rid of 
+  // any existing animation first
   if( typeof marquee !== 'undefined' ) marquee.cancel();
 
-  // set this dynamically, so the thing will gracefully degrade to a typical grid of items
+  // We set this dynamically, so the thing will 
+  // gracefully degrade to a typical grid of items
   marquee_el.style.whiteSpace = 'nowrap';
 
-  // create a variable for the distance by which the grid element will be transformed
+  // Create a variable for the distance by which
+  // the grid element will be transformed
   var displacement = 0;
 
-  // the width of all the elements in the marquee
-  // it's important to tot up the child element widths because if overflow is hidden,
-  // the clientWidth of the grid_to_animate element will be that of the parent element
-  for ( var j = 0; j &lt; children.length; ++j ) displacement += children[j].clientWidth;
-
-  // crucial: subtract the width of the container
-  // take the opportunity to round the displacement value down to the nearest pixel
-  // the browser may thank you for this by not blurring the shit out of your text
+  // Add up the width of all the elements in the marquee
+  for ( var j = 0; j &lt; children.length; ++j ) {
+    displacement += children[j].clientWidth;
+  }
+  
+  // Crucial: subtract the width of the container;
+  // Optional: take the opportunity to round the displacement 
+  // value down to the nearest pixel. The browser may thank
+  // you for this by not blurring the shit out of your text.
   displacement = (displacement - marquee_el.clientWidth) &lt;&lt; 0;
 
   // Now for the juicy part. The WAAPI.
-  // by using the variable 'marquee' we created in the parent scope,
-  // we can easily use the reference to pause/cancel the animation later if necessary
+  // By using the variable 'marquee' we created in the parent scope,
+  // we can easily use the reference to pause/cancel the animation later
   marquee = marquee_el.animate([
     /*
-      element.animate() accepts two arguments: an array of keyframes and a sort of configuration 
-      object, much like the CSS syntax.
+      element.animate() accepts two arguments: an array of keyframes and 
+      a sort of configuration object, much like the CSS syntax.
       
-      First are your keyframes: so your 'from' or '0%' keyframe translates to 'offset: 0',
-      '100%' translates to 'offset: 1', and anything in betwen like '54%' will be 'offset: .54'
-      One object per keyframe. The ability to define a dynamic translateX value already gives 
-      you an idea of why WAAPI is useful:
+      First are your keyframes: so your 'from' or '0%' keyframe
+      translates to 'offset: 0', '100%' translates to 'offset: 1', 
+      and anything in betwen like '54%' will be 'offset: .54'. One
+      object per keyframe. The ability to define a dynamic 
+      translateX value already gives you an idea of why WAAPI is useful:
     */
     { transform: 'matrix(1, 0.00, 0.00, 1, 0, 0)', offset: 0 },
     { transform: 'matrix(1, 0.00, 0.00, 1,' + -displacement + ', 0)', offset: 1 }
     // you don't have to use matrix, I just like it
   ],
   {
-    // animation-duration = 1 second for each element in marquee
-    // arbitrary decision
+    // 1 second for each element in marquee
+    // Entirely arbitrary decision
     duration: children.length * 1e3,
 
-    // can be 'ease', 'cubic-bezier(.4,0,.2,1)', etc. 
-    // can also be a stepping function, like 'steps(4)', 'steps(10,end)' (see: https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API)
+    // Can be 'ease', 'cubic-bezier(.4,0,.2,1)', etc. 
+    // can also be a stepping function, like 'steps(4)', 'steps(10, end)'
+    // (see: https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API)
     easing: 'linear',
 
-    // useful if you don't want the animation to start until your content has loaded from, say, a REST API and you want to speculate a reasonable time for that to take
+    // Useful if you don't want the animation to start until your content
+    // has loaded from, say, a REST API and you want to speculate a 
+    // reasonable time for that to take
     delay: 0,
 
-    // kind of crucial for what we want to make...
+    // Kind of crucial for what we want to make...
     // NB: 'Infinity' not 'infinite'
     iterations: Infinity,
 
-    // invert animation after completion, so it scrolls backwards */
+    // Invert animation after completion, so it scrolls backwards */
     direction: 'alternate',
 
-    // you would use this if your animation is set to occur only a finite number of times, and you wanted the animated element to finish at the end keyframe, rather than the first keyframe
+    // You would use this if your animation is set to occur only a finite 
+    // number of times, and you wanted the animated element to finish at 
+    // the end keyframe, rather than the first keyframe
     fill: 'forwards'
   });
 }
