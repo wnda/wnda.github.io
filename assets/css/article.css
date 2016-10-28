@@ -27,7 +27,7 @@ article>footer>a header{padding-bottom:32px}
 article>footer>a p{font-size:14px;line-height:1.3;font-weight:400;padding:0;margin:18px 0}
 article>footer>a hr~p{color:#83838e;margin:0;font-weight:400}
 pre,code,kbd{font-family:Cousine,Menlo,Consolas,Monaco,Courier,monospace;font-size:15px;border-radius:3px;background-color:#e6e6e9;border:1px dotted #c2c2dc}
-pre,code{margin-top:1.5em;margin-bottom:1.5em;color:#000;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}
+pre,pre>code{margin-top:1.5em;margin-bottom:1.5em;color:#000;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}
 code{padding:1px 5px}
 pre{padding:8px 12px;overflow-x:scroll}
 pre>code{border:0;padding-right:0;padding-left:0}
