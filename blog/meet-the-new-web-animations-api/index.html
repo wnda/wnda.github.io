@@ -63,6 +63,42 @@
                        background: #07071c;
                             color: #fff;
       }
+      @keyframes marquee1 {
+        from, 0% {
+          transform: translate3d(0,0,0);
+        }
+        to, 100% {
+          transform: translate3d(-200%,0,0);
+        }
+      }
+      .marquee {
+        white-space: nowrap;
+        padding: 16px;
+        font-size: 0;
+        animation-name: marquee1;
+        animation-timing-function: linear;
+        animation-duration: 8s;
+        animation-iteration-count: infinite;
+        animation-fill-mode: forwards;
+        animation-direction: alternate;
+      }
+      .marquee .cell {
+        position: relative;
+        display: inline-block;
+        font-size: 16px;
+        width: 25%;
+        padding: 8px;
+      }
+      .marquee .cell .content {
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        bottom: 8px;
+        right: 8px;
+        padding: 8px;
+        color: #fff;
+        background: crimson;
+      }
     </style>
   </head>
   <body>
@@ -119,6 +155,32 @@
           <p>If, however, you really did get such a situation as my imaginary scrolling marquee/carousel featuring, say, photographs of different widths, how would you use animations then?</p>
           <h3>Enter WAAPI</h3>
           <p>Let's imagine our gallery:</p>
+          <div class="marquee">
+            <div class="cell">
+              <div class="content">1</div>
+            </div>
+            <div class="cell">
+              <div class="content">2</div>
+            </div>
+            <div class="cell">
+              <div class="content">3</div>
+            </div>
+            <div class="cell">
+              <div class="content">4</div>
+            </div>
+            <div class="cell">
+              <div class="content">5</div>
+            </div>
+            <div class="cell">
+              <div class="content">6</div>
+            </div>
+            <div class="cell">
+              <div class="content">7</div>
+            </div>
+            <div class="cell">
+              <div class="content">8</div>
+            </div>
+          </div>
           <p><strong>The HTML:</strong></p>
           <pre class="language-html">
             <code class="language-html">
