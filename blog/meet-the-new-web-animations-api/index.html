@@ -149,7 +149,7 @@
             </code>
           </pre>
           <p>So, let's look at this bit by bit. The <code>@keyframes</code> statement is the definition of your animation. You use this to say precisely what will happen across the time specified in your element's <code>animation-duration</code> property. When you have two states, you can use <code>from</code> and <code>to</code>, but when you have multiple keyframes you need to specify a percentage value, representing at what percentage of the total duration that keyframe should fire.</p>
-          <p>The rest is pretty self-explanatory. The name is required and must match a set of keyframes you specified. The timing function works exactly as it does for CSS transitions, and includes the usual predefined defaults like <code>linear</code>, <code>ease</code>, and so on. You can also define your own bezier curves, which I prefer to do because I like the 'fast in, slow out' curve I've given as an example above.</p>
+          <p>The rest is pretty self-explanatory. The <code>animation-name</code> is required and must match a set of keyframes you specified. The <code>animation-timing-function</code> works exactly as it does for CSS transitions, and includes the usual predefined defaults like <code>linear</code>, <code>ease</code>, and so on. You can also define your own bezier curves, which I prefer to do because I like the 'fast in, slow out' curve I've given as an example above.</p>
           <p><code>animation-play-state</code> is a new property. CSS Animations have been available for developers to use for a long time now, with even browsers as old as Safari 5.1 supporting a prefixed version of the above syntax. <code>animation-play-state</code> is something new, which seems to have arrived in Chrome since the last beta update (I just updated to Chrome 54 and I have only just seen this property become available). This is of course landing as a result of the Web Animation API's play/pause functionality being realised, because you might as well provide access to that functionality through CSS so that animations can be paused and played using <code>:hover</code> or <code>input:checked + .animated-element</code> and so on.</p>
           <p><code>animation-iteration-count</code> is important: you can create an everlasting animation by setting the iterations to be <code>infinite</code>, and we'll be using that later when we build a demo of WAAPI.</p>
           <p>So, with the code above, you could quite easily make this:</p>
@@ -190,6 +190,53 @@
             </div>
           </div>
           <p>I've used CSS to create that marquee, which is easy enough with a known number of equal-width elements. 8 elements, 25% each, so that's a translation in X of -100%. Let's have a look at how to achieve this for an unknown number of random-width elements:</p>
+          <p>The CSS for that animated marquee looks like this:</p>
+          <pre class="language-css">
+            <code class="language-css">
+@keyframes marquee1 {
+  from, 0% {
+    transform: translate3d(0,0,0);
+  }
+  to, 100% {
+    transform: translate3d(-100%,0,0);
+  }
+}
+.marquee {
+  display: block;
+  white-space: nowrap;
+  padding-top: 16px;
+  font-size: 0;
+  animation-name: marquee1;
+  animation-timing-function: linear;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+  animation-direction: alternate;
+}
+.marquee:hover{
+  animation-play-state:paused;
+}
+.marquee .cell {
+  position: relative;
+  display: inline-block;
+  font-size: 16px;
+  width: 25%;
+  padding: 8px;
+  height: 100px;
+}
+.marquee .cell .content {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  bottom: 8px;
+  right: 8px;
+  padding: 8px;
+  color: #fff;
+  background: crimson;
+}
+            </code>
+          </pre>
+          <p>The code we'll use for our JavaScript WAAPI example will look like this:</p>
           <p><strong>The HTML:</strong></p>
           <pre class="language-html">
             <code class="language-html">
