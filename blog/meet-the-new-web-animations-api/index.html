@@ -301,7 +301,8 @@ body  { margin: 0; overflow: hidden; background: #08f }
 .cell.w100 { width: 100% }
             </code>
           </pre>
-          <p>So that's a grid and 10 grid cells, each serving as containers for an image or something like that. I'm just using numbers for now. To turn this into something which we can scroll horizontally, we need to first set the <code>.grid</code> element's <code>white-space</code> property to <code>nowrap</code>. We'll do this using JavaScript, so that the items appear as a normal grid if JavaScript is turned off or if WAAPI is not supported. The first thing we need to do is find our grid and its children, get the combined width of the children, subtract the width of the containing element from that combined width and then programmatically animate the grid to translate itself the resultant number of pixels backwards before returning to its original position.</p>
+          <p>So that's a grid and 10 grid cells, each serving as containers for an image or something like that. I'm just using numbers for now. To turn this into something which we can scroll horizontally, we need to first set the <code>.grid</code> element's <code>white-space</code> property to <code>nowrap</code>. We'll do this using JavaScript, so that the items appear as a normal grid if JavaScript is turned off or if WAAPI is not supported.</p>
+          <p>We need to find our grid element and its children, get the combined width of the children, subtract from that the width of the containing element, and then programmatically animate the grid to translate itself by the number of pixels we calculated earlier, before returning to its original position.</p>
           <p>If that sounds complicated, it's not about to get any simpler:</p>
           <pre class="language-javascript">
             <code class="language-javascript">
@@ -402,29 +403,34 @@ function createMarquee(){
           <p>This might look hideously complicated, but this kind of brevity to unlock the kind of performance and fluidity of animation is unprecedented. With jQuery and $(element).animate(), you'd have plenty of framedropping and jankiness to enjoy. With GSAP/Velocity.js, the story is a good deal better, but they both still represent an additional JavaScript library and HTTP request at the end of the day.</p>
           <p>This is just a function.</p>
           <p>Now, maybe you don't think it's particularly brief/terse. But if I just remove my comments...</p>
-          <pre>
-            <code>
+          <pre class="language-javascript">
+            <code class="language-javascript">
 function createMarquee(){
-  if(typeof marquee!=='undefined') marquee.cancel();
-  var displacement=0;
-  marquee_el.style.whiteSpace='nowrap';
-  for(var j=0;j&lt;children.length;++j)displacement+=children[j].clientWidth;
-  displacement=(displacement-marquee_el.clientWidth)&lt;&lt;0;
-  marquee=marquee_el.animate([
-    {transform:'matrix(1,0.00,0.00,1, 0, 0)',offset:0},
-    {transform:'matrix(1,0.00,0.00,1,'+-displacement+',0)',offset:1}
+  if (typeof marquee !== 'undefined') marquee.cancel();
+  
+  var displacement = 0;
+  
+  marquee_el.style.whiteSpace = 'nowrap';
+  
+  for (var j = 0; j &lt; children.length; ++j) displacement += children[j].clientWidth;
+  
+  displacement = (displacement-marquee_el.clientWidth) &lt;&lt; 0;
+  
+  marquee = marquee_el.animate([
+    { transform: 'matrix(1,0.00,0.00,1, 0, 0)', offset: 0 },
+    { transform: 'matrix(1,0.00,0.00,1,'+-displacement+',0)', offset: 1 }
   ],{
-    duration:children.length * 1e3,
-    easing:'linear',
-    delay:0,
-    iterations:Infinity,
-    direction:'alternate',
-    fill:'forwards'
+    duration: children.length * 1e3,
+    easing: 'linear',
+    delay: 0,
+    iterations: Infinity,
+    direction: 'alternate',
+    fill: 'forwards'
   });
 }
             </code>
           </pre>
-          <p>Of course, you still need to check to see if your user's browser supports WAAPI and then you ought to plan for things like a browser viewport resize, and add some event handlers to take care of the user hovering on one of the scrolling items for a closer look:</p>
+          <p>Yeah, pretty brief. Of course, you still need to check to see if your user's browser supports WAAPI and then you ought to plan for things like a browser viewport resize, and add some event handlers to take care of the user hovering on one of the scrolling items for a closer look:</p>
           <pre class="language-javascript">
             <code class="language-javascript">
 // quick check for the WAAPI method
