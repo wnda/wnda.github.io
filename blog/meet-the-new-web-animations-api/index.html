@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,user-scalable=no,shrink-to-fit=no">
+    <base href="https://amdouglas.com/">
+    <title>Meet the new Web Animations API · A. M. Douglas · Leeds, UK</title>
+    <link rel="manifest" href="https://amdouglas.com/manifest.json">
+    <link rel="prefetch" href="https://amdouglas.com/assets/fonts/Rubik-Regular.woff">
+    <link rel="prefetch" href="https://amdouglas.com/assets/fonts/Rubik-Bold.woff">
+    <link rel="prefetch" href="https://amdouglas.com/assets/fonts/Rubik-Regular.woff2">
+    <link rel="prefetch" href="https://amdouglas.com/assets/fonts/Rubik-Bold.woff2">
+    <link rel="canonical" href="https://amdouglas.com/blog/meet-the-new-web-animations-api/">
+    <link rel="publisher" href="https://plus.google.com/+AMDouglasCom">
+    <link rel="icon" href="https://amdouglas.com/favicon.ico">
+    <meta name="format-detection" content="telephone=no;email=no">
+    <meta name="MobileOptimized" content="width">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="referrer" content="origin">
+    <meta name="description" content="While browser support for the Web Animations API may look rather bleak at the moment, when the other browsers catch up, it will be the sharpest and fastest way to animate anything without resorting to WebGL...">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:creator" content="A. M. Douglas">
+    <meta name="twitter:url" content="https://amdouglas.com/blog/meet-the-new-web-animations-api/">
+    <meta name="twitter:domain" content="amdouglas.com">
+    <meta name="twitter:title" content="Meet the new Web Animations API">
+    <meta name="twitter:description" content="While browser support for the Web Animations API may look rather bleak at the moment, when the other browsers catch up, it will be the sharpest and fastest way to animate anything without resorting to WebGL...">
+    <meta name="twitter:image:src" content="https://amdouglas.com/assets/img/favicon-196x196.png">
+    <meta property="fb:admins" content="407402372749613">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="A. M. Douglas">
+    <meta property="og:title" content="Meet the new Web Animations API">
+    <meta property="og:description" content="While browser support for the Web Animations API may look rather bleak at the moment, when the other browsers catch up, it will be the sharpest and fastest way to animate anything without resorting to WebGL...">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:url" content="https://amdouglas.com/blog/meet-the-new-web-animations-api/">
+    <meta property="og:image" content="https://amdouglas.com/assets/img/favicon-196x196.png">
+    <meta property="og:image:secure_url" content="https://amdouglas.com/assets/img/favicon-196x196.png">
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+    <style>
+      html{-webkit-text-size-adjust:100%;-webkit-font-smoothing:antialiased;-webkit-font-smoothing:subpixel-antialiased;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-overflow-scrolling:touch;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;touch-action:manipulation;font:normal normal 400 16px/1.2 Roboto,-apple-system,Arial,Helmet,Freesans,sans-serif}html,body{height:100%}*,:before,:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;touch-action:manipulation;margin:0;padding:0;border:0;font:inherit}:active,:focus{outline:0}article,footer,header,main,nav,section,video{display:block}a{-webkit-text-decoration-skip:objects;text-decoration:none}button,input,textarea{-webkit-appearance:none;-webkit-border-radius:0;border-radius:0;background:0 0}button,img,video{-webkit-touch-callout:none}button,a,img,video{-webkit-user-select:none;-moz-user-select:none}button,a{color:inherit;cursor:pointer}textarea{resize:none}[disabled]{opacity:.6;cursor:not-allowed}[hidden],video::-webkit-media-controls,video::-webkit-media-controls-play-button,video::-webkit-media-controls-volume-slider,video::-webkit-media-controls-mute-button,video::-webkit-media-controls-timeline,video::-webkit-media-controls-current-time-display{display:none}::-webkit-scrollbar{width:4px}::-webkit-scrollbar-thumb{background:#07071c}::-webkit-scrollbar-track{background-color:transparent;background:rgba(0,0,0,0)}::selection{background:#07071c;color:#fff}::-moz-selection{background:#07071c;color:#fff}
+    </style>
+    <noscript>
+      <link rel="stylesheet" href="https://amdouglas.com/assets/css/fonts.css">
+      <link rel="stylesheet" href="https://amdouglas.com/assets/css/article.css">
+    </noscript>
+    <style>
+      @keyframes demo {
+        from, 0% {
+          opacity: 0; visibility: hidden;
+        }
+        to, 100% {
+          opacity: 1; visibility: visible;
+        }
+      }
+      .demo {
+                   animation-name: demo;
+        animation-timing-function: cubic-bezier(0.4,0,0.2,1);
+               animation-duration: 1s;
+        animation-iteration-count: infinite;
+              animation-fill-mode: forwards;
+              animation-direction: normal;
+                  animation-delay: 0;
+             animation-play-state: initial;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <a href="https://amdouglas.com/">A. M. Douglas</a>
+      </header>
+      <nav>
+        <a href="https://amdouglas.com/">Home</a> &bull;
+        <a href="https://amdouglas.com/blog/">Archive</a>
+      </nav>
+      <article>
+        <h1>Meet the new Web Animations API</h1>
+        <section>
+          <p>While browser support for the Web Animations API (WAAPI) may look rather bleak at the moment, when the other browsers catch up, it will be the sharpest and fastest way to animate anything without resorting to WebGL, since it enables us to programmatically create CSS3 animations, which are subject to a very healthy helping of browser optimisation.</p>
+          <p>But WAAPI is much, much more than that. It's not just an opportunity to throw out all your animation libraries like GSAP, Velocity.js, jQuery, etc. CSS3 Animations already gave you that opportunity for basic things like fading content in and out. WAAPI enables you to play, pause, rewind and cancel animations as though they were videos. You can even alter the speed at which the animation is playing. The potential is absolutely enormous.</p>
+          <p>So let's get our teeth into the thing.</p>
+          <h2>Recap: CSS Animations</h2>
+          <p>I think it's best to approach WAAPI with at least a little familiarity with CSS animations. The syntax looks something like this:</p>
+          <pre>
+            <code>
+@keyframes my-animation {
+  from, 0% {
+    opacity: 0; visibility: hidden;
+  }
+  to, 100% {
+    opacity: 1; visibility: visible;
+  }
+}
+.my-element {
+             animation-name: my-animation;
+  animation-timing-function: cubic-bezier(0.4,0,0.2,1);
+         animation-duration: 1s;
+  animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+        animation-direction: normal;
+            animation-delay: 2s;
+       animation-play-state: initial;
+}
+            </code>
+          </pre>
+          <p>So, let's look at this bit by bit. The @keyframes statement is the definition of your animation. You use this to say precisely what will happen across the time specified in your element's <code>animation-duration</code> property. When you have two states, you can use <code>from</code> and <code>to</code>, but when you have multiple keyframes you need to specify a percentage value, representing at what percentage of the total duration that keyframe should fire.</p>
+          <p>The rest is pretty self-explanatory. The name is required and must match a set of keyframes you specified. The timing function works exactly as it does for CSS transitions, and includes the usual predefined defaults like <code>linear</code>, <code>ease</code>, and so on. You can also define your own bezier curves, which I prefer to do because I like the 'fast in, slow out' curve I've given as an example above.</p>
+          <p><code>animation-play-state</code> is a new property. CSS Animations have been available for developers to use for a long time now, with even browsers as old as Safari 5.1 supporting a prefixed version of the above syntax. <code>animation-play-state</code> is something new, which seems to have arrived in Chrome since the last beta update (I just updated to Chrome 54 and I have only just seen this property become available). This is of course landing as a result of the Web Animation API's play/pause functionality being realised, because you might as well provide access to that functionality through CSS so that animations can be paused and played using <code>:hover</code> or <code>input:checked + .animated-element</code> and so on.</p>
+          <p><code>animation-iteration-count</code> is important: you can create an everlasting animation by setting the iterations to be <code>infinite</code>, and we'll be using that later when we build a demo of WAAPI.</p>
+          <p>So, with the code above, you could quite easily make this:</p>
+          <div class="demo">
+            <p>Fade in</p>
+          </div>
+          <p>Lovely. But what if you wanted to make something like a carousel, or a scrolling marquee style product showcase? Now that CSS has <code>animation-play-state</code>, it's quite easy to do with even the CSS syntax, but you'll need to know:</p>
+          <ul>
+            <li>how many elements will be in the carousel</li>
+            <li>how big they are going to be, expressed as percentages or precise pixel counts</li>
+          </ul>
+          <p>and you'll also need all of the elements to be the same width. It seems like quite a lot, but actually it's fairly reasonable to expect that your products will be displayed as squares of equal width, and that your back-end is setup to display, say, 12 products with a 'view more' button nearby.</p>
+          <p>If, however, you really did get such a situation as my imaginary scrolling marquee/carousel featuring, say, photographs of different widths, how would you use animations then?</p>
+          <h3>Enter WAAPI</h3>
+          <p>Let's imagine our gallery:</p>
+          <p><strong>The HTML:</strong></p>
+          <pre>
+            <code>
+&lt;!doctype html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;meta name="viewport" content="width=device-width,initial-scale=1"&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class="grid"&gt;
+      &lt;div class="cell w33"&gt;
+        &lt;div class="content"&gt;
+          1
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="cell w66"&gt;
+        &lt;div class="content"&gt;
+          2
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="cell w100"&gt;
+        &lt;div class="content"&gt;
+          3
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="cell w83"&gt;
+        &lt;div class="content"&gt;
+          4
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="cell w16"&gt;
+        &lt;div class="content"&gt;
+          5
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="cell w25"&gt;
+        &lt;div class="content"&gt;
+          6
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="cell w25"&gt;
+        &lt;div class="content"&gt;
+          7
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="cell w50"&gt;
+        &lt;div class="content"&gt;
+          8
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="cell w100"&gt;
+        &lt;div class="content"&gt;
+          9
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="cell w75"&gt;
+        &lt;div class="content"&gt;
+          10
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="cell w25"&gt;
+        &lt;div class="content"&gt;
+          Finish
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+            </code>
+          </pre>
+          <p><strong>The CSS:</strong></p>
+          <pre>
+            <code>
+* { box-sizing: border-box }
+
+body  { margin: 0; overflow: hidden; background: #08f }
+.grid { font-size: 0 }
+.cell {
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: 700;
+  position: relative;
+  width: 100%;
+  height: 30vh;
+  padding: 1rem .5rem;
+  text-align: center;
+  cursor: pointer;
+}
+.cell .content {
+  display: block;
+  position: absolute;
+  top: .5rem;
+  bottom: .5rem;
+  left: .5rem;
+  right: .5rem;
+  padding: 1rem;
+  color: #555;
+  background: #fff;
+}
+
+.cell.w16  { width: calc(100% / 6) }
+.cell.w25  { width: 25% }
+.cell.w33  { width: calc(100% / 3) }
+.cell.w50  { width: 50% }
+.cell.w66  { width: calc(100% / (3 / 2)) }
+.cell.w75  { width: 75% }
+.cell.w83  { width: calc(100% / (6 / 5)) }
+.cell.w100 { width: 100% }
+            </code>
+          </pre>
+          <p>So that's a grid and 10 grid cells, each serving as containers for an image or something like that. I'm just using numbers for now. To turn this into something which we can scroll horizontally, we need to first set the <code>.grid</code> element's <code>white-space</code> property to <code>nowrap</code>. We'll do this using JavaScript, so that the items appear as a normal grid if JavaScript is turned off or if WAAPI is not supported. The first thing we need to do is find our grid and its children, get the combined width of the children, subtract the width of the containing element from that combined width and then programmatically animate the grid to translate itself the resultant number of pixels backwards before returning to its original position.</p>
+          <p>If that sounds complicated, it's not about to get any simpler:</p>
+          <pre>
+            <code>
+// First, create a variable to be a reference to our animation later, so by using a closure, we can start, stop and cancel the animation.
+var marquee;
+
+// Then let's grab the element we're going to move around
+var marquee_el = document.querySelector( '.grid.marquee' );
+
+// and its children, so we know how much we have to move it around by
+var children = marquee_el.querySelectorAll( '.cell');
+
+function createMarquee(){
+
+  // we're going to recreate the marquee animation when the viewport is resized
+  // so get rid of any existing animation first
+  if( typeof marquee !== 'undefined' ) marquee.cancel();
+
+  // set this dynamically, so the thing will gracefully degrade to a typical grid of items
+  marquee_el.style.whiteSpace = 'nowrap';
+
+  // create a variable for the distance by which the grid element will be transformed
+  var displacement = 0;
+
+  // the width of all the elements in the marquee
+  // it's important to tot up the child element widths because if overflow is hidden,
+  // the clientWidth of the grid_to_animate element will be that of the parent element
+  for ( var j = 0; j &lt; children.length; ++j ) displacement += children[j].clientWidth;
+
+  // crucial: subtract the width of the container
+  // take the opportunity to round the displacement value down to the nearest pixel
+  // the browser may thank you for this by not blurring the shit out of your text
+  displacement = (displacement - marquee_el.clientWidth) &lt;&lt; 0;
+
+  // by using the variable 'marquee' we created in the parent scope,
+  // we can easily use the reference to pause/cancel the animation later if necessary
+  marquee = marquee_el.animate([
+    // these are your keyframes, if you are familiar with the CSS syntax
+    // so your 'from' or '0%' keyframe translates to 'offset: 0'
+    // 'to'/'100%' translates to 'offset: 1'
+    // and anything in betwen like '54%' will be 'offset: .54'
+    { transform: 'matrix(1, 0.00, 0.00, 1, 0, 0)', offset: 0 },
+    { transform: 'matrix(1, 0.00, 0.00, 1,' + -displacement + ', 0)', offset: 1 }
+    // you don't have to use matrix, I just like it
+  ],
+  {
+    // animation-duration = 1 second for each element in marquee
+    // arbitrary decision
+    duration: children.length * 1e3,
+
+    // could be 'ease', 'cubic-bezier(.4,0,.2,1)', etc.
+    easing: 'linear',
+
+    // useful if you don't want the animation to start until your content has loaded from, say, a REST API and you want to speculate a reasonable time for that to take
+    delay: 0,
+
+    // kind of crucial for a marquee...
+    iterations: Infinity,
+
+    // invert animation after completion, so it scrolls backwards */
+    direction: 'alternate',
+
+    // you would use this if your animation is set to occur only a finite number of times, and you wanted the animated element to finish at the end keyframe, rather than the first keyframe
+    fill: 'forwards'
+  });
+}
+            </code>
+          </pre>
+          <p>This might look hideously complicated, but this kind of brevity to unlock the kind of performance and fluidity of animation is unprecedented. With jQuery and $(element).animate(), you'd have plenty of framedropping and jankiness to enjoy. With GSAP/Velocity.js, the story is a good deal better, but it's still an additional JavaScript library at the end of the day.</p>
+          <p>This is a function.</p>
+          <p>Of course, you still need to check to see if your user's browser supports WAAPI and then you ought to plan for things like a browser viewport resize, and add some event handlers to take care of the user hovering on one of the scrolling items for a closer look:</p>
+          <pre>
+            <code>
+// quick check for the WAAPI method
+if ('animate' in marquee_el && typeof marquee_el.animate === 'function') {
+
+  // okay, let's fire up the marquee!
+  createMarquee();
+
+  // now for the playing/pausing
+  marquee_el.addEventListener('mouseenter', pauseMarquee, false);
+  marquee_el.addEventListener('mouseleave', playMarquee, false);
+
+  // and resizing
+  window.addEventListener('resize', debounce( createMarquee ), false);
+
+} else {
+    // Let's say hello to those using Safari
+    // or indeed users of IE, not-recently-updated FF, old Chrome, old Opera, etc.
+    // They will see a standard grid of items
+    console.warn('Your browser does not support the Web Animation API');
+}
+
+// pretty self-explanatory
+// though this is why we needed that closure I mentioned
+function playMarquee(){
+  if( marquee.playState && marquee.playState === 'paused' ) marquee.play();
+}
+
+// again, pretty self-explanatory
+function pauseMarquee(){
+  if( marquee.playState && marquee.playState === 'running' ) marquee.pause();
+}
+
+// a debouncing function using requestAnimationFrame
+// this is just an easy-to-use wrapper I like to use for event handlers
+function debounce(func){
+  var scheduled, context, args;
+  return function(){
+    context = this; args = [];
+    for (var i = 0; i &lt; arguments.length; ++i) args[i] = arguments[i];
+    !!scheduled && window.cancelAnimationFrame(scheduled);
+    scheduled = window.requestAnimationFrame(function(){
+      func.apply(context, args);
+      scheduled = null;
+    });
+  }
+}
+            </code>
+          </pre>
+          <p><a href="https://codepen.io/amdouglas/pen/WGBOzq">(Open in Codepen)</a> &middot; <a href="http://codepen.io/amdouglas/full/WGBOzq/">(View live demo)</a></p>
+          <p>This still might not seem that great: now that browsers will support the <code>animation-play-state</code> as a CSS property, open to manipulation from hover effects and so on, the value of the WAAPI may be constrained to edge cases. But now at least, when there is an edge case, there is a simple and clean way to approach it, without libraries or horribly inaccurate setTimeouts/Intervals.</p>
+          <p><span class="cursor">&#9608;</span></p>
+        </section>
+        <footer>
+          <a href="https://amdouglas.com/blog/asynchronous-css-the-easy-way/">
+            <header>Previously</header>
+            <section>
+              <h4>Asynchronous CSS: the Easy Way</h4>
+              <p>Given that it's coming up to Christmas, there obviously couldn't be a more appropriate time to think about adding or customising an e-commerce experience with your own take on the Stripe form</p>
+              <hr>
+              <p><time datetime="2016-09-30 23:32">30 September 2016</time></p>
+            </section>
+          </a>
+        </footer>
+      </article>
+    </main>
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "NewsArticle",
+        "mainEntityOfPage": "https://amdouglas.com/blog/meet-the-new-web-animations-api/",
+        "headline": "Meet the new Web Animations API",
+        "datePublished": "2016-10-28T08:00:02+00:00",
+        "dateModified": "2016-10-28T08:00:02+00:00",
+        "description": "While browser support for the Web Animations API may look rather bleak at the moment, when the other browsers catch up, it will be the sharpest and fastest way to animate anything without resorting to WebGL...",
+        "author": {
+          "@type": "Person",
+          "name": "A. M. Douglas"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "A. M. Douglas",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://amdouglas.com/assets/img/apple-touch-icon-60x60.png",
+            "width": 60,
+            "height": 60
+          }
+        },
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://amdouglas.com/assets/img/apple-touch-icon-60x60.png",
+          "height": 60,
+          "width": 60
+        }
+      }
+    </script>
+    <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script><![endif]--><!--[if IE]><script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/2014.01.31/classList.min.js"></script><![endif]-->
+    <script async defer src="https://amdouglas.com/assets/js/article.js"></script>
+  </body>
+</html>
