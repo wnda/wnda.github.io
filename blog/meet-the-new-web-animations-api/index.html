@@ -77,7 +77,7 @@
       .marquee {
         display: block;
         white-space: nowrap;
-        padding: 16px;
+        padding-top: 16px;
         font-size: 0;
         animation-name: marquee1;
         animation-timing-function: linear;
@@ -85,6 +85,9 @@
         animation-iteration-count: infinite;
         animation-fill-mode: forwards;
         animation-direction: alternate;
+      }
+      .marquee:hover{
+        animation-play-state:paused;
       }
       .marquee .cell {
         position: relative;
