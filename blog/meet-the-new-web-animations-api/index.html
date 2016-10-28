@@ -404,15 +404,6 @@ function createMarquee(){
           <p>Now, maybe you don't think it's particularly brief/terse. But if I just remove my comments...</p>
           <pre>
             <code>
-var marquee;
-var marquee_el=document.querySelector('.grid.marquee');
-var children=marquee_el.querySelectorAll('.cell');
-if('animate'in marquee_el&amp;&amp;typeof marquee_el.animate==='function'){
-  createMarquee();
-  marquee_el.addEventListener('mouseenter',pauseMarquee,false);
-  marquee_el.addEventListener('mouseleave',playMarquee,false);
-  window.addEventListener('resize',debounce(createMarquee),false);
-}
 function createMarquee(){
   if(typeof marquee!=='undefined') marquee.cancel();
   var displacement=0;
@@ -430,25 +421,6 @@ function createMarquee(){
     direction:'alternate',
     fill:'forwards'
   });
-}
-function playMarquee(){
-  if(marquee.playState&amp;&amp;marquee.playState==='paused')
-    marquee.play();
-}
-function pauseMarquee(){
-  if(marquee.playState&amp;&amp;marquee.playState==='running')
-    marquee.pause();
-}
-function debounce(func){
-  var scheduled,context,args;
-  return function(){
-    context=this;args=[];
-    for(var i=0;i&lt;arguments.length;++i)args[i]=arguments[i];
-    !!scheduled&amp;&amp;window.cancelAnimationFrame(scheduled);
-    scheduled=window.requestAnimationFrame(function(){
-      func.apply(context,args);scheduled=null;
-    });
-  }
 }
             </code>
           </pre>
