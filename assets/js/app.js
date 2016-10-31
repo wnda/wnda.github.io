@@ -11,11 +11,9 @@
   var i = nav_links.length;
   var j = 0;
 
-  loadStylesheets(['https://amdouglas.com/assets/css/fonts.css','https://amdouglas.com/assets/css/main.css']);
+  loadStylesheets(['https://amdouglas.com/assets/css/fonts.css']);
 
-  for(;j<i;++j) {
-    nav_links[j].addEventListener('click',handleNav,false);
-  }
+  for(;j<i;++j) nav_links[j].addEventListener('click',handleNav,false);
   win.addEventListener('load',handleLoad,false);
   win.addEventListener('scroll',rebouncedScrollHandler,false);
   win.addEventListener('keydown',keyNav,false);
