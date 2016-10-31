@@ -34,6 +34,9 @@ section:nth-of-type(2) .bg-inner{background:#f44336}section:nth-of-type(4) .bg-i
   .c7,.c8{top:75%;bottom:0}
 }
 @media screen and (min-width:768px){
+  nav>a{
+    margin-right:auto
+  }
   article>a{
     left:8px;
     right:8px
@@ -50,6 +53,7 @@ section:nth-of-type(2) .bg-inner{background:#f44336}section:nth-of-type(4) .bg-i
   .container{left:auto;width:50vw;width:calc(100vh - 88px);right:16px;}
   section:nth-of-type(2n) .container{left:16px;right:auto}
   section h2{
+    display:block;
     position:absolute;
     background:#f44336;
     padding:32px;
