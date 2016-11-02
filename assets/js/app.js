@@ -38,6 +38,9 @@
     doc.querySelector('.sms').href='\u0073\u006D\u0073\u003a\u002b\u0034\u0034\u0037\u0039\u0033\u0031\u0035\u0036\u0035\u0038\u0034\u0036';
     
     if('devicePixelRatio' in win && win.devicePixelRatio > 1 && wdth < 992){
+      doc.documentElement.style.overflow = 'hidden';
+      doc.body.style.overflow = 'auto';
+      doc.body.style.webkitOverflowScrolling = 'touch';
       body.addEventListener('scroll',rebouncedScrollHandler,false);
       appendTouchIcons();
     }
