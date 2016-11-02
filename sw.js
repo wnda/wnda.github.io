@@ -2,7 +2,7 @@
 
 self.importScripts('https://amdouglas.com/assets/js/serviceworker-cache-polyfill.js');
 
-var CACHE_VERSION = 8;
+var CACHE_VERSION = 9;
 var CURRENT_CACHES = {
   prefetch: 'amd-v' + CACHE_VERSION
 };
