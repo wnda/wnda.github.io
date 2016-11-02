@@ -185,8 +185,8 @@
         _ct = getTime(),
         step = function(){
           var _sf = getTime()-_ct;
-          if(!!mbl) doc.body.scroll(0,getPos(_t,_st,_f,_sf));
-          else win.scroll(0,getPos(_t,_st,_f,_sf));
+          if(!!mbl){doc.body.scroll(0,getPos(_t,_st,_f,_sf));}
+          else{win.scroll(0,getPos(_t,_st,_f,_sf));}
           if(_sf>_t){
             if(win.location.hash!==('#'+el.id)){
               win.location.replace('#'+el.id);
