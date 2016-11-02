@@ -7,9 +7,16 @@
   var head = (doc.head || doc.getElementsByTagName('head')[0]);
   var prev_st = (win.scrollY || win.pageYOffset);
   var animating = false;
+  var bg_inners = doc.querySelectorAll('.bg-inner');
   var nav_links = doc.querySelectorAll('nav>a');
   var i = nav_links.length;
   var j = 0;
+  
+  if('devicePixelRatio' in win && win.devicePixelRatio > 1 && wdth < 992){
+    for(var x = 0; x < bg_inners.length; ++x){
+      bg_inners[x].style.height = hght + 'px';
+    }
+  }
 
   loadStylesheets(['https://amdouglas.com/assets/css/fonts.css']);
 
