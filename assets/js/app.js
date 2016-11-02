@@ -6,9 +6,9 @@
   var hght = (win.innerHeight || doc.documentElement.clientHeight || doc.body.clientHeight);
   var head = (doc.head || doc.getElementsByTagName('head')[0]);
   var body = (doc.body || doc.getElementsByTagName('body')[0]);
-  var prev_st = (win.scrollY || win.pageYOffset);
+  var prev_st = (win.scrollY || win.pageYOffset || doc.querySelector('section').getBoundingClientRect().top);
   var animating = false;
-  var mbl = 'devicePixelRatio' in win && win.devicePixelRatio > 1 && wdth < 992;
+  var mbl = ('devicePixelRatio' in win && win.devicePixelRatio > 1 && wdth < 992);
   var nav_links = doc.querySelectorAll('nav>a');
   var i = nav_links.length;
   var j = 0;
@@ -180,13 +180,13 @@
   function smoothScroll(el){
     var _t = 400,
         _st = (win.scrollY||win.pageYOffset||Math.abs(doc.querySelector('section').getBoundingClientRect().top
-),
+)),
         _f = (el.tagName.toLowerCase()!=='html')?el.getBoundingClientRect().top+_st:-_st,
         _ct = getTime(),
         step = function(){
           var _sf = getTime()-_ct;
-          if(!!mbl){doc.body.scroll(0,getPos(_t,_st,_f,_sf));}
-          else{win.scroll(0,getPos(_t,_st,_f,_sf));}
+          if(!!mbl) doc.body.scroll(0,getPos(_t,_st,_f,_sf));
+          else win.scroll(0,getPos(_t,_st,_f,_sf));
           if(_sf>_t){
             if(win.location.hash!==('#'+el.id)){
               win.location.replace('#'+el.id);
