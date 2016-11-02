@@ -186,7 +186,7 @@
         step = function(){
           var _sf = getTime()-_ct;
           if(!!mbl){
-            doc.body.scrollTo(0,getPos(_t,_st,_f,_sf));
+            doc.body.scrollTop = getPos(_t,_st,_f,_sf);
           } else {
             win.scroll(0,getPos(_t,_st,_f,_sf));
           }
