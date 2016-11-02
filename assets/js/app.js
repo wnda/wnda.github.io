@@ -5,6 +5,7 @@
   var wdth = (win.innerWidth || doc.documentElement.clientWidth || doc.body.clientWidth);
   var hght = (win.innerHeight || doc.documentElement.clientHeight || doc.body.clientHeight);
   var head = (doc.head || doc.getElementsByTagName('head')[0]);
+  var body = (doc.body || doc.getElementsByTagName('body')[0]);
   var prev_st = (win.scrollY || win.pageYOffset);
   var animating = false;
   var nav_links = doc.querySelectorAll('nav>a');
@@ -15,8 +16,6 @@
 
   for(;j<i;++j) nav_links[j].addEventListener('click',handleNav,false);
   win.addEventListener('load',handleLoad,false);
-  win.addEventListener('scroll',rebouncedScrollHandler,false);
-  win.addEventListener('keydown',keyNav,false);
 
   function loadStylesheets(urls){
     for(var i = 0;i<urls.length;++i){
@@ -37,8 +36,14 @@
       a[j].addEventListener('blur',function(e){(e.target || this).className='_blur';});
     }
     doc.querySelector('.sms').href='\u0073\u006D\u0073\u003a\u002b\u0034\u0034\u0037\u0039\u0033\u0031\u0035\u0036\u0035\u0038\u0034\u0036';
+    
     if('devicePixelRatio' in win && win.devicePixelRatio > 1 && wdth < 992){
+      body.addEventListener('scroll',rebouncedScrollHandler,false);
       appendTouchIcons();
+    }
+    else{
+      win.addEventListener('scroll',rebouncedScrollHandler,false);
+      win.addEventListener('keydown',keyNav,false);
     }
     if('serviceWorker' in navigator){
       navigator.serviceWorker.register('https://amdouglas.com/sw.js', {
