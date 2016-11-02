@@ -8,6 +8,7 @@
   var body = (doc.body || doc.getElementsByTagName('body')[0]);
   var prev_st = (win.scrollY || win.pageYOffset);
   var animating = false;
+  var mbl = 'devicePixelRatio' in win && win.devicePixelRatio > 1 && wdth < 992;
   var nav_links = doc.querySelectorAll('nav>a');
   var i = nav_links.length;
   var j = 0;
@@ -37,7 +38,7 @@
     }
     doc.querySelector('.sms').href='\u0073\u006D\u0073\u003a\u002b\u0034\u0034\u0037\u0039\u0033\u0031\u0035\u0036\u0035\u0038\u0034\u0036';
     
-    if('devicePixelRatio' in win && win.devicePixelRatio > 1 && wdth < 992){
+    if(!!mbl){
       doc.documentElement.style.overflow = 'hidden';
       doc.body.style.overflow = 'auto';
       doc.body.style.webkitOverflowScrolling = 'touch';
@@ -126,7 +127,8 @@
   function scrollHandler(){
     var sections = doc.getElementsByTagName('section');
     var s = 5, t = 0;
-    var cur_st = (win.scrollY || win.pageYOffset);
+    var cur_st = (win.scrollY || win.pageYOffset || Math.abs(doc.querySelector('section').getBoundingClientRect().top
+));
     var scroll_dir = cur_st < prev_st ? 'u' : 'd';
     prev_st = cur_st;
     for(; s > t; ++t){
@@ -177,12 +179,14 @@
 
   function smoothScroll(el){
     var _t = 400,
-        _st = win.scrollY||win.pageYOffset,
+        _st = (win.scrollY||win.pageYOffset||Math.abs(doc.querySelector('section').getBoundingClientRect().top
+),
         _f = (el.tagName.toLowerCase()!=='html')?el.getBoundingClientRect().top+_st:-_st,
         _ct = getTime(),
         step = function(){
           var _sf = getTime()-_ct;
-          win.scroll(0,getPos(_t,_st,_f,_sf));
+          if(!!mbl) doc.body.scroll(0,getPos(_t,_st,_f,_sf));
+          else win.scroll(0,getPos(_t,_st,_f,_sf));
           if(_sf>_t){
             if(win.location.hash!==('#'+el.id)){
               win.location.replace('#'+el.id);
