@@ -601,6 +601,7 @@
         throw new Error('Please upgrade your browser!');
         return;
       }
+      
       var wdth = win.innerWidth || doc.documentElement.clientWidth;
       var animating = false;
       var MAIN = doc.querySelector('main');
@@ -727,50 +728,6 @@
           }
         };
         xhr.send();
-      }
-
-      function getPos(_t,_st,_f,_sf){
-        if(_sf>_t) return _f;
-        var d=(_sf/_t);
-        return _st + (_f - _st) * (d<.5?4*d*d*d:(d-1)*(2*d-2)*(2*d-2)+1);
-      }
-
-      function getTime(){
-        return ('performance'in win)?win.performance.now():new Date().getTime();
-      }
-
-      function smoothScroll(el){
-        var _t = 400,
-            _st = win.Math.abs(el.getBoundingClientRect().top),
-            _f = (el.tagName.toLowerCase()!=='html')?el.getBoundingClientRect().top+_st:-_st,
-            _ct = getTime(),
-            step = function(){
-              var _sf = getTime()-_ct;
-              MAIN.scrollTop = getPos(_t,_st,_f,_sf);
-              if(_sf>_t){
-                if(win.location.hash!==('#'+el.id)){
-                  win.location.replace('#'+el.id);
-                }
-                win.requestAnimationFrame(function(){
-                  animating = false;
-                });
-              }
-              else{
-                win.requestAnimationFrame(step);
-              }
-            }
-        animating = true;
-        step();
-      }
-
-      function handleNav(e){
-        var evt = (e.target || this);
-        var node;
-        if(!(evt.hash)) return;
-        typeof e !== 'undefined' && e.preventDefault();
-        node = doc.getElementById(evt.hash.substring(1));
-        if(!node) return;
-        smoothScroll(node);
       }
 
     })(window,window.document,window.document.head,window.document.body);
