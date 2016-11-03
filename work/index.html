@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en" dir="ltr">
   <head>
@@ -17,7 +16,7 @@
     <link rel="publisher" href="https://plus.google.com/+AMDouglasCom">
     <link rel="icon" href="https://amdouglas.com/assets/img/favicon.ico">
     <style>
-      html{-webkit-text-size-adjust:100%;-webkit-font-smoothing:antialiased;-webkit-font-smoothing:subpixel-antialiased;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-overflow-scrolling:touch;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;touch-action:manipulation;font:normal normal 400 16px/1.2 Roboto,-apple-system,Arial,Helmet,Freesans,sans-serif;overflow-y:auto!important;overflow-x:hidden!important}*,:before,:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;-webkit-user-select:none;-moz-user-select:none;touch-action:manipulation;margin:0;padding:0;border:0;font:inherit}:active,:focus{outline:0}article,footer,header,main,nav,section,video{display:block}html,body{height:100%}a{-webkit-text-decoration-skip:objects;text-decoration:none}button,input,textarea{-webkit-appearance:none;-webkit-border-radius:0;border-radius:0;background:0 0}button,img,video{-webkit-touch-callout:none}button,a,img,video{-webkit-user-select:none;-moz-user-select:none}button,a,summary{color:inherit;cursor:pointer}textarea{resize:none}[disabled]{opacity:.6;cursor:not-allowed}[hidden],video::-webkit-media-controls,video::-webkit-media-controls-play-button,video::-webkit-media-controls-volume-slider,video::-webkit-media-controls-mute-button,video::-webkit-media-controls-timeline,video::-webkit-media-controls-current-time-display{display:none}::-webkit-scrollbar{width:4px}::-webkit-scrollbar-thumb{background:#07071c;-webkit-border-radius:4px;border-radius:4px}::-webkit-scrollbar-track{background-color:transparent;background:rgba(0,0,0,0)}::selection{background:#fff;color:#07071c}::-moz-selection{background:#fff;color:#07071c}
+      html{-webkit-text-size-adjust:100%;-webkit-font-smoothing:antialiased;-webkit-font-smoothing:subpixel-antialiased;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-overflow-scrolling:touch;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;touch-action:manipulation;font:normal normal 400 16px/1.2 Roboto,-apple-system,Arial,Helmet,Freesans,sans-serif;overflow:hidden}*,:before,:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;-webkit-user-select:none;-moz-user-select:none;touch-action:manipulation;margin:0;padding:0;border:0;font:inherit}:active,:focus{outline:0}article,footer,header,main,nav,section,video{display:block}html,body{height:100%}a{-webkit-text-decoration-skip:objects;text-decoration:none}button,input,textarea{-webkit-appearance:none;-webkit-border-radius:0;border-radius:0;background:0 0}button,img,video{-webkit-touch-callout:none}button,a,img,video{-webkit-user-select:none;-moz-user-select:none}button,a,summary{color:inherit;cursor:pointer}textarea{resize:none}[disabled]{opacity:.6;cursor:not-allowed}[hidden],video::-webkit-media-controls,video::-webkit-media-controls-play-button,video::-webkit-media-controls-volume-slider,video::-webkit-media-controls-mute-button,video::-webkit-media-controls-timeline,video::-webkit-media-controls-current-time-display{display:none}::-webkit-scrollbar{width:4px}::-webkit-scrollbar-thumb{background:#07071c;-webkit-border-radius:4px;border-radius:4px}::-webkit-scrollbar-track{background-color:transparent;background:rgba(0,0,0,0)}::selection{background:#fff;color:#07071c}::-moz-selection{background:#fff;color:#07071c}
       aside,main {
         min-height: 100%;
       }
@@ -36,8 +35,6 @@
       }
       main {
         position: absolute;
-        -webkit-transform: matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,56,0,0,1);
-        transform: matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,56,0,0,1);
         top: 0;
         left: 0;
         bottom: 0;
@@ -48,11 +45,21 @@
         transition-duration:.3s;
         transition-timing-function:cubic-bezier(.4,0,.2,1);
         transition-property:transform;
+        overflow-y:scroll;
+        -webkit-overflow-scrolling:touch;
       }
       #wrapper {
         position: relative;
-        padding-right:48px;
         background: #f1f1f1;
+      }
+      @media(min-width:768px){
+        main {
+          -webkit-transform: matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,56,0,0,1);
+          transform: matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,56,0,0,1);
+        }
+        #wrapper {
+          padding-right:48px;
+        }
       }
       nav {
         padding: 1rem;
@@ -97,8 +104,10 @@
         position:relative;
       }
       p {
-        margin-top:1.54ex;
         margin-bottom:2ex;
+      }
+      p + p {
+        margin-top:1.54ex;
       }
       article ul {
         list-style-type: square;
@@ -113,6 +122,13 @@
         font-size: calc(1vw + 1vh + .5vmin);
         margin-bottom: .5ex;
         border-bottom: 1px dotted #07071c;
+      }
+      summary {
+        position: relative;
+        z-index: 10;
+      }
+      summary + p {
+        margin-top: 2ex;
       }
       #work h3 {
         margin-bottom:0;
@@ -178,7 +194,7 @@
       }
     </style>
     <style>
-      .container{padding:32px;margin-right:auto;margin-left:auto}.grid{display:block;margin:-16px;font-size:0}.cell{display:block;position:relative;overflow:hidden;padding:16px;min-height:1rem;font-size:16px}@media(min-width:34em){.cell{display:inline-block;width:100%;vertical-align:top;font-size:16px}.sq:after{content:'';display:block;padding-bottom:100%}.sq>a,.sq>div{position:absolute;top:1rem;left:1rem;bottom:1rem;right:1rem}.cell-sm-1{width:8.333333%}.cell-sm-2{width:16.666667%}.cell-sm-3{width:25%}.cell-sm-4{width:33.333333%}.cell-sm-5{width:41.666667%}.cell-sm-6{width:50%}.cell-sm-7{width:58.333333%}.cell-sm-8{width:66.666667%}.cell-sm-9{width:75%}.cell-sm-10{width:83.333333%}.cell-sm-11{width:91.666667%}.cell-sm-12{width:100%}}@media(min-width:48em){.cell-md-1{width:8.333333%}.cell-md-2{width:16.666667%}.cell-md-3{width:25%}.cell-md-4{width:33.333333%}.cell-md-5{width:41.666667%}.cell-md-6{width:50%}.cell-md-7{width:58.333333%}.cell-md-8{width:66.666667%}.cell-md-9{width:75%}.cell-md-10{width:83.333333%}.cell-md-11{width:91.666667%}.cell-md-12{width:100%}}@media(min-width:62em){nav>a{padding:5vh 0}.container{padding:calc(5vh + 16px) calc(4vw + 4vh + 2vmin)}.cell-lg-1{width:8.333333%}.cell-lg-2{width:16.666667%}.cell-lg-3{width:25%}.cell-lg-4{width:33.333333%}.cell-lg-5{width:41.666667%}.cell-lg-6{width:50%}.cell-lg-7{width:58.333333%}.cell-lg-8{width:66.666667%}.cell-lg-9{width:75%}.cell-lg-10{width:83.333333%}.cell-lg-11{width:91.666667%}.cell-lg-12{width:100%}}@media(min-width:96em){.cell-xl-1{width:8.333333%}.cell-xl-2{width:16.666667%}.cell-xl-3{width:25%}.cell-xl-4{width:33.333333%}.cell-xl-5{width:41.666667%}.cell-xl-6{width:50%}.cell-xl-7{width:58.333333%}.cell-xl-8{width:66.666667%}.cell-xl-9{width:75%}.cell-xl-10{width:83.333333%}.cell-xl-11{width:91.666667%}.cell-xl-12{width:100%}}@keyframes flicker{0%{opacity:0}75%{opacity:.1}85%{opacity:.5}95%{opacity:.1}99%{opacity:.5}100%{opacity:1}}.not-loaded{display:none}.loaded{display:block}@supports(animation-name:flicker){.loaded,.repo{opacity:0;animation:flicker 800ms cubic-bezier(.4,1,.2,1) forwards}}
+      .container{padding:32px;margin-right:auto;margin-left:auto}.grid{display:block;margin:-16px;font-size:0}.cell{display:block;position:relative;overflow:hidden;padding:16px;min-height:1rem;font-size:16px}@media(min-width:34em){.cell{display:inline-block;width:100%;vertical-align:top;font-size:16px}.cell-sm-1{width:8.333333%}.cell-sm-2{width:16.666667%}.cell-sm-3{width:25%}.cell-sm-4{width:33.333333%}.cell-sm-5{width:41.666667%}.cell-sm-6{width:50%}.cell-sm-7{width:58.333333%}.cell-sm-8{width:66.666667%}.cell-sm-9{width:75%}.cell-sm-10{width:83.333333%}.cell-sm-11{width:91.666667%}.cell-sm-12{width:100%}}@media(min-width:48em){.sq:after{content:'';display:block;padding-bottom:100%}.sq>a,.sq>div{position:absolute;top:1rem;left:1rem;bottom:1rem;right:1rem}.cell-md-1{width:8.333333%}.cell-md-2{width:16.666667%}.cell-md-3{width:25%}.cell-md-4{width:33.333333%}.cell-md-5{width:41.666667%}.cell-md-6{width:50%}.cell-md-7{width:58.333333%}.cell-md-8{width:66.666667%}.cell-md-9{width:75%}.cell-md-10{width:83.333333%}.cell-md-11{width:91.666667%}.cell-md-12{width:100%}}@media(min-width:62em){nav>a{padding:5vh 0}.container{padding:calc(5vh + 16px) calc(4vw + 4vh + 2vmin)}.cell-lg-1{width:8.333333%}.cell-lg-2{width:16.666667%}.cell-lg-3{width:25%}.cell-lg-4{width:33.333333%}.cell-lg-5{width:41.666667%}.cell-lg-6{width:50%}.cell-lg-7{width:58.333333%}.cell-lg-8{width:66.666667%}.cell-lg-9{width:75%}.cell-lg-10{width:83.333333%}.cell-lg-11{width:91.666667%}.cell-lg-12{width:100%}}@media(min-width:96em){.cell-xl-1{width:8.333333%}.cell-xl-2{width:16.666667%}.cell-xl-3{width:25%}.cell-xl-4{width:33.333333%}.cell-xl-5{width:41.666667%}.cell-xl-6{width:50%}.cell-xl-7{width:58.333333%}.cell-xl-8{width:66.666667%}.cell-xl-9{width:75%}.cell-xl-10{width:83.333333%}.cell-xl-11{width:91.666667%}.cell-xl-12{width:100%}}@keyframes flicker{0%{opacity:0}75%{opacity:.1}85%{opacity:.5}95%{opacity:.1}99%{opacity:.5}100%{opacity:1}}.not-loaded{display:none}.loaded{display:block}@supports(animation-name:flicker){.loaded,.repo{opacity:0;animation:flicker 800ms cubic-bezier(.4,1,.2,1) forwards}}
     </style>
     <style media="print">
       main{transform:none}
@@ -222,7 +238,7 @@
           </div>
         </header>
         <section class="grid">
-          <article class="cell cell-sm-6">
+          <article class="cell cell-md-6">
             <div>
               <h3>Background</h3>
               <p>
@@ -242,7 +258,7 @@
               </p>
             </div>
           </article>
-          <article class="cell cell-sm-6">
+          <article class="cell cell-md-6">
             <div>
               <h3>Skills</h3>
               <div class="grid">
@@ -303,7 +319,7 @@
           </div>
         </header>
         <section class="grid">
-          <article class="cell cell-sm-6">
+          <article class="cell cell-md-6">
             <div>
               <small>2016 &ndash;</small>
               <h3>Freelance</h3>
@@ -344,7 +360,7 @@
               </details>
             </div>
           </article>
-          <article class="cell cell-sm-6">
+          <article class="cell cell-md-6">
             <div>
               <small>2015 &ndash; 2016</small>
               <h3>Raw Creative Ltd.</h3>
@@ -379,7 +395,7 @@
               </details>
             </div>
           </article>
-          <article class="cell cell-sm-6">
+          <article class="cell cell-md-6">
             <div>
               <small>2014 &ndash; 2015</small>
               <h3>XMLi5 Ltd.</h3>
@@ -417,7 +433,7 @@
               </details>
             </div>
           </article>
-          <article class="cell cell-sm-6">
+          <article class="cell cell-md-6">
             <div>
               <small>2009 &ndash; 2014</small>
               <h3>Freelance</h3>
@@ -460,7 +476,7 @@
               </details>
             </div>
           </article>
-          <article class="cell cell-sm-6">
+          <article class="cell cell-md-6">
             <div>
               <small>2008 &ndash; 2009</small>
               <h3>Take Note Typing Ltd.</h3>
@@ -484,7 +500,7 @@
           </div>
         </header>
         <section class="grid">
-          <article class="cell cell-sm-4 sq">
+          <article class="cell cell-md-4 sq">
             <div>
               <h3>Chichester College</h3>
               <ul>
@@ -493,7 +509,7 @@
               </ul>
             </div>
           </article>
-          <article class="cell cell-sm-4 sq">
+          <article class="cell cell-md-4 sq">
             <div>
               <h3>Havant College</h3>
               <ul>
@@ -503,7 +519,7 @@
               </ul>
             </div>
           </article>
-          <article class="cell cell-sm-4 sq">
+          <article class="cell cell-md-4 sq">
             <div>
               <h3>The Hayling School</h3>
               <ul>
@@ -580,12 +596,14 @@
       var nav_links = doc.querySelectorAll('.nav-link');
 
       win.addEventListener('load',handleLoad,false);
-      if('ontouchstart' in window){
-        ASIDE.addEventListener('touchstart',handleHover,false);
-        ASIDE.addEventListener('touchend',handleHoverOut,false);
+
+      if(wdth >= 768){
+        ASIDE.addEventListener('mouseover',handleHover,false);
+        ASIDE.addEventListener('mouseout',handleHoverOut,false);
       }
-      ASIDE.addEventListener('mouseover',handleHover,false);
-      ASIDE.addEventListener('mouseout',handleHoverOut,false);
+      else {
+
+      }
 
       for(var o = 0;o<nav_links.length;++o) nav_links[o].addEventListener('click',handleNav,false);
 
