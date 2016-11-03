@@ -79,16 +79,10 @@
       h1,nav > a {
         font-weight: 700;
         font-size: 1rem;
-        font-size: -webkit-calc(2vw + 2vh + 1vmin);
-        font-size: calc(2vw + 2vh + 1vm);
-        font-size: calc(2vw + 2vh + 1vmin);
       }
       h2 {
         font-weight: 700;
         font-size: 1rem;
-        font-size: -webkit-calc(1.2vw + 1.2vh + 1vmin);
-        font-size: calc(1.2vw + 1.2vh + 1vm);
-        font-size: calc(1.2vw + 1.2vh + 1vmin);
       }
       article > a,
       article > div {
@@ -117,9 +111,6 @@
       h3 {
         font-weight: 500;
         font-size: 16px;
-        font-size: -webkit-calc(1vw + 1vh + .5vmin);
-        font-size: calc(1vw + 1vh + .5vm);
-        font-size: calc(1vw + 1vh + .5vmin);
         margin-bottom: .5ex;
         border-bottom: 1px dotted #07071c;
       }
@@ -155,11 +146,30 @@
       .sq h4 {
         font-weight:500;
         font-size: 16px;
-        font-size: -webkit-calc(1vw + 1vh + .5vmin);
-        font-size: calc(1vw + 1vh + .5vm);
-        font-size: calc(1vw + 1vh + .5vmin);
         margin-bottom: .5ex;
         border-bottom: 1px dotted #07071c;
+      }
+      @media (min-width:768px){
+        h1,nav > a {
+          font-size: -webkit-calc(2vw + 2vh + 1vmin);
+          font-size: calc(2vw + 2vh + 1vm);
+          font-size: calc(2vw + 2vh + 1vmin);
+        }
+        h2 {
+          font-size: -webkit-calc(1.2vw + 1.2vh + 1vmin);
+          font-size: calc(1.2vw + 1.2vh + 1vm);
+          font-size: calc(1.2vw + 1.2vh + 1vmin);
+        }
+        h3 {
+          font-size: -webkit-calc(1vw + 1vh + .5vmin);
+          font-size: calc(1vw + 1vh + .5vm);
+          font-size: calc(1vw + 1vh + .5vmin);
+        }
+        .sq h4{
+          font-size: -webkit-calc(1vw + 1vh + .5vmin);
+          font-size: calc(1vw + 1vh + .5vm);
+          font-size: calc(1vw + 1vh + .5vmin);
+        }
       }
       .tags{
         position: absolute;
