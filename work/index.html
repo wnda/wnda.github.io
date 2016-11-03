@@ -561,10 +561,14 @@
                               : 'msTransform' in MAIN.style ? 'msTransform'
                                 : 'oTransform' in MAIN.style ? 'oTransform'
                                   : !1;
+      var nav_links = doc.querySelectorAll('.nav-link');
 
       win.addEventListener('load',handleLoad,false);
       ASIDE.addEventListener('mouseover',handleHover,false);
       ASIDE.addEventListener('mouseout',handleHoverOut,false);
+      
+      for(var o = 0;o<nav_links.length;++o) nav_links[o].addEventListener('click',handleNav,false);
+      
       loadStylesheets(['https://amdouglas.com/assets/css/fonts.css']);
 
       win.z = function(a){
@@ -655,6 +659,54 @@
           }
         };
         xhr.send();
+      }
+      
+      function getPos(_t,_st,_f,_sf){
+        if(_sf>_t) return _f;
+        var d=(_sf/_t);
+        return _st + (_f - _st) * (d<.5?4*d*d*d:(d-1)*(2*d-2)*(2*d-2)+1);
+      }
+
+      function getTime(){
+        return ('performance'in win)?win.performance.now():new Date().getTime();
+      }
+
+      function smoothScroll(el){
+        var _t = 400,
+            _st = (win.scrollY || win.pageYOffset || Math.abs(doc.querySelector('section').getBoundingClientRect().top
+    )),
+            _f = (el.tagName.toLowerCase()!=='html')?el.getBoundingClientRect().top+_st:-_st,
+            _ct = getTime(),
+            step = function(){
+              var _sf = getTime()-_ct;
+              if(!!mbl){
+                doc.body.scrollTop = getPos(_t,_st,_f,_sf);
+              } else {
+                win.scroll(0,getPos(_t,_st,_f,_sf));
+              }
+              if(_sf>_t){
+                if(win.location.hash!==('#'+el.id)){
+                  win.location.replace('#'+el.id);
+                }
+                win.requestAnimationFrame(function(){
+                  animating = false;
+                  addActiveClass();
+                });
+              }
+              else{
+                win.requestAnimationFrame(step);
+              }
+            }
+        animating = true;
+        step();
+      }
+      
+      function handleNav(e){
+        typeof e !== 'undefined' && e.preventDefault();
+        var evt = (e.target || this),
+            node = doc.getElementById(evt.hash.substring(1));
+        if(!node) return;
+        smoothScroll(node);
       }
 
     })(window,window.document,window.document.head,window.document.body);
