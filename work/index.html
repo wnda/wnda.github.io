@@ -754,9 +754,11 @@
       }
 
       function handleNav(e){
+        var evt = (e.target || this);
+        var node;
+        if(!(evt.hash)) return;
         typeof e !== 'undefined' && e.preventDefault();
-        var evt = (e.target || this),
-            node = doc.getElementById(evt.hash.substring(1));
+        node = doc.getElementById(evt.hash.substring(1));
         if(!node) return;
         smoothScroll(node);
       }
