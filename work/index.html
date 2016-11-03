@@ -741,7 +741,7 @@
 
       function smoothScroll(el){
         var _t = 400,
-            _st = el.getBoundingClientRect().top,
+            _st = win.Math.abs(MAIN.getBoundingClientRect().top),
             _f = (el.tagName.toLowerCase()!=='html')?el.getBoundingClientRect().top+_st:-_st,
             _ct = getTime(),
             step = function(){
