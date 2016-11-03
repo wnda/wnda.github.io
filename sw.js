@@ -2,9 +2,9 @@
 
 self.importScripts('https://amdouglas.com/assets/js/serviceworker-cache-polyfill.js');
 
-var CACHE_VERSION = 40;
+var CACHE_VERSION = 2;
 var CURRENT_CACHES = {
-  prefetch: 'amd-v' + CACHE_VERSION
+  prefetch: 'amdgls-v' + CACHE_VERSION
 };
 
 self.addEventListener('install', function(event) {
