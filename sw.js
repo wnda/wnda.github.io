@@ -16,7 +16,7 @@ self.addEventListener('install', function(event) {
     '/assets/fonts/Rubik-Regular.woff2', // if a browser doesn't support woff2, it certainly won't support SW
     '/assets/fonts/Rubik-Bold.woff2',
     '/favicon.ico',
-    '/offline.html',
+    '/offline/',
     '/manifest.json'
   ];
   self.skipWaiting();
@@ -49,7 +49,7 @@ self.addEventListener('fetch', function(event){
     event.respondWith(
       fetch(event.request.url)
         .catch(function(){
-          return caches.match('/offline.html');
+          return caches.match('/offline/');
         })
     );
   }
