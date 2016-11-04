@@ -70,6 +70,7 @@
       }
     </script>
     <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-font" src="https://cdn.ampproject.org/v0/amp-font-0.1.js"></script>
     <script async custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
     <script async custom-element="amp-user-notification" src="https://cdn.ampproject.org/v0/amp-user-notification-0.1.js"></script>
     <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
@@ -323,11 +324,11 @@
           <p>If that sounds complicated, it's not about to get any simpler:</p>
           <pre class="language-javascript">
             <code class=" language-javascript">
-<span class="token comment" spellcheck="true">// First, create a variable to be a reference to our animation later, </span>
-<span class="token comment" spellcheck="true">// so by using a closure, we can start, stop and cancel the animation.</span>
+<span class="token comment">// First, create a variable to be a reference to our animation later, </span>
+<span class="token comment">// so by using a closure, we can start, stop and cancel the animation.</span>
 <span class="token keyword">var</span> marquee<span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">// Then let's grab the element we're going to move around</span>
+<span class="token comment">// Then let's grab the element we're going to move around</span>
 <span class="token keyword">var</span> marquee_el <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span> <span class="token string">'.grid.marquee'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment" spellcheck="true">// and its children, so we know how much we have to move it around by</span>
@@ -342,20 +343,20 @@
   */</span>
   <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token keyword">typeof</span> marquee <span class="token operator">!==</span> <span class="token string">'undefined'</span> <span class="token punctuation">)</span> marquee<span class="token punctuation">.</span><span class="token function">cancel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-  <span class="token comment" spellcheck="true">// We set this dynamically, so the thing will </span>
-  <span class="token comment" spellcheck="true">// gracefully degrade to a typical grid of items</span>
+  <span class="token comment">// We set this dynamically, so the thing will </span>
+  <span class="token comment">// gracefully degrade to a typical grid of items</span>
   marquee_el<span class="token punctuation">.</span>style<span class="token punctuation">.</span>whiteSpace <span class="token operator">=</span> <span class="token string">'nowrap'</span><span class="token punctuation">;</span>
 
-  <span class="token comment" spellcheck="true">// Create a variable for the distance by which</span>
-  <span class="token comment" spellcheck="true">// the grid element will be transformed</span>
+  <span class="token comment">// Create a variable for the distance by which</span>
+  <span class="token comment">// the grid element will be transformed</span>
   <span class="token keyword">var</span> displacement <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 
-  <span class="token comment" spellcheck="true">// Add up the width of all the elements in the marquee</span>
+  <span class="token comment">// Add up the width of all the elements in the marquee</span>
   <span class="token keyword">for</span> <span class="token punctuation">(</span> <span class="token keyword">var</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> children<span class="token punctuation">.</span>length<span class="token punctuation">;</span> <span class="token operator">++</span>j <span class="token punctuation">)</span> <span class="token punctuation">{</span>
     displacement <span class="token operator">+</span><span class="token operator">=</span> children<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">.</span>clientWidth<span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 
-  <span class="token comment" spellcheck="true">/*
+  <span class="token comment">/*
   Crucial: subtract the width of the container;
   Optional: take the opportunity to round the displacement
   value down to the nearest pixel. The browser may thank
@@ -363,13 +364,13 @@
   */</span>
   displacement <span class="token operator">=</span> <span class="token punctuation">(</span>displacement <span class="token operator">-</span> marquee_el<span class="token punctuation">.</span>clientWidth<span class="token punctuation">)</span> <span class="token operator">&lt;</span><span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">;</span>
 
-  <span class="token comment" spellcheck="true">/*
+  <span class="token comment">/*
   Now for the juicy part. The WAAPI.
   By using the variable 'marquee' we created in the parent scope,
   we can easily use the reference to pause/cancel the animation later
   */</span>
   marquee <span class="token operator">=</span> marquee_el<span class="token punctuation">.</span><span class="token function">animate</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
-    <span class="token comment" spellcheck="true">/*
+    <span class="token comment">/*
     element.animate() accepts two arguments: an array of keyframes
     and a sort of configuration object, much like the CSS syntax.
 
@@ -381,33 +382,33 @@
     */</span>
     <span class="token punctuation">{</span>transform<span class="token punctuation">:</span><span class="token string">'matrix(1,0.00,0.00,1, 0, 0)'</span><span class="token punctuation">,</span> offset<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
     <span class="token punctuation">{</span>transform<span class="token punctuation">:</span><span class="token string">'matrix(1,0.00,0.00,1,'</span><span class="token operator">+</span> <span class="token operator">-</span>displacement <span class="token operator">+</span><span class="token string">', 0)'</span><span class="token punctuation">,</span> offset<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">}</span>
-    <span class="token comment" spellcheck="true">// you don't have to use matrix, I just like it.</span>
+    <span class="token comment">// you don't have to use matrix, I just like it.</span>
   <span class="token punctuation">]</span><span class="token punctuation">,</span>
   <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// 1 second for each element in marquee</span>
-    <span class="token comment" spellcheck="true">// Entirely arbitrary decision</span>
+    <span class="token comment">// 1 second for each element in marquee</span>
+    <span class="token comment">// Entirely arbitrary decision</span>
     duration<span class="token punctuation">:</span> children<span class="token punctuation">.</span>length <span class="token operator">*</span> <span class="token number">1e3</span><span class="token punctuation">,</span>
 
-    <span class="token comment" spellcheck="true">/*
+    <span class="token comment">/*
     Can be 'ease', 'cubic-bezier(.4,0,.2,1)', etc.
     can also be a stepping function, like 'steps(4)', 'steps(10, end)'
     see 'MDN: Using the Web Animations API' (https://goo.gl/PtVEkQ)
     */</span>
     easing<span class="token punctuation">:</span> <span class="token string">'linear'</span><span class="token punctuation">,</span>
 
-    <span class="token comment" spellcheck="true">// Useful if you don't want the animation to start until your content</span>
-    <span class="token comment" spellcheck="true">// has loaded from, say, a REST API and you want to speculate a </span>
-    <span class="token comment" spellcheck="true">// reasonable time for that to take</span>
+    <span class="token comment">// Useful if you don't want the animation to start until your content</span>
+    <span class="token comment">// has loaded from, say, a REST API and you want to speculate a </span>
+    <span class="token comment">// reasonable time for that to take</span>
     delay<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
 
-    <span class="token comment" spellcheck="true">// Kind of crucial for what we want to make...</span>
-    <span class="token comment" spellcheck="true">// NB: 'Infinity' not 'infinite'</span>
+    <span class="token comment">// Kind of crucial for what we want to make...</span>
+    <span class="token comment">// NB: 'Infinity' not 'infinite'</span>
     iterations<span class="token punctuation">:</span> <span class="token number">Infinity</span><span class="token punctuation">,</span>
 
-    <span class="token comment" spellcheck="true">// Invert animation after completion, so it scrolls backwards */</span>
+    <span class="token comment">// Invert animation after completion, so it scrolls backwards */</span>
     direction<span class="token punctuation">:</span> <span class="token string">'alternate'</span><span class="token punctuation">,</span>
 
-    <span class="token comment" spellcheck="true">/*
+    <span class="token comment">/*
     You would use this if your animation is set to occur only a
     finite number of times, and you wanted the animated element to finish at
     the end keyframe, rather than the first keyframe
@@ -450,21 +451,21 @@
           <p>Yeah, pretty brief. Of course, you still need to check to see if your user's browser supports WAAPI and then you ought to plan for things like a browser viewport resize, and add some event handlers to take care of the user hovering on one of the scrolling items for a closer look:</p>
           <pre class="language-javascript">
             <code class=" language-javascript">
-<span class="token comment" spellcheck="true">// quick check for the WAAPI method</span>
+<span class="token comment">// quick check for the WAAPI method</span>
 <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token string">'animate'</span> <span class="token keyword">in</span> marquee_el <span class="token operator">&amp;&amp;</span> <span class="token keyword">typeof</span> marquee_el<span class="token punctuation">.</span>animate <span class="token operator">===</span> <span class="token string">'function'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-  <span class="token comment" spellcheck="true">// okay, let's fire up the marquee!</span>
+  <span class="token comment">// okay, let's fire up the marquee!</span>
   <span class="token function">createMarquee</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-  <span class="token comment" spellcheck="true">// now for the playing/pausing</span>
+  <span class="token comment">// now for the playing/pausing</span>
   marquee_el<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'mouseenter'</span><span class="token punctuation">,</span> pauseMarquee<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   marquee_el<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'mouseleave'</span><span class="token punctuation">,</span> playMarquee<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-  <span class="token comment" spellcheck="true">// and resizing</span>
+  <span class="token comment">// and resizing</span>
   window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'resize'</span><span class="token punctuation">,</span> <span class="token function">debounce</span><span class="token punctuation">(</span> createMarquee <span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">/*
+  <span class="token comment">/*
   Let's say hello to those using Safari
   or indeed users of IE, not-recently-updated FF, old Chrome, old Opera, etc.
   They will see a standard grid of items
@@ -472,21 +473,21 @@
   console<span class="token punctuation">.</span><span class="token function">warn</span><span class="token punctuation">(</span><span class="token string">'Your browser does not support the Web Animation API'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-<span class="token comment" spellcheck="true">// pretty self-explanatory</span>
-<span class="token comment" spellcheck="true">// though this is why we needed that closure I mentioned</span>
+<span class="token comment">// pretty self-explanatory</span>
+<span class="token comment">// though this is why we needed that closure I mentioned</span>
 <span class="token keyword">function</span> <span class="token function">playMarquee</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span> marquee<span class="token punctuation">.</span>playState <span class="token operator">&amp;&amp;</span> marquee<span class="token punctuation">.</span>playState <span class="token operator">===</span> <span class="token string">'paused'</span> <span class="token punctuation">)</span>
     marquee<span class="token punctuation">.</span><span class="token function">play</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-<span class="token comment" spellcheck="true">// again, pretty self-explanatory</span>
+<span class="token comment">// again, pretty self-explanatory</span>
 <span class="token keyword">function</span> <span class="token function">pauseMarquee</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span> marquee<span class="token punctuation">.</span>playState <span class="token operator">&amp;&amp;</span> marquee<span class="token punctuation">.</span>playState <span class="token operator">===</span> <span class="token string">'running'</span> <span class="token punctuation">)</span>
     marquee<span class="token punctuation">.</span><span class="token function">pause</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-<span class="token comment" spellcheck="true">// a debouncing function using requestAnimationFrame</span>
-<span class="token comment" spellcheck="true">// this is just an easy-to-use wrapper I like to use for event handlers</span>
+<span class="token comment">// a debouncing function using requestAnimationFrame</span>
+<span class="token comment">// this is just an easy-to-use wrapper I like to use for event handlers</span>
 <span class="token keyword">function</span> <span class="token function">debounce</span><span class="token punctuation">(</span>func<span class="token punctuation">)</span><span class="token punctuation">{</span>
   <span class="token keyword">var</span> scheduled<span class="token punctuation">,</span> context<span class="token punctuation">,</span> args<span class="token punctuation">;</span>
   <span class="token keyword">return</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
