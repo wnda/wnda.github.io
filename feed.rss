@@ -6,22 +6,103 @@
     <link>https://amdouglas.com/</link>
     <generator>AMD 3.1.0</generator>
     <lastBuildDate></lastBuildDate>
-    <atom:link href="https://amdouglas.com/rss/" rel="self" type="application/rss+xml"/>
+    <atom:link href="https://amdouglas.com/feed.rss" rel="self" type="application/rss+xml"/>
     <ttl>60</ttl>
     <item>
-      <title><![CDATA[ ]]></title>
-      <link>https://amdouglas.com/asynchronous-css-the-easy-way/</link>
-    </item>
-    <item>
-      <title><![CDATA[ ]]></title>
-      <description><![CDATA[ ]]></description>
-      <link>https://amdouglas.com/asynchronous-css-the-easy-way/</link>
-      <guid isPermaLink="true">https://amdouglas.com/asynchronous-css-the-easy-way/</guid>
-      <category><![CDATA[ ]]></category>
-      <category><![CDATA[ ]]></category>
+      <title><![CDATA[]]></title>
+      <description><![CDATA[]]></description>
+      <link></link>
+      <guid isPermaLink="true"></guid>
+      <category><![CDATA[]]></category>
+      <category><![CDATA[]]></category>
       <dc:creator><![CDATA[A. M. Douglas]]></dc:creator>
       <pubDate>Tue, 30 Sep 2016 21:38:34 GMT</pubDate>
-      <content:encoded><![CDATA[ ]]></content:encoded>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    <item>
+      <title><![CDATA[]]></title>
+      <description><![CDATA[]]></description>
+      <link></link>
+      <guid isPermaLink="true"></guid>
+      <category><![CDATA[]]></category>
+      <category><![CDATA[]]></category>
+      <dc:creator><![CDATA[A. M. Douglas]]></dc:creator>
+      <pubDate>Tue, 30 Sep 2016 21:38:34 GMT</pubDate>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    <item>
+      <title><![CDATA[]]></title>
+      <description><![CDATA[]]></description>
+      <link></link>
+      <guid isPermaLink="true"></guid>
+      <category><![CDATA[]]></category>
+      <category><![CDATA[]]></category>
+      <dc:creator><![CDATA[A. M. Douglas]]></dc:creator>
+      <pubDate>Tue, 30 Sep 2016 21:38:34 GMT</pubDate>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    <item>
+      <title><![CDATA[]]></title>
+      <description><![CDATA[]]></description>
+      <link></link>
+      <guid isPermaLink="true"></guid>
+      <category><![CDATA[]]></category>
+      <category><![CDATA[]]></category>
+      <dc:creator><![CDATA[A. M. Douglas]]></dc:creator>
+      <pubDate>Tue, 30 Sep 2016 21:38:34 GMT</pubDate>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    <item>
+      <title><![CDATA[]]></title>
+      <description><![CDATA[]]></description>
+      <link></link>
+      <guid isPermaLink="true"></guid>
+      <category><![CDATA[]]></category>
+      <category><![CDATA[]]></category>
+      <dc:creator><![CDATA[A. M. Douglas]]></dc:creator>
+      <pubDate>Tue, 30 Sep 2016 21:38:34 GMT</pubDate>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    <item>
+      <title><![CDATA[]]></title>
+      <description><![CDATA[]]></description>
+      <link></link>
+      <guid isPermaLink="true"></guid>
+      <category><![CDATA[]]></category>
+      <category><![CDATA[]]></category>
+      <dc:creator><![CDATA[A. M. Douglas]]></dc:creator>
+      <pubDate>Tue, 30 Sep 2016 21:38:34 GMT</pubDate>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    <item>
+      <title><![CDATA[]]></title>
+      <description><![CDATA[]]></description>
+      <link></link>
+      <guid isPermaLink="true"></guid>
+      <category><![CDATA[]]></category>
+      <category><![CDATA[]]></category>
+      <dc:creator><![CDATA[A. M. Douglas]]></dc:creator>
+      <pubDate>Tue, 30 Sep 2016 21:38:34 GMT</pubDate>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    <item>
+      <title><![CDATA[]]></title>
+      <description><![CDATA[By now, if you're a frequent web trawler like me, you'll have come across articles discussing the new CSS Grid spec. The Grid is touted as a harbinger of an end to markup-dependent grid systems...]]></description>
+      <link></link>
+      <guid isPermaLink="true"></guid>
+      <category><![CDATA[CSS]]></category>
+      <dc:creator><![CDATA[A. M. Douglas]]></dc:creator>
+      <pubDate>Sat, 12 Dec 2015 20:59:57 GMT</pubDate>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    <item>
+      <title><![CDATA[Abstracting the DOM]]></title>
+      <description><![CDATA[Summary: neither of these solutions can be considered performant. On the one hand, you're loading dozens of resources for shadow DOM trees...]]></description>
+      <link>https://amdouglas.com/blog/abstracting-the-dom/</link>
+      <guid isPermaLink="true">https://amdouglas.com/blog/abstracting-the-dom/</guid>
+      <category><![CDATA[JavaScript]]></category>
+      <dc:creator><![CDATA[A. M. Douglas]]></dc:creator>
+      <pubDate>Thu, 03 Dec 2015 23:22:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
