@@ -1,0 +1,124 @@
+{
+  "blog": [
+    {
+      "id": "4adef3b5-c418-487a-aacc-b82173ca299b",
+      "title": "Meet the new Web Animations API",
+      "route": "meet-the-new-web-animations-api",
+      "author": "A. M. Douglas",
+      "description": "While browser support for the Web Animations API may look rather bleak at the moment, when the other browsers catch up, it will be the sharpest and fastest way to animate anything without resorting to WebGL...",
+      "url": "https://amdouglas.com/blog/meet-the-new-web-animations-api/",
+      "date_published": "2016-10-28T08:00:02.000Z",
+      "date_updated": "2016-10-28T08:00:02.000Z",
+      "tags": ["javascript","css"],
+      "language": "en-gb"
+    },
+    {
+      "id": "3379b149-d703-4001-a7ed-706c24e409e6",
+      "title": "",
+      "route": "",
+      "author": "A. M. Douglas",
+      "description": "",
+      "url": "https://amdouglas.com/blog/",
+      "date_published": "",
+      "date_updated": "",
+      "tags": ["",""],
+      "language": "en-gb"
+    },
+    {
+      "id": "",
+      "title": "",
+      "route": "",
+      "author": "A. M. Douglas",
+      "description": "",
+      "url": "https://amdouglas.com/blog/",
+      "date_published": "",
+      "date_updated": "",
+      "tags": ["",""],
+      "language": "en-gb"
+    },
+    {
+      "id": "",
+      "title": "",
+      "route": "",
+      "author": "A. M. Douglas",
+      "description": "",
+      "url": "https://amdouglas.com/blog/",
+      "date_published": "",
+      "date_updated": "",
+      "tags": ["",""],
+      "language": "en-gb"
+    },
+    {
+      "id": "",
+      "title": "",
+      "route": "",
+      "author": "A. M. Douglas",
+      "description": "",
+      "url": "https://amdouglas.com/blog/",
+      "date_published": "",
+      "date_updated": "",
+      "tags": ["",""],
+      "language": "en-gb"
+    },
+    {
+      "id": "",
+      "title": "",
+      "route": "",
+      "author": "A. M. Douglas",
+      "description": "",
+      "url": "https://amdouglas.com/blog/",
+      "date_published": "",
+      "date_updated": "",
+      "tags": ["",""],
+      "language": "en-gb"
+    },
+    {
+      "id": "",
+      "title": "",
+      "route": "",
+      "author": "A. M. Douglas",
+      "description": "",
+      "url": "https://amdouglas.com/blog/",
+      "date_published": "",
+      "date_updated": "",
+      "tags": ["",""],
+      "language": "en-gb"
+    },
+    {
+      "id": "",
+      "title": "",
+      "route": "",
+      "author": "A. M. Douglas",
+      "description": "",
+      "url": "https://amdouglas.com/blog/",
+      "date_published": "",
+      "date_updated": "",
+      "tags": ["",""],
+      "language": "en-gb"
+    },
+    {
+      "id": "",
+      "title": "",
+      "route": "",
+      "author": "A. M. Douglas",
+      "description": "",
+      "url": "https://amdouglas.com/blog/",
+      "date_published": "",
+      "date_updated": "",
+      "tags": ["",""],
+      "language": "en-gb"
+    },
+    {
+      "id": "",
+      "title": "",
+      "route": "",
+      "author": "A. M. Douglas",
+      "description": "",
+      "url": "https://amdouglas.com/blog/",
+      "date_published": "",
+      "date_updated": "",
+      "tags": ["",""],
+      "language": "en-gb"
+    }
+  ]
+}
