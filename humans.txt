@@ -1,3 +1,1 @@
-Developer: Adam Michael Douglas
-Designer: Adam Michael Douglas
-Author: Adam Michael Douglas
+This website was lovingly designed and developed by Adam Michael Douglas, who is also the sole author of its articles, open source software utilities and external websites where indicated.
