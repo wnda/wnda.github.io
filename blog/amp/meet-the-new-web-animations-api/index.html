@@ -331,12 +331,12 @@
 <span class="token comment">// Then let's grab the element we're going to move around</span>
 <span class="token keyword">var</span> marquee_el <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span> <span class="token string">'.grid.marquee'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">// and its children, so we know how much we have to move it around by</span>
+<span class="token comment">// and its children, so we know how much we have to move it around by</span>
 <span class="token keyword">var</span> children <span class="token operator">=</span> marquee_el<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span> <span class="token string">'.cell'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token keyword">function</span> <span class="token function">createMarquee</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
 
-  <span class="token comment" spellcheck="true">/*
+  <span class="token comment">/*
   We're going to recreate the marquee animation
   when the viewport is resized, so get rid of
   any existing animation first
