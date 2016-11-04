@@ -1,99 +1,112 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet title="XSL_formatting" type="text/xsl" href="/assets/xslt/rss.xsl"?>
 <rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
     <title><![CDATA[Blog &#xb7; A. M. Douglas &#xb7; Full-stack Web Developer &#xb7; Leeds, UK]]></title>
     <description><![CDATA[The blog of Adam Michael Douglas, a web developer operating on a freelance basis in the city of Leeds, UK. ]]></description>
-    <link>https://amdouglas.com/</link>
+    <link>https://amdouglas.com/blog/</link>
     <generator>AMD 3.1.0</generator>
     <lastBuildDate>Fri, 04 Nov 2016 04:30:51 GMT</lastBuildDate>
+    <copyright><![CDATA[(c)2016 A. M. Douglas, see https://amdouglas.com/terms-conditions-privacy/ for terms and conditions of reuse.]]></copyright>
+    <language><![CDATA[en-gb]]></language>
     <atom:link href="https://amdouglas.com/rss.xml" rel="self" type="application/rss+xml"/>
     <ttl>3600</ttl>
     <item>
       <title><![CDATA[Meet the new Web Animations API]]></title>
-      <description><![CDATA[]]></description>
+      <description><![CDATA[While browser support for the Web Animations API may look rather bleak at the moment, when the other browsers catch up, it will be the sharpest and fastest way to animate anything without resorting to WebGL...]]></description>
       <link>https://amdouglas.com/blog/meet-the-new-web-animations-api/</link>
       <guid isPermaLink="true">https://amdouglas.com/blog/meet-the-new-web-animations-api/</guid>
       <category><![CDATA[JavaScript]]></category>
       <category><![CDATA[CSS]]></category>
       <dc:creator><![CDATA[A. M. Douglas]]></dc:creator>
-      <pubDate>Fri, 28 Oct 2016 21:38:34 GMT</pubDate>
-      <content:encoded><![CDATA[]]></content:encoded>
+      <pubDate>Fri, 28 Oct 2016 08:00:02 GMT</pubDate>
     </item>
     <item>
-      <title><![CDATA[]]></title>
-      <description><![CDATA[]]></description>
-      <link></link>
-      <guid isPermaLink="true"></guid>
-      <category><![CDATA[]]></category>
-      <category><![CDATA[]]></category>
+      <title><![CDATA[Asynchronous CSS: the easy way]]></title>
+      <description><![CDATA[If you've ever looked into asynchronously handling fonts, you've probably read about FilamentGroup's method using link rel=preload, which might look like a hack, but this is actually what the preload spec is for...]]></description>
+      <link>https://amdouglas.com/blog/asynchronous-css-the-easy-way/</link>
+      <guid isPermaLink="true">https://amdouglas.com/blog/asynchronous-css-the-easy-way/</guid>
+      <category><![CDATA[JavaScript]]></category>
+      <category><![CDATA[CSS]]></category>
+      <category><![CDATA[HTML5]]></category>
       <dc:creator><![CDATA[A. M. Douglas]]></dc:creator>
-      <pubDate>Tue, 30 Sep 2016 21:38:34 GMT</pubDate>
-      <content:encoded><![CDATA[]]></content:encoded>
+      <pubDate>Fri, 30 Sep 2016 23:32:46 GMT</pubDate>
     </item>
     <item>
-      <title><![CDATA[]]></title>
-      <description><![CDATA[]]></description>
-      <link></link>
-      <guid isPermaLink="true"></guid>
-      <category><![CDATA[]]></category>
-      <category><![CDATA[]]></category>
+      <title><![CDATA[Stripe Custom Form in Vanilla JS: Part I]]></title>
+      <description><![CDATA[Given that it's coming up to Christmas, there obviously couldn't be a more appropriate time to think about adding or customising an e-commerce experience with your own take on the Stripe form...]]></description>
+      <link>https://amdouglas.com/blog/stripe-custom-form-in-vanilla-js/</link>
+      <guid isPermaLink="true">https://amdouglas.com/blog/stripe-custom-form-in-vanilla-js/</guid>
+      <category><![CDATA[JavaScript]]></category>
+      <category><![CDATA[Stripe]]></category>
       <dc:creator><![CDATA[A. M. Douglas]]></dc:creator>
-      <pubDate>Tue, 30 Sep 2016 21:38:34 GMT</pubDate>
-      <content:encoded><![CDATA[]]></content:encoded>
+      <pubDate>Tue, 20 Sep 2016 21:38:34 GMT</pubDate>
     </item>
     <item>
-      <title><![CDATA[]]></title>
-      <description><![CDATA[]]></description>
-      <link></link>
-      <guid isPermaLink="true"></guid>
-      <category><![CDATA[]]></category>
-      <category><![CDATA[]]></category>
+      <title><![CDATA[Lazyloading CSS background images]]></title>
+      <description><![CDATA[As a rule, I generally prefer, for the purposes of accessibility and SEO, to use IMG elements to display images over the background-image approach...]]></description>
+      <link>https://amdouglas.com/blog/lazyloading-css-background-images/</link>
+      <guid isPermaLink="true">https://amdouglas.com/blog/lazyloading-css-background-images/</guid>
+      <category><![CDATA[CSS]]></category>
+      <category><![CDATA[JavaScript]]></category>
       <dc:creator><![CDATA[A. M. Douglas]]></dc:creator>
-      <pubDate>Tue, 30 Sep 2016 21:38:34 GMT</pubDate>
-      <content:encoded><![CDATA[]]></content:encoded>
+      <pubDate>Sat, 20 Aug 2016 21:35:46 GMT</pubDate>
     </item>
     <item>
-      <title><![CDATA[]]></title>
-      <description><![CDATA[]]></description>
-      <link></link>
-      <guid isPermaLink="true"></guid>
-      <category><![CDATA[]]></category>
-      <category><![CDATA[]]></category>
+      <title><![CDATA[Why the new fetch API is broken]]></title>
+      <description><![CDATA[There is probably no DOM API more loathed than the XMLHttpRequest, but is the hatred really justified? It probably was when web browsers did not implement it consistently...]]></description>
+      <link>https://amdouglas.com/blog/why-the-new-fetch-api-is-broken/</link>
+      <guid isPermaLink="true">https://amdouglas.com/blog/why-the-new-fetch-api-is-broken/</guid>
+      <category><![CDATA[JavaScript]]></category>
       <dc:creator><![CDATA[A. M. Douglas]]></dc:creator>
-      <pubDate>Tue, 30 Sep 2016 21:38:34 GMT</pubDate>
-      <content:encoded><![CDATA[]]></content:encoded>
+      <pubDate>Thu, 18 Aug 2016 20:59:02 GMT</pubDate>
     </item>
     <item>
-      <title><![CDATA[]]></title>
-      <description><![CDATA[]]></description>
-      <link></link>
-      <guid isPermaLink="true"></guid>
-      <category><![CDATA[]]></category>
-      <category><![CDATA[]]></category>
+      <title><![CDATA[Labs: autoform.js]]></title>
+      <description><![CDATA[autoform.js is a vanilla (i.e. no jQuery) JavaScript library which looks for HTML forms in the DOM and automatically handles the submit event via AJAX.]]></description>
+      <link>https://amdouglas.com/blog/labs-autoform-js/</link>
+      <guid isPermaLink="true">https://amdouglas.com/blog/labs-autoform-js/</guid>
+      <category><![CDATA[JavaScript]]></category>
+      <category><![CDATA[Ajax]]></category>
       <dc:creator><![CDATA[A. M. Douglas]]></dc:creator>
-      <pubDate>Tue, 30 Sep 2016 21:38:34 GMT</pubDate>
-      <content:encoded><![CDATA[]]></content:encoded>
+      <pubDate>Sun, 14 Aug 2016 22:49:22 GMT</pubDate>
     </item>
     <item>
-      <title><![CDATA[]]></title>
-      <description><![CDATA[]]></description>
-      <link></link>
-      <guid isPermaLink="true"></guid>
-      <category><![CDATA[]]></category>
-      <category><![CDATA[]]></category>
+      <title><![CDATA[AMP: full circle]]></title>
+      <description><![CDATA[A few months ago I declared that AMP-HTML was of little use to a blog, especially one has finely-tuned for performance as mine, which serves nothing but text, SVG and woff2 fonts.]]></description>
+      <link>https://amdouglas.com/blog/amp-full-circle/</link>
+      <guid isPermaLink="true">https://amdouglas.com/blog/amp-full-circle/</guid>
+      <category><![CDATA[AMP]]></category>
+      <category><![CDATA[JavaScript]]></category>
       <dc:creator><![CDATA[A. M. Douglas]]></dc:creator>
-      <pubDate>Tue, 30 Sep 2016 21:38:34 GMT</pubDate>
-      <content:encoded><![CDATA[]]></content:encoded>
+      <pubDate>Fri, 12 Aug 2016 20:23:50 GMT</pubDate>
     </item>
     <item>
-      <title><![CDATA[]]></title>
+      <title><![CDATA[CSS selectors you really may not have heard of]]></title>
+      <description><![CDATA[While attribute/partial selectors can be considered quite “advanced”, the author forgot to mention something important...]]></description>
+      <link>https://amdouglas.com/blog/css-selectors-you-really-may-not-have-heard-of/</link>
+      <guid isPermaLink="true">https://amdouglas.com/blog/css-selectors-you-really-may-not-have-heard-of/</guid>
+      <category><![CDATA[CSS]]></category>
+      <dc:creator><![CDATA[A. M. Douglas]]></dc:creator>
+      <pubDate>Sat, 12 Mar 2016 05:50:00 GMT</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Some CSS pointers]]></title>
+      <description><![CDATA[If you're a regular reader of articles in web development, you've probably seen a lot of literature being generated about the topic of developing client-side, single page applications...]]></description>
+      <link>https://amdouglas.com/blog/some-css-pointers/</link>
+      <guid isPermaLink="true">https://amdouglas.com/blog/some-css-pointers/</guid>
+      <category><![CDATA[CSS]]></category>
+      <dc:creator><![CDATA[A. M. Douglas]]></dc:creator>
+      <pubDate>Thu, 28 Jan 2016 00:19:11 GMT</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Future CSS grids]]></title>
       <description><![CDATA[By now, if you're a frequent web trawler like me, you'll have come across articles discussing the new CSS Grid spec. The Grid is touted as a harbinger of an end to markup-dependent grid systems...]]></description>
-      <link></link>
-      <guid isPermaLink="true"></guid>
+      <link>https://amdouglas.com/blog/future-css-grids/</link>
+      <guid isPermaLink="true">https://amdouglas.com/blog/future-css-grids/</guid>
       <category><![CDATA[CSS]]></category>
       <dc:creator><![CDATA[A. M. Douglas]]></dc:creator>
       <pubDate>Sat, 12 Dec 2015 20:59:57 GMT</pubDate>
-      <content:encoded><![CDATA[]]></content:encoded>
     </item>
     <item>
       <title><![CDATA[Abstracting the DOM]]></title>
