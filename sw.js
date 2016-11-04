@@ -2,13 +2,13 @@
 
 self.importScripts('https://amdouglas.com/assets/js/serviceworker-cache-polyfill.js');
 
-var CACHE_VERSION = 9;
-var CURRENT_CACHES = {
+const CACHE_VERSION = 10;
+const CURRENT_CACHES = {
   prefetch: 'amdgls-v' + CACHE_VERSION
 };
 
 self.addEventListener('install', function(event) {
-  var urlsToPrefetch = [
+  const urlsToPrefetch = [
     '/',
     '/assets/css/fonts.css',
     '/assets/js/app.js',
@@ -28,7 +28,7 @@ self.addEventListener('install', function(event) {
 });
 
 self.addEventListener('activate', function(event){
-  var expectedCacheNames = Object.keys(CURRENT_CACHES).map(function(key) {
+  const expectedCacheNames = Object.keys(CURRENT_CACHES).map(function(key) {
     return CURRENT_CACHES[key];
   });
   event.waitUntil(
