@@ -6,7 +6,7 @@
   var hght = (win.innerHeight || doc.documentElement.clientHeight || doc.body.clientHeight);
   var head = (doc.head || doc.getElementsByTagName('head')[0]);
   var body = (doc.body || doc.getElementsByTagName('body')[0]);
-  var prev_st = (win.scrollY || win.pageYOffset || Math.abs(doc.querySelector('section').getBoundingClientRect().top));
+  var prev_st = (win.scrollY || win.pageYOffset || win.Math.abs(doc.querySelector('section').getBoundingClientRect().top));
   var animating = false;
   var mbl = ('devicePixelRatio' in win && win.devicePixelRatio > 1 && wdth < 992);
   var nav_links = doc.querySelectorAll('nav>a');
@@ -15,15 +15,19 @@
   
   loadStylesheets(['https://amdouglas.com/assets/css/fonts.css','https://amdouglas.com/assets/css/svgbg.css']);
 
-  for(;j<i;++j) nav_links[j].addEventListener('click', handleNav, false);
+  for(; j < i; ++j) 
+    nav_links[j].addEventListener('click', handleNav, false);
   win.addEventListener('DOMContentLoaded', handleLoad, false);
 
-  function loadStylesheets(urls){
-    for(var i = 0;i<urls.length;++i){
-      var css = doc.createElement('link');
+  function loadStylesheets (urls) {
+    var css;
+    var i = 0;
+    for(; i < urls.length; ++i) {
+      css = doc.createElement('link');
       css.rel = 'stylesheet';
       css.href = urls[i];
       head.appendChild(css);
+      css = null;
     }
   }
 
@@ -56,9 +60,9 @@
     if ('serviceWorker' in win.navigator) {
       win.navigator.serviceWorker.register('https://amdouglas.com/sw.js', {
         scope: '/'
-      }).then(function(registration){
+      }).then(function (registration) {
         win.console.info("SW registered [" + registration.scope + "]");
-      }).catch(function(err){
+      }).catch(function (err) {
         win.console.warn("SW failed to register [" + err + "]");
       });
     }
@@ -79,7 +83,7 @@
   function appendTouchIcons () {
     var xhr = new win.XMLHttpRequest();
     xhr.open('GET', 'https://amdouglas.com/manifest.json', true);
-    xhr.onreadystatechange = function(){
+    xhr.onreadystatechange = function () {
       var icons = null;
       var j = 0;
       if (xhr.readyState === 4) {
@@ -132,7 +136,7 @@
   function scrollHandler () { 
     var sections = doc.getElementsByTagName('section');
     var s = 5, t = 0;
-    var cur_st = (win.scrollY || win.pageYOffset || Math.abs(doc.querySelector('section').getBoundingClientRect().top
+    var cur_st = (win.scrollY || win.pageYOffset || win.Math.abs(doc.querySelector('section').getBoundingClientRect().top
 ));
     var scroll_dir = cur_st < prev_st ? 'u' : 'd';
     prev_st = cur_st;
