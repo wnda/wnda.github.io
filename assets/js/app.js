@@ -1,4 +1,4 @@
-;(function(win,doc,head,body){
+;(function (win, doc, head, body) {
   'use strict';
   var wdth = (win.innerWidth || doc.documentElement.clientWidth || doc.body.clientWidth);
   var hght = (win.innerHeight || doc.documentElement.clientHeight || doc.body.clientHeight);
@@ -15,7 +15,7 @@
   loadStylesheets(['https://amdouglas.com/assets/css/fonts.css','https://amdouglas.com/assets/css/svgbg.css']);
 
   for (; j < i; ++j) { nav_links[j].addEventListener('click', handleNav, false); }
-  win.addEventListener('DOMContentLoaded', handleLoad, false);
+  win.addEventListener('load', handleLoad, false);
 
   function loadStylesheets (urls) {
     var css;
@@ -36,7 +36,7 @@
     
     updateNavigation('#home');
     appendJSONLD();
-    win.removeEventListener('DOMContentLoaded', handleLoad, false);
+    win.removeEventListener('load', handleLoad, false);
     
     for (;j < a.length; ++j){
       a[j].removeAttribute('disabled');
