@@ -2,7 +2,7 @@
 
 self.importScripts('https://amdouglas.com/assets/js/serviceworker-cache-polyfill.js');
 
-const CACHE_VERSION = 20;
+const CACHE_VERSION = 22;
 const CURRENT_CACHES = {
   prefetch: 'amdgls-v' + CACHE_VERSION
 };
