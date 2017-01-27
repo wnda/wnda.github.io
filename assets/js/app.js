@@ -1,7 +1,5 @@
 ;(function(win,doc,head,body){
-
-  if(!('addEventListener' in win)) return;
-
+  'use strict';
   var wdth = (win.innerWidth || doc.documentElement.clientWidth || doc.body.clientWidth);
   var hght = (win.innerHeight || doc.documentElement.clientHeight || doc.body.clientHeight);
   var head = (doc.head || doc.getElementsByTagName('head')[0]);
@@ -13,10 +11,10 @@
   var i = nav_links.length;
   var j = 0;
   
+  if(!('addEventListener' in win)) { return; }
   loadStylesheets(['https://amdouglas.com/assets/css/fonts.css','https://amdouglas.com/assets/css/svgbg.css']);
 
-  for(; j < i; ++j) 
-    nav_links[j].addEventListener('click', handleNav, false);
+  for (; j < i; ++j) { nav_links[j].addEventListener('click', handleNav, false); }
   win.addEventListener('DOMContentLoaded', handleLoad, false);
 
   function loadStylesheets (urls) {
@@ -34,14 +32,15 @@
   function handleLoad () {
     var uas = doc.createElement('script');
     var a = doc.querySelectorAll('input,textarea');
+    var j = 0;
     
-    win.removeEventListener('DOMContentLoaded', handleLoad, false);
     updateNavigation('#home');
     appendJSONLD();
+    win.removeEventListener('DOMContentLoaded', handleLoad, false);
     
-    for(var j=0;j<a.length;++j){
+    for (;j < a.length; ++j){
       a[j].removeAttribute('disabled');
-      a[j].addEventListener('blur',function(e){(e.target || this).className='_blur';});
+      a[j].addEventListener('blur', function (e) { (e.target || this).className='_blur'; });
     }
     
     doc.querySelector('.sms').href = '\u0073\u006D\u0073\u003a\u002b\u0034\u0034\u0037\u0039\u0033\u0031\u0035\u0036\u0035\u0038\u0034\u0036';
@@ -85,23 +84,25 @@
     xhr.open('GET', 'https://amdouglas.com/manifest.json', true);
     xhr.onreadystatechange = function () {
       var icons = null;
+      var icon = null;
       var j = 0;
       if (xhr.readyState === 4) {
         if (xhr.status >= 200 && xhr.status < 300) {
           icons = (win.JSON.parse(xhr.responseText)).icons;
           for(; j < icons.length; ++j) {
             if (icons[j].src.indexOf('apple') > -1) {
-              var icon = doc.createElement('link');
+              icon = doc.createElement('link');
               icon.rel = 'apple-touch-icon-precomposed';
               icon.href = icons[j].src;
               icon.setAttribute('sizes', icons[j].sizes);
               head.appendChild(icon);
+              icon = null;
             }
           }
         }
       }
     };
-    xhr.send();
+    xhr.send(null);
   }
   
   function appendJSONLD () {
@@ -117,7 +118,7 @@
         }
       }
     };
-    xhr.send();
+    xhr.send(null);
   }
 
   function rebounce (f) {
@@ -135,23 +136,25 @@
 
   function scrollHandler () { 
     var sections = doc.getElementsByTagName('section');
-    var s = 5, t = 0;
+    var s = 5; 
+    var t = 0;
     var cur_st = (win.scrollY || win.pageYOffset || win.Math.abs(doc.querySelector('section').getBoundingClientRect().top
 ));
     var scroll_dir = cur_st < prev_st ? 'u' : 'd';
+    var this_section; 
+    var this_hash;  
+    var this_rect;    
     prev_st = cur_st;
     for (; s > t; ++t) {
-      var this_section = sections[t];
-      var this_hash = '#' + this_section.id;
-      var this_rect = this_section.getBoundingClientRect();
+      this_section = sections[t];
+      this_hash = '#' + this_section.id;
+      this_rect = this_section.getBoundingClientRect();
       switch (scroll_dir) {
         case 'u':
-          if (this_rect.bottom < (hght/2) && this_rect.bottom >= 0)
-            updateNavigation(this_hash, scroll_dir);
+          if (this_rect.bottom < (hght/2) && this_rect.bottom >= 0) updateNavigation(this_hash, scroll_dir);
           break;
         case 'd':
-          if (this_rect.top < (hght/3) && this_rect.top >= 0) 
-            updateNavigation(this_hash, scroll_dir);
+          if (this_rect.top < (hght/3) && this_rect.top >= 0) updateNavigation(this_hash, scroll_dir);
           break;
       }
     }
@@ -171,9 +174,9 @@
     var i = 0;
     var c = '';
     for (; i < a.length; ++i) {
-      if (win.location.hash !== a[i].hash) 
-        continue;
-      a[i].classList.add('active') : a[i].classList.remove('active');
+      win.location.hash === a[i].hash ? 
+        a[i].classList.add('active') : 
+          a[i].classList.remove('active');
     }
   }
 
