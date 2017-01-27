@@ -126,7 +126,7 @@
       context = this; args = [];
       len = args.length = arguments.length; i = 0;
       for(;i < len; ++i) args[i] = arguments[i];
-      !!scheduled && win.cancelAnimationFrame(scheduled);
+      if (!!scheduled) win.cancelAnimationFrame(scheduled);
       scheduled = win.requestAnimationFrame(function(){
         f.apply(context,args); scheduled = null;
       });
@@ -147,11 +147,11 @@
       switch (scroll_dir) {
         case 'u':
           if (this_rect.bottom < (hght/2) && this_rect.bottom >= 0)
-            updateNavigation(this_hash,scroll_dir);
+            updateNavigation(this_hash, scroll_dir);
           break;
         case 'd':
           if (this_rect.top < (hght/3) && this_rect.top >= 0) 
-            updateNavigation(this_hash,scroll_dir);
+            updateNavigation(this_hash, scroll_dir);
           break;
       }
     }
@@ -169,9 +169,11 @@
   function addActiveClass () {
     var a = doc.getElementsByTagName('a');
     var i = 0;
+    var c = '';
     for (; i < a.length; ++i) {
-      var c = a[i].hash;
-      win.location.hash === c ? a[i].classList.add('active') : a[i].classList.remove('active');
+      if (win.location.hash !== a[i].hash) 
+        continue;
+      a[i].classList.add('active') : a[i].classList.remove('active');
     }
   }
 
@@ -181,7 +183,8 @@
 
   function getPos (_t,_st,_f,_sf) {
     var d;
-    if(_sf>_t) return _f;
+    if (_sf>_t) 
+      return _f;
     d = (_sf/_t);
     return _st + (_f - _st) * (d<.5?4*d*d*d:(d-1)*(2*d-2)*(2*d-2)+1);
   }
@@ -196,7 +199,7 @@
 )),
         _f = (el.tagName.toLowerCase()!=='html')?el.getBoundingClientRect().top+_st:-_st,
         _ct = getTime(),
-        step = function(){
+        step = function () {
           var _sf = getTime()-_ct;
           if (!!mbl) {
             doc.body.scrollTop = getPos(_t,_st,_f,_sf);
@@ -260,7 +263,8 @@
     typeof e !== 'undefined' && e.preventDefault();
     var evt = (e.target || this);
     var node = doc.getElementById(evt.hash.substring(1));
-    if (!node) return;
+    if (!node) 
+      return;
     smoothScroll(node);
   }
 
