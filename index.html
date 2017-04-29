@@ -45,6 +45,21 @@
     <noscript>
       <link rel="stylesheet" href="https://amdouglas.com/assets/css/fonts.css">
     </noscript>
+    <script>
+      ;(function (doc) {
+        loadStylesheets(['https://amdouglas.com/assets/css/fonts.css','https://amdouglas.com/assets/css/svgbg.css']);
+        function loadStylesheets (urls) {
+          var css, i = 0;
+          for(; i < urls.length; ++i) {
+            css = doc.createElement('link');
+            css.rel = 'stylesheet';
+            css.href = urls[i];
+            (doc.head || doc.getElementsByTagName('head')[0]).appendChild(css);
+            css = null;
+          }
+        }
+      })(document);
+    </script>
   </head>
   <body>
     <h1>
