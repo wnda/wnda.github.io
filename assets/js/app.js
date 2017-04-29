@@ -12,22 +12,9 @@
   var j = 0;
   
   if(!('addEventListener' in win)) { return; }
-  loadStylesheets(['https://amdouglas.com/assets/css/fonts.css','https://amdouglas.com/assets/css/svgbg.css']);
-
+  
   for (; j < i; ++j) { nav_links[j].addEventListener('click', handleNav, false); }
   win.addEventListener('load', handleLoad, false);
-
-  function loadStylesheets (urls) {
-    var css;
-    var i = 0;
-    for(; i < urls.length; ++i) {
-      css = doc.createElement('link');
-      css.rel = 'stylesheet';
-      css.href = urls[i];
-      head.appendChild(css);
-      css = null;
-    }
-  }
 
   function handleLoad () {
     var uas = doc.createElement('script');
