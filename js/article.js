@@ -15,7 +15,7 @@
 
   function handleLoad(){
     win.removeEventListener('load',handleLoad,false);
-    loadScripts(['https://assets.amdouglas.com/assets/js/prism.js']);
+    loadScripts(['https://assets.amdouglas.com/js/prism.js']);
     if('devicePixelRatio' in win && win.devicePixelRatio > 1 && wdth < 992){
       appendTouchIcons();
     }
@@ -47,7 +47,7 @@
 
   function appendTouchIcons(){
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://amdouglas.com/manifest.json', true);
+    xhr.open('GET', 'https://assets.amdouglas.com/manifest.json', true);
     xhr.onreadystatechange = function(){
       if(xhr.readyState === 4){
         if(xhr.status >= 200 && xhr.status < 300){
