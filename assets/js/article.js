@@ -15,7 +15,7 @@
 
   function handleLoad(){
     win.removeEventListener('load',handleLoad,false);
-    loadScripts(['https://amdouglas.com/assets/js/prism.js']);
+    loadScripts(['https://assets.amdouglas.com/assets/js/prism.js']);
     if('devicePixelRatio' in win && win.devicePixelRatio > 1 && wdth < 992){
       appendTouchIcons();
     }
