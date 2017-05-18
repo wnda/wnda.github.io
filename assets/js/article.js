@@ -19,6 +19,7 @@
     if('devicePixelRatio' in win && win.devicePixelRatio > 1 && wdth < 992){
       appendTouchIcons();
     }
+    /*
     if('serviceWorker' in navigator){
       navigator.serviceWorker.register('https://amdouglas.com/sw.js', {
         scope: '/'
@@ -28,6 +29,7 @@
         console.warn("SW failed to register [" + err + "]");
       });
     }
+    */
     win.GoogleAnalyticsObject = win.ga;
     win.ga = win.ga || function(){
       for(var p = 0; p < arguments.length; ++p){
