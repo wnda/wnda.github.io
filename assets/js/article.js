@@ -1,18 +1,8 @@
 ;(function(win,doc,head,body){
 
   if(!('addEventListener' in win)) return;
-  loadStylesheets(['https://amdouglas.com/assets/css/fonts.css','https://amdouglas.com/assets/css/article.css']);
   
   win.addEventListener('load',handleLoad,false);
-  
-  function loadStylesheets(urls){
-    for(var i = 0;i<urls.length;++i){
-      var _css  = doc.createElement('link');
-      _css.rel  = 'stylesheet';
-      _css.href = urls[i];
-      head.appendChild(_css);
-    }
-  }
   
   function loadScripts(urls){
     for(var i = 0;i<urls.length;++i){
