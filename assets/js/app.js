@@ -42,16 +42,16 @@
       win.addEventListener('scroll', rebouncedScrollHandler, false);
       win.addEventListener('keydown', keyNav, false);
     }
-    
+    /*
     if ('serviceWorker' in win.navigator) {
-      win.navigator.serviceWorker.register('https://amdouglas.com/sw.js', {
+      win.navigator.serviceWorker.register('https://www.amdouglas.com/sw.js', {
         scope: '/'
       }).then(function (registration) {
         win.console.info("SW registered [" + registration.scope + "]");
       }).catch(function (err) {
         win.console.warn("SW failed to register [" + err + "]");
       });
-    }
+    }*/
     win.GoogleAnalyticsObject = win.ga;
     win.ga = win.ga || function () {
       for (var p = 0; p < arguments.length; ++p) {
@@ -68,7 +68,7 @@
 
   function appendTouchIcons () {
     var xhr = new win.XMLHttpRequest();
-    xhr.open('GET', 'https://amdouglas.com/manifest.json', true);
+    xhr.open('GET', 'https://assets.amdouglas.com/manifest.json', true);
     xhr.onreadystatechange = function () {
       var icons = null;
       var icon = null;
@@ -96,7 +96,7 @@
     var xhr = new win.XMLHttpRequest();
     var s_data = doc.createElement('script');
     s_data.type = 'application/ld+json';
-    xhr.open('GET', 'https://amdouglas.com/data.json', true);
+    xhr.open('GET', 'https://assets.amdouglas.com/data.json', true);
     xhr.onreadystatechange = function () {
       if (xhr.readyState === 4) {
         if (xhr.status >= 200 && xhr.status < 300) {
