@@ -1,6 +1,6 @@
 ;(function(win,doc,head,body){
   if(!('addEventListener' in win)) return;
-  loadStylesheets(['https://assets.amdouglas.com/css/fonts.css']);
+  loadStylesheets(['https://static.amdouglas.com/css/fonts.css']);
   win.addEventListener('load',handleLoad,false);
   function loadStylesheets(urls){
     for(var i = 0;i<urls.length;++i){
@@ -41,7 +41,7 @@
   }
   function appendTouchIcons(){
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://amdouglas.com/manifest.json', true);
+    xhr.open('GET', 'https://static.amdouglas.com/manifest.json', true);
     xhr.onreadystatechange = function(){
       if(xhr.readyState === 4){
         if(xhr.status >= 200 && xhr.status < 300){
