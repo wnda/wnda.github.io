@@ -68,7 +68,7 @@
 
   function appendTouchIcons () {
     var xhr = new win.XMLHttpRequest();
-    xhr.open('GET', 'https://assets.amdouglas.com/manifest.json', true);
+    xhr.open('GET', 'https://static.amdouglas.com/manifest.json', true);
     xhr.onreadystatechange = function () {
       var icons = null;
       var icon = null;
@@ -96,7 +96,7 @@
     var xhr = new win.XMLHttpRequest();
     var s_data = doc.createElement('script');
     s_data.type = 'application/ld+json';
-    xhr.open('GET', 'https://assets.amdouglas.com/data.json', true);
+    xhr.open('GET', 'https://static.amdouglas.com/data.json', true);
     xhr.onreadystatechange = function () {
       if (xhr.readyState === 4) {
         if (xhr.status >= 200 && xhr.status < 300) {
