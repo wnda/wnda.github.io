@@ -19,7 +19,7 @@
 
   win.addEventListener('load',handleLoad,false);
   
-  loadStylesheets(['https://amdouglas.com/assets/css/fonts.css','https://amdouglas.com/assets/css/labs.css']);
+  loadStylesheets(['https://static.amdouglas.com/assets/css/fonts.css','https://static.amdouglas.com/assets/css/labs.css']);
   
   function loadStylesheets(urls){
     for(var i = 0;i<urls.length;++i){
@@ -47,9 +47,9 @@
     if('devicePixelRatio' in win && win.devicePixelRatio > 1 && wdth < 992){
       appendTouchIcons();
     }
-    
+    /*
     if('serviceWorker' in navigator){
-      navigator.serviceWorker.register('https://amdouglas.com/sw.js', {
+      navigator.serviceWorker.register('https://www.amdouglas.com/sw.js', {
         scope: '/'
       }).then(function(registration){
         console.info("SW registered [" + registration.scope + "]");
@@ -57,7 +57,7 @@
         console.warn("SW failed to register [" + err + "]");
       });
     }
-    
+    */
     win.GoogleAnalyticsObject = win.ga;
     win.ga = win.ga || function(){
       for(var p = 0; p < arguments.length; ++p){
@@ -72,7 +72,7 @@
   
   function appendTouchIcons(){
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://amdouglas.com/manifest.json', true);
+    xhr.open('GET', 'https://static.amdouglas.com/manifest.json', true);
     xhr.onreadystatechange = function(){
       if(xhr.readyState === 4){
         if(xhr.status >= 200 && xhr.status < 300){
