@@ -68,3 +68,44 @@
   }
   
 })(window,window.document,window.document.head,window.document.body);
+;(function (doc) {
+  var post_id = doc.querySelector('article').id.substring(5).toString();
+  var _xhr = new XMLHttpRequest();
+  _xhr.open('GET', 'https://www.amdouglas.com/feeds/posts/default', true);
+  _xhr.onload = function () {
+    var _foot = doc.querySelector('footer');
+    var _prev_a = _foot.querySelector('[data-prev]');
+    var _next_a = _foot.querySelector('[data-next]');
+    var _prev_d, _next_d;
+    var _doc = new DOMParser().parseFromString(this.responseText, 'application/xml');
+    var _post = [].slice.call(_doc.getElementsByTagName('id')).filter(function(el){
+        return !!(el.textContent.toString().indexOf(post_id) > 0);
+    }).map(function(nxt){return nxt.parentNode});
+    var _prev = _post[0].nextElementSibling.tagName === 'entry' ? _post[0].nextElementSibling : null;
+    var _next = _post[0].previousElementSibling.tagName === 'entry' ? _post[0].previousElementSibling : null;
+    if (!!_prev) {
+     _prev_d = new Date(_prev.querySelector('published').textContent);
+     _prev_a.setAttribute('href', _prev.querySelector('link[rel="alternate"]').getAttribute('href'));
+      _prev_a.insertAdjacentHTML('afterbegin','<header>Previously</header><section><h4>'+sanitize(_prev.querySelector('title').textContent)+'</h4><p>'+sanitize(_prev.querySelector('summary').textContent)+'</p><hr><p><time datetime="'+_prev_d+'">'+(_prev_d.toDateString().substring(4))+'</time></p></section>');
+    } else {
+      _prev_a.parentNode.removeChild(_prev_a);
+    }
+    if (!!_next) {
+      _next_d = new Date(_next.querySelector('published').textContent);
+      _next_a.setAttribute('href', _next.querySelector('link[rel="alternate"]').getAttribute('href'));
+      _next_a.insertAdjacentHTML('afterbegin','<header>Up next</header><section><h4>'+sanitize(_next.querySelector('title').textContent)+'</h4><p>'+sanitize(_next.querySelector('summary').textContent)+'</p><hr><p><time datetime="'+_next_d+'">'+(_next_d.toDateString().substring(4))+'</time></p></section>');
+    } else {
+      _next_a.parentNode.removeChild(_next_a);
+    }
+  };
+  _xhr.onerror = _xhr.onabort = _xhr.ontimeout = function () {
+    _xhr.onload = Function.prototype;
+    _xhr.onerror = Function.prototype;
+  };
+  _xhr.send(null);
+  function sanitize(text) {
+    return text.split('').map(function(char) {
+      return char === '<' ? '&lt;' : char === '>' ? '&gt;' : char
+    ;}).join('');
+  }
+})(document);
