@@ -52,7 +52,7 @@
         win.console.warn("SW failed to register [" + err + "]");
       });
     }*/
-    win.GoogleAnalyticsObject = win.ga;
+    win.GoogleAnalyticsObject = 'ga';
     win.ga = win.ga || function () {
       for (var p = 0; p < arguments.length; ++p) {
         (win.ga.q = win.ga.q || []).push(arguments[p]);
