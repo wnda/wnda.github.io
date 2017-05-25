@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="en" dir="<$BlogLanguageDirection$>">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,user-scalable=no,shrink-to-fit=no"><MainPage>
+    <base href="https://www.amdouglas.com/">
+    <title>Home &middot; <$BlogTitle$> &middot; Full-stack web developer &middot; Leeds, UK</title>
+    <link rel="canonical" href="https://www.amdouglas.com"></MainPage><ArchivePage>
+    <title>Archive &middot; <$BlogTitle$> &middot; Full-stack web developer &middot; Leeds, UK</title>
+    <link rel="canonical" href="https://www.amdouglas.com"></ArchivePage><ItemPage><Blogger>
+    <title><$BlogItemTitle$> &middot; <$BlogTitle$></title>
+    <link rel="canonical" href="<$BlogItemPermalinkURL$>"></Blogger></ItemPage>
+    <link rel="manifest" href="https://static.amdouglas.com/manifest.json">
+    <link rel="prefetch" href="https://static.amdouglas.com/fonts/Rubik-Regular.woff">
+    <link rel="prefetch" href="https://static.amdouglas.com/fonts/Rubik-Bold.woff">
+    <link rel="prefetch" href="https://static.amdouglas.com/fonts/Rubik-Regular.woff2">
+    <link rel="prefetch" href="https://static.amdouglas.com/fonts/Rubik-Bold.woff2">
+    <link rel="publisher" href="https://plus.google.com/+AMDouglasCom">
+    <link rel="icon" href="https://static.amdouglas.com/assets/img/favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="Atom &middot; <$BlogTitle$>" href="https://www.amdouglas.com/feeds/posts/default">
+    <link rel="alternate" type="application/rss+xml" title="RSS &middot; <$BlogTitle$>" href="https://www.amdouglas.com/feeds/posts/default?alt=rss">
+    <link rel="service.post" type="application/atom+xml" title="Atom &middot; <$BlogTitle$>" href="https://www.amdouglas.com/feeds/9137073386540127466/posts/default"><MainPage>
+    <meta name="google-site-verification" content="t4zStnn0pd2k2353oZkMhfcZ_pbSzLWHxYoHp4Tka9s">
+    <meta name="msvalidate.01" content="9C61A5D8B9617B4741719F5CC41E28C9">
+    <meta name="p:domain_verify" content="5e15d75240e1150c1efeb4e6006dfff8">
+    <meta name="yandex-verification" content="7ba91a3fb207afd3">
+    <meta name="format-detection" content="telephone=no;email=no">
+    <meta name="MobileOptimized" content="width">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:creator" content="<$BlogTitle$>">
+    <meta name="twitter:url" content="https://www.amdouglas.com/">
+    <meta name="twitter:domain" content="www.amdouglas.com">
+    <meta name="twitter:title" content="<$BlogTitle$>">
+    <meta name="twitter:description" content="<$BlogDescription$>">
+    <meta name="twitter:image:src" content="https://static.amdouglas.com/content/images/2015/12/favicon.png">
+    <meta property="fb:admins" content="407402372749613">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="<$BlogTitle$>">
+    <meta property="og:title" content="<$BlogTitle$>">
+    <meta property="og:description" content="<$BlogDescription$>">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:url" content="https://www.amdouglas.com/">
+    <meta property="og:image" content="https://static.amdouglas.com/content/images/2015/12/favicon.png">
+    <meta property="og:image:secure_url" content="https://static.amdouglas.com/content/images/2015/12/favicon.png">
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+    <style>
+      html{-webkit-text-size-adjust:100%;-webkit-font-smoothing:antialiased;-webkit-font-smoothing:subpixel-antialiased;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-overflow-scrolling:touch;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;touch-action:manipulation;font:normal normal 400 16px/1.2 Roboto,-apple-system,Arial,Helmet,Freesans,sans-serif}*,:before,:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;-webkit-user-select:none;-moz-user-select:none;touch-action:manipulation;margin:0;padding:0;border:0;font:inherit}:active,:focus{outline:0}article,footer,header,main,nav,section,video{display:block}html,body{height:100%}a{-webkit-text-decoration-skip:objects;text-decoration:none}button,input,textarea{-webkit-appearance:none;-webkit-border-radius:0;border-radius:0;background:0 0}button,img,video{-webkit-touch-callout:none}button,a,img,video{-webkit-user-select:none;-moz-user-select:none}button,a{color:inherit;cursor:pointer}textarea{resize:none}[disabled]{opacity:.6;cursor:not-allowed}[hidden],input[hidden],input[name="confirm"]{display:none;visibility:hidden}video::-webkit-media-controls,video::-webkit-media-controls-play-button,video::-webkit-media-controls-volume-slider,video::-webkit-media-controls-mute-button,video::-webkit-media-controls-timeline,video::-webkit-media-controls-current-time-display{display:none;visibility:hidden}::-webkit-scrollbar{width:4px}::-webkit-scrollbar-thumb{background:#07071c;-webkit-border-radius:4px;border-radius:4px}::-webkit-scrollbar-track{background-color:transparent;background:rgba(0,0,0,0)}::selection{background:#fff;color:#07071c}::-moz-selection{background:#fff;color:#07071c}section{position:relative;height:100%;z-index:1;overflow:hidden}.bg-outer{position:absolute;top:0;left:0;right:0;bottom:0;clip:rect(auto,auto,auto,auto);z-index:1}.bg-inner{position:absolute;position:fixed;display:block;top:0;left:0;right:0;bottom:0;z-index:2;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);-webkit-backface-visibility:hidden;backface-visibility:hidden;will-change:transform}h1{display:none;position:fixed;z-index:99;top:20px;left:16px;color:#07071c;text-transform:uppercase;letter-spacing:4px;font-weight:700}section h2{-webkit-font-smoothing:antialiased;-webkit-font-smoothing:subpixel-antialiased;-webkit-touch-callout:none;-webkit-user-select:none;-moz-user-select:none;position:fixed;left:16px;line-height:1;top:18px;text-align:center;font-size:24px;cursor:default;-webkit-pointer-events:none;pointer-events:none;text-transform:uppercase;color:#fff;font-weight:700;letter-spacing:8px}nav{position:fixed;z-index:99;top:20px;right:16px}nav>a{display:inline-block;position:relative;line-height:12px;width:12px;height:12px;position:relative;-webkit-border-radius:50%;border-radius:50%;border:2px solid #07071c;margin-left:16px}nav>a:after{content:'';position:absolute;width:12px;height:12px;background:#07071c;top:-2px;left:-2px;opacity:0;visibility:hidden;-webkit-border-radius:50%;border-radius:50%;-webkit-transition-timing-function:cubic-bezier(.4,0,.2,1);transition-timing-function:cubic-bezier(.4,0,.2,1);-webkit-transition-duration:.2s;transition-duration:.2s;-webkit-transition-property:visibility,opacity;-webkit-transition-property:visibility,opacity,-webkit-transform;transition-property:visibility,opacity;transition-property:visibility,opacity,-webkit-transform;transition-property:visibility,opacity,transform;-webkit-transition:.2s cubic-bezier(.4,0,.2,1) opacity;-webkit-transform:scale(0);transform:scale(0);-webkit-backface-visibility:hidden;backface-visibility:hidden;pointer-events:none}nav>a:hover:after,nav>a.active:after{visibility:visible;opacity:1;-webkit-transform:scale(1);transform:scale(1)}nav>a:before,nav>a:after{-webkit-transition-property:transform,opacity,visibility;-webkit-transition-timing-function:cubic-bezier(.4,0,.2,1);-webkit-transition-duration:.2s;transition-property:transform,opacity,visibility;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.2s}section h2>a{display:none}article>a{position:absolute;top:8px;left:16px;right:16px;bottom:8px;padding:16px;-webkit-border-radius:4px;border-radius:4px;background:#07071c;color:#fff}.container{position:absolute;top:56px;bottom:16px;left:0;right:0}.container-i,.container-f{right:0;left:0;bottom:32px}.i,.f{position:absolute;top:8px;left:16px;bottom:-8px;right:16px;-webkit-border-radius:8px;border-radius:8px;padding:16px;color:#fff;background:#07071c}section:nth-of-type(2) .bg-inner{background:#f44336}section:nth-of-type(4) .bg-inner{background:#ffc107}section:nth-of-type(2n) .bg-inner article>a{background:#fff;color:#07071c}.ff{display:none}[type="submit"]{display:none}.ff:last-child{display:block;position:absolute;bottom:16px;left:16px;right:16px;padding-bottom:0}.c{position:absolute}.c5,.c6,.c7,.c8,.c9{display:none}.c1,.c2,.c3,.c4{display:block;left:0;right:0}.c1{top:0;bottom:75%}.c2{top:25%;bottom:50%}.c3{top:50%;bottom:25%}.c4{top:75%;bottom:0}@media screen and (min-width:480px){article>a{left:8px;right:16px}article:nth-child(odd)>a{left:16px;right:8px}.c5,.c6,.c7,.c8{display:block}.c1,.c3,.c5,.c7{left:0;right:50%}.c2,.c4,.c6,.c8{left:50%;right:0}.c1,.c2{top:0;bottom:75%}.c3,.c4{top:25%;bottom:50%}.c5,.c6{top:50%;bottom:25%}.c7,.c8{top:75%;bottom:0}}@media screen and (min-width:768px){nav>a:before{content:attr(title);text-transform:uppercase;position:absolute;bottom:-16px;right:-8px;font-size:10px;line-height:1;color:#07071c;opacity:0;visibility:hidden;-webkit-transform:translateX(102%);-webkit-transform:translate3d(102%,0,0);transform:translateX(102%);transform:translate3d(102%,0,0)}nav>a.active:before{visibility:visible;opacity:1;-webkit-transform:translateX(0);-webkit-transform:translate3d(0,0,0);transform:translateX(0);transform:translate3d(0,0,0)}nav>a{margin-left:auto}article>a{left:8px;right:8px}article:nth-child(odd)>a{left:8px;right:8px}h1{display:block}.c9{display:block}.c1,.c2,.c3{top:0;bottom:66%}.c4,.c5,.c6{top:33%;bottom:33%}.c7,.c8,.c9{top:66%;bottom:0}.c1,.c4,.c7{left:0;right:66%}.c2,.c5,.c8{left:33%;right:33%}.c3,.c6,.c9{left:66%;right:0}.container{left:auto;width:50vw;width:calc(100vh - 88px);right:16px}section:nth-of-type(2n) .container{left:16px;right:auto}section h2{position:absolute;background:#f44336;padding:32px;color:#fff;right:16px;top:56px;bottom:16px;-webkit-border-radius:8px;border-radius:8px;text-align:left;line-height:100vh;line-height:-webkit-calc(100vh - 104px);line-height:calc(100vh - 104px);font-size:-webkit-calc(4vw + 4vh + 2vmin);font-size:calc(4vw + 4vh + 2vmin);letter-spacing:16px}section:nth-of-type(2n) h2{text-align:right;margin:0 0 0 auto;background-color:#07071c}}@media screen and (max-height:560px) and (min-width:480px){.c1,.c2{top:0;bottom:0}.c1{left:0;right:50%}.c2{left:50%;right:0}.hidden-lndscp,.c3,.c4,.c5,.c6,.c7,.c8,.c9{display:none}}@media screen and (min-width:768px) and (max-width:1072px){section h2>span{position:absolute;top:0;left:0;bottom:0;line-height:75vh;-webkit-transform:rotate(-90deg);transform:rotate(-90deg)}section:nth-of-type(2n) h2>span{left:auto;right:0;-webkit-transform: rotate(90deg);transform: rotate(90deg)}}@media only screen and (min-width:992px){.container{right:48px}section:nth-of-type(2n) .container{left:48px;right:auto;}.container{-webkit-transform:rotate(9deg);transform:rotate(9deg)}section:nth-of-type(2n) .container{-webkit-transform:rotate(-9deg);transform:rotate(-9deg)}.container.container-i,.container.container-f,section:nth-of-type(2n) .container.container-i,section:nth-of-type(2n) .container.container-f{-webkit-transform:none;transform:none}.c{-webkit-transition:.3s cubic-bezier(.4,0,.2,1) transform;transition:.3s cubic-bezier(.4,0,.2,1) transform;-webkit-transform:rotate(-9deg);transform:rotate(-9deg);-webkit-font-smoothing:antialiased;-webkit-font-smoothing:subpixel-antialiased}section:nth-of-type(2n) .c{-webkit-transform:rotate(9deg);transform:rotate(9deg)}}@media screen and (min-width:768px){.i,.f{top:32px;bottom:16px}.container-i,.container-f{left:auto;right:48px}.ff{display:block;position:relative;padding:18px 0;min-height:64px;text-align:left}.i,.f{padding:32px;right:0}[type="submit"]{display:inline-block}label{font-size:14px;top:6px;left:0;right:0;-webkit-transform:translateY(3ex);transform:translateY(3ex);color:rgba(255,255,255,.8);white-space:nowrap;-webkit-transition: .2s cubic-bezier(.4,1,.2,1) -webkit-transform;transition: .2s cubic-bezier(.4,1,.2,1) transform}label,label>span,label:after{position:absolute;-webkit-pointer-events:none;pointer-events:none;z-index:1}label>span{-webkit-transform:scale(1);transform:scale(1);-webkit-transition:.2s cubic-bezier(.4,1,.2,1) -webkit-transform;transition:.2s cubic-bezier(.4,1,.2,1) transform}input,textarea{display:block;width:100%;max-width:100%;color:#fff;border-bottom:1px solid rgba(255,255,255,.8);-webkit-transition:.2s cubic-bezier(.4,1,.2,1) border-color;transition:.2s cubic-bezier(.4,1,.2,1) border-color;padding:4px 0}input:valid,textarea:valid,input:active,input:focus,textarea:active,textarea:focus{border-color:#fff}input:focus:valid,textarea:focus:valid,input._blur:valid,textarea._blur:valid{border-color:#03a9f4}input:focus:invalid,textarea:focus:invalid,input._blur:invalid,textarea._blur:invalid{border-color:#f44336}[disabled]~label,[disabled]+label{color:rgba(255,255,255,.8)}input._blur~label,input:active~label,input:focus~label,input:valid~label,textarea._blur~label,textarea:active~label,textarea:focus~label,textarea:valid~label{color:#fff;font-weight:700;-webkit-transform:translateY(0);transform:translateY(0)}input._blur~label>span,input:active~label>span,input:focus~label>span,input:valid~label>span,textarea._blur~label>span,textarea:active~label>span,textarea:focus~label>span,textarea:valid~label>span{-webkit-transform-origin:0 0;transform-origin:0 0;-webkit-transform:scale(.8);transform:scale(.8)}label:after{content:'';display:block;top:14px;right:0;opacity:0;font-size:13px;text-transform:uppercase;-webkit-border-radius:2px;border-radius:2px;color:#07071c;visibility:hidden;padding:4px 8px;-webkit-transition:.2s cubic-bezier(.4,1,.2,1) opacity,.1s cubic-bezier(.4,1,.2,1) visibility;transition:.2s cubic-bezier(.4,1,.2,1) opacity,.1s cubic-bezier(.4,1,.2,1) visibility}input._blur~label:after,input:focus~label:after,input:valid~label:after,textarea._blur~label:after,textarea:focus~label:after,textarea:valid~label:after{opacity:1;visibility:visible}button{overflow:hidden;letter-spacing:2px;text-transform:uppercase;vertical-align:middle;background:rgba(3,169,244,.8);color:#07071C;-webkit-border-radius:4px;border-radius:4px;padding:8px 16px;font-size:1.3rem;font-weight:700;outline:0;cursor:pointer;text-decoration:none;line-height:1.4;-webkit-transition:.2s cubic-bezier(.4,1,.2,1) background;transition:.2s cubic-bezier(.4,1,.2,1) background}button:active,button:focus,button:hover{background-color:#03a9f4}button[disabled]{opacity:.5;color:#07071C;cursor:auto}input:valid~label:after,textarea:valid~label:after{content:'\2713\0020\0020 Okay!';background:#03a9f4}input:invalid~label:after,textarea:invalid~label:after{content:'\2727\0020 Required';background:#f44336}.ff:last-child{left:32px;right:32px}}.sms{float:right;display:block;font-size:12px;text-transform:uppercase;font-weight:700;color:#ffc107;opacity:.8;-webkit-transition:.2s cubic-bezier(.4,0,.2,1) opacity;transition:.2s cubic-bezier(.4,0,.2,1) opacity}.sms:hover,.sms:hover:before{opacity:1}.sms:before{content:'';display:block;margin:0 auto;height:48px;width:48px;background-repeat:no-repeat}article h3{font-weight:700;font-size:16px;text-transform:uppercase;margin-bottom:1ex}legend{margin-bottom:1ex}article p{position:absolute;bottom:16px;right:16px;left:16px;text-align:right;font-size:14px}h1{margin-bottom:2ex;font-size:16px}.i p{position:static;line-height:1.5;margin-bottom:2ex;font-size:11px;text-align:left}@media(min-height:544px){.i p{font-size:13px}}@media(min-width:768px){h1,.i p{font-size:16px;font-size:-webkit-calc(.7vw + .7vh + .4vmin);font-size:calc(.7vw + .7vh + .4vmin)}}@media(min-width:768px) and (min-height:700px){h1,.i p{font-size:-webkit-calc(.8vw + .8vh + .4vmin);font-size:calc(.8vw + .8vh + .4vmin)}}@media(min-width:1072px){section h2>a{display:block;position:absolute;top:-webkit-calc(50vh + 1em);top:calc(50vh + 1em);left:-webkit-calc(32px + (.25vh + .25vw + .125vmin));left:calc(32px + (.25vh + .25vw + .125vmin));line-height:2;padding-top:1ex;letter-spacing:4px;font-size:16px;opacity:.9;-webkit-transition:.2s cubic-bezier(.4,0,.2,1) opacity;transition:.2s cubic-bezier(.4,0,.2,1) opacity;-webkit-pointer-events:auto;pointer-events:auto}section:nth-of-type(2n) h2>a{left:auto;right:-webkit-calc(32px + (.5vh + .5vw + .25vmin));right:calc(32px + (.5vh + .5vw + .25vmin))}section h2>a:hover{opacity:1}}.cursor{color:#2196f3}@-webkit-keyframes onoff{0%{opacity:0}50%{opacity:1}100%{opacity:0}}@keyframes onoff{0%{opacity:0}50%{opacity:1}100%{opacity:0}}@supports(-webkit-animation-name:flicker){.cursor{-webkit-animation:onoff .9s cubic-bezier(.4,0,.2,1) infinite}}@supports(animation-name:flicker){.cursor{animation:onoff .9s cubic-bezier(.4,0,.2,1) infinite}}
+    </style>
+    <noscript>
+      <link rel="stylesheet" href="https://static.amdouglas.com/css/fonts.css">
+    </noscript>
+    <script>
+      ;(function(doc){loadStylesheets(['https://static.amdouglas.com/css/fonts.css','https://static.amdouglas.com/css/svgbg.css']);function loadStylesheets(urls){var css,i=0;for(;i< urls.length;++i){css=doc.createElement('link');css.rel='stylesheet';css.href=urls[i];(doc.head || doc.getElementsByTagName('head')[0]).appendChild(css);css=null;}}})(document);
+    </script></MainPage><ArchivePage>
+    <meta name="description" content="A full archive of all of my blog posts and writing on the web.">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:creator" content="A. M. Douglas">
+    <meta name="twitter:url" content="https://www.amdouglas.com/">
+    <meta name="twitter:domain" content="amdouglas.com">
+    <meta name="twitter:title" content="Archive &middot; <$BlogTitle$>">
+    <meta name="twitter:description" content="A full archive of all of my blog posts and writing on the web.">
+    <meta name="twitter:image:src" content="https://static.amdouglas.com/assets/img/favicon-196x196.png">
+    <meta property="fb:admins" content="407402372749613">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="<$BlogTitle$>">
+    <meta property="og:title" content="Archive &middot; <$BlogTitle$>">
+    <meta property="og:description" content="Summary: neither of these solutions can be considered performant. On the one hand, you're loading dozens of resources for shadow DOM trees...">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:url" content="https://amdouglas.com/blog/">
+    <meta property="og:image" content="https://static.amdouglas.com/assets/img/favicon-196x196.png">
+    <meta property="og:image:secure_url" content="https://static.amdouglas.com/assets/img/favicon-196x196.png">
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+    <style>
+      html{-webkit-text-size-adjust:100%;-webkit-font-smoothing:antialiased;-webkit-font-smoothing:subpixel-antialiased;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-overflow-scrolling:touch;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;touch-action:manipulation;font:normal normal 400 16px/1.2 Roboto,-apple-system,Arial,Helmet,Freesans,sans-serif}html,body{height:100%;overflow:hidden}*,:before,:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;touch-action:manipulation;margin:0;padding:0;border:0;font:inherit}:active,:focus{outline:0}article,footer,header,main,nav,section,video{display:block}a{-webkit-text-decoration-skip:objects;text-decoration:none}button,input,textarea{-webkit-appearance:none;-webkit-border-radius:0;border-radius:0;background:0 0}button,img,video{-webkit-touch-callout:none}button,a,img,video{-webkit-user-select:none;-moz-user-select:none}button,a{color:inherit;cursor:pointer}textarea{resize:none}[disabled]{opacity:.6;cursor:not-allowed}[hidden],video::-webkit-media-controls,video::-webkit-media-controls-play-button,video::-webkit-media-controls-volume-slider,video::-webkit-media-controls-mute-button,video::-webkit-media-controls-timeline,video::-webkit-media-controls-current-time-display{display:none}::-webkit-scrollbar{width:4px}::-webkit-scrollbar-thumb{background:#07071c;-webkit-border-radius:4px;border-radius:4px}::-webkit-scrollbar-track{background-color:transparent;background:rgba(0,0,0,0)}::selection{background:#07071c;color:#fff}::-moz-selection{background:#07071c;color:#fff}body{position:relative;z-index:1;background-color:#9c27b0;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2244%22%20height%3D%2212%22%20viewBox%3D%220%200%2044%2012%22%3E%3Cpath%20d%3D%22M20%2012v-2L0%200v10l4%202h16zm18%200l4-2V0L22%2010v2h16zM20%200v8L4%200h16zm18%200L22%208V0h16z%22%20fill%3D%22%2307071c%22%20fill-opacity%3D%220.4%22%20fill-rule%3D%22evenodd%22/%3E%3C/svg%3E")}h1,nav{position:fixed;top:20px;z-index:99}h1{left:16px;color:#fff;text-transform:uppercase;letter-spacing:4px;font-weight:700}nav{right:16px;color:#fff}h2{font-size:24px;font-weight:700;margin-bottom:.4em}main{position:absolute;background:#fff;top:56px;left:16px;right:16px;bottom:16px;-webkit-border-radius:5px;border-radius:5px;overflow-y:scroll;overflow-x:hidden;-webkit-overflow-scrolling:touch}main>div{position:absolute;top:0;left:0;right:0;padding:16px;min-height:100vh;-webkit-transform:translateZ(0);transform:translateZ(0);will-change:transform;-webkit-overflow-scrolling:touch}main>div>a{display:block;margin-bottom:6%;font-size:16px}main>div>a h3{font-weight:400}main>div>a h3,main>div>a p{opacity:.7;-webkit-transition:.2s cubic-bezier(.4,0,.2,1) opacity; transition:.2s cubic-bezier(.4,0,.2,1) opacity}main>div>a:hover h3,main>div>a:hover p{opacity:1}main>div>a h3{font-size:18px;line-height:1.1;padding:0;margin:0}main>div>a header{padding-bottom:32px}main>div>a p{font-size:14px;line-height:1.3;font-weight:400;padding:0;margin:18px 0}main>div>a hr~p{color:#83838e;margin:0;font-weight:400}main>div>a>header{font-weight:700;border-top:1px solid #c2c2dc;padding:16px 0;color:#83838e;font-size:10px;text-transform:uppercase; letter-spacing:1px}h1{margin-bottom:2ex;font-size:16px}@media(min-width:768px){h1{font-size:16px;font-size:-webkit-calc(.8vw + .8vh + .4vmin);font-size:calc(.8vw + .8vh + .4vmin)}h2{font-size:calc(4vw + 4vh + 2vmin)}}@media(min-width:32em){main>div{font-size:0}main>div>a{display:inline-block;vertical-align:top;width:46%;width:46.6%;margin-right:6%;margin-right:6.6%}main>div>a:nth-of-type(2n){margin-right:0}}@media(min-width:48em){main>div>a{width:23.5%}main>div>a,main>div>a:nth-of-type(2n){margin-right:2%}main>div>a:nth-of-type(4n){margin-right:0}}
+    </style>
+    </ArchivePage><ItemPage><Blogger>
+    <meta name="description" content="<$BlogItemSubject$>">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:creator" content="A. M. Douglas">
+    <meta name="twitter:url" content="<$BlogItemPermalinkURL$>">
+    <meta name="twitter:domain" content="amdouglas.com">
+    <meta name="twitter:title" content="<$BlogItemTitle$>">
+    <meta name="twitter:description" content="<$BlogItemSubject$>">
+    <meta name="twitter:image:src" content="https://static.amdouglas.com/assets/img/favicon-196x196.png">
+    <meta property="fb:admins" content="407402372749613">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="A. M. Douglas">
+    <meta property="og:title" content="<$BlogItemTitle$>">
+    <meta property="og:description" content="<$BlogItemSubject$>">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:url" content="<$BlogItemPermalinkURL$>">
+    <meta property="og:image" content="https://static.amdouglas.com/assets/img/favicon-196x196.png">
+    <meta property="og:image:secure_url" content="https://static.amdouglas.com/assets/img/favicon-196x196.png"></Blogger>
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+    <style>
+      html{-webkit-text-size-adjust:100%;-webkit-font-smoothing:antialiased;-webkit-font-smoothing:subpixel-antialiased;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-overflow-scrolling:touch;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;touch-action:manipulation;font:normal normal 400 16px/1.2 Roboto,-apple-system,Arial,Helmet,Freesans,sans-serif}html,body{height:100%}*,:before,:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;touch-action:manipulation;margin:0;padding:0;border:0;font:inherit}:active,:focus{outline:0}article,footer,header,main,nav,section,video{display:block}a{-webkit-text-decoration-skip:objects;text-decoration:none}button,input,textarea{-webkit-appearance:none;-webkit-border-radius:0;border-radius:0;background:0 0}button,img,video{-webkit-touch-callout:none}button,a,img,video{-webkit-user-select:none;-moz-user-select:none}button,a{color:inherit;cursor:pointer}textarea{resize:none}[disabled]{opacity:.6;cursor:not-allowed}[hidden],video::-webkit-media-controls,video::-webkit-media-controls-play-button,video::-webkit-media-controls-volume-slider,video::-webkit-media-controls-mute-button,video::-webkit-media-controls-timeline,video::-webkit-media-controls-current-time-display{display:none}::-webkit-scrollbar{width:4px}::-webkit-scrollbar-thumb{background:#07071c}::-webkit-scrollbar-track{background-color:transparent;background:rgba(0,0,0,0)}::selection{background:#07071c;color:#fff}::-moz-selection{background:#07071c;color:#fff}.comment-icon.blogger-comment-icon{display:none!important;visibility:hidden!important;width:0!important;height:0!important;opacity:0!important}.comment-data{background-color:#f5f5f5;font-size:14px;padding:15px 15px 0 15px;-webkit-border-radius:3px 3px 0 0;border-radius:3px 3px 0 0;margin-top:15px;margin-left:8px;margin-right:8px;color:#444}.comment-data>a{text-decoration:none;font-weight:900}.comment-body{position:relative;background-color:#f5f5f5;padding:0 15px 25px 15px;-webkit-border-radius:0 0 3px 3px;border-radius:0 0 3px 3px;margin-left:8px;margin-right:8px}.comment-body>p{margin-top:0;padding-top:15px;font-size:16px}.comment-body>.item-control{position:absolute;display:inline-block;top:-35px;right:0}.comment-body>.item-control>a{display:inline-block;text-decoration:none}.delete-comment-icon{display:inline-block;height:10px;width:10px;-webkit-border-radius:3px;border-radius:3px;background-color:#f44336}#comments h3,#comments h4,#comments h5{font-size:21px}
+    </style>
+    <noscript>
+      <link rel="stylesheet" href="https://static.amdouglas.com/css/fonts.css">
+      <link rel="stylesheet" href="https://static.amdouglas.com/css/article.css">
+    </noscript>
+    <script>
+    ;(function(doc,head){loadStylesheets(['https://static.amdouglas.com/css/fonts.css','https://static.amdouglas.com/css/article.css']);function loadStylesheets(urls){for(var i = 0;i<urls.length;++i){var _css=doc.createElement('link');_css.rel='stylesheet';_css.href=urls[i];head.appendChild(_css);}}})(document,document.head);
+    </script></ItemPage>
+    <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script><![endif]--><!--[if IE]><script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/2014.01.31/classList.min.js"></script><![endif]-->
+  </head>
+  <body><MainPage>
+    <h1>
+      <a href="https://www.amdouglas.com/"><$BlogTitle$></a>
+    </h1>
+    <nav>
+      <a href="https://www.amdouglas.com/#home" title="Home"></a>
+      <a href="https://www.amdouglas.com/#work" title="Work"></a>
+      <a href="https://www.amdouglas.com/#blog" title="Blog"></a>
+      <a href="https://www.amdouglas.com/#labs" title="Labs"></a>
+      <a href="https://www.amdouglas.com/#talk" title="Talk"></a>
+    </nav>
+    <section id="home">
+      <div class="bg-outer">
+        <div class="bg-inner">
+          <h2>
+            <span>Intro</span>
+          </h2>
+          <div class="container container-i">
+            <article class="i">
+              <h3>I&rsquo;m Adam, a freelance web developer based in Leeds</h3>
+              <p>I build websites and web apps that are fast, secure, accessible and stylish.</p>
+              <p>I specialise in full-stack JavaScript, but I&rsquo;m also a dab hand with ASP.NET (C# or VB) and SQL.</p>
+              <p class="hidden-lndscp">My other acronyms include HTML5, XHTML, AMP-HTML, CSS3, SCSS, JSON &amp; Classic ASP. I was also once rather familiar with Perl.</p>
+              <p class="hidden-lndscp">I&rsquo;m interested in building progressive web apps, giving the web the silky animation and offline functionality of native apps.</p>
+              <p class="hidden-lndscp">I also consult, and sometimes write about front-end development, among other topics.</p>
+              <p>Have a look around, see what&rsquo;s what&hellip; <span class="cursor">&#9608;</span></p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="work">
+      <div class="bg-outer">
+        <div class="bg-inner">
+          <h2>
+            <span>Work</span>
+            <a href="https://static.amdouglas.com/work/">&raquo; Résumé</a>
+          </h2>
+          <div class="container">
+            <article class="c c1">
+              <a href="https://seoscribe.net/">
+                <h3>SEO Scribe</h3>
+                <p>Static &middot; Flat-file</p>
+              </a>
+            </article>
+            <article class="c c2">
+              <a href="http://xmli5.com/">
+                <h3>XMLi5 Ltd.</h3>
+                <p>ASP.NET &middot; SQL Server</p>
+              </a>
+            </article>
+            <article class="c c3">
+              <a href="https://picuse.studio/">
+                <h3>Picuse Studio</h3>
+                <p>Static &middot; Flat-file</p>
+              </a>
+            </article>
+            <article class="c c4">
+              <a href="http://dixonco.co.uk/" rel="nofollow">
+                <h3>Dixon Properties</h3>
+                <p>WordPress &middot; MySQL</p>
+              </a>
+            </article>
+            <article class="c c5">
+              <a href="http://whsaccountants.co.uk/">
+                <h3>WHS Accountants Ltd.</h3>
+                <p>ASP.NET &middot; SQL Server</p>
+              </a>
+            </article>
+            <article class="c c6">
+              <a href="http://bellingcookshop.co.uk/">
+                <h3>Belling Cookshop</h3>
+                <p>ASP.NET &middot; SQL Server</p>
+              </a>
+            </article>
+            <article class="c c7">
+              <a href="http://hil.org.uk/" rel="nofollow">
+                <h3>Homes for Independent Lives</h3>
+                <p>WordPress &middot; MySQL</p>
+              </a>
+            </article>
+            <article class="c c8">
+              <a href="https://indredouglas.me/">
+                <h3>Indre Douglas</h3>
+                <p>Static &middot; Flat-file</p>
+              </a>
+            </article>
+            <article class="c c9">
+              <a href="https://robomonkey.org/">
+                <h3>Robomonkey</h3>
+                <p>PHP &middot; MySQL</p>
+              </a>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="blog">
+      <div class="bg-outer">
+        <div class="bg-inner">
+          <h2>
+            <span>Blog</span>
+            <a href="https://www.amdouglas.com/2016/">&raquo; View archive</a>
+          </h2>
+          <div class="container">
+            <article class="c c1">
+              <a href="https://www.amdouglas.com/2017/">
+                <h3>Building a client-side search engine</h3>
+                <p><time datetime="2017-05-19">19 May 2017</time></p>
+              </a>
+            </article>
+            <article class="c c2">
+              <a href="https://www.amdouglas.com/2016/10/meet-new-web-animations-api.html">
+                <h3>Meet the new Web Animations API</h3>
+                <p><time datetime="2016-10-28">28 October 2016</time></p>
+              </a>
+            </article>
+            <article class="c c3">
+              <a href="https://www.amdouglas.com/2016/09/asynchronous-css-easy-way.html">
+                <h3>Asynchronous CSS: the easy way</h3>
+                <p><time datetime="2016-09-30">30 September 2016</time></p>
+              </a>
+            </article>
+            <article class="c c4">
+              <a href="https://www.amdouglas.com/2016/08/lazyloading-css-background-images.html">
+                <h3>Lazyloading CSS background-images</h3>
+                <p><time datetime="2016-08-20">20 August 2016</time></p>
+              </a>
+            </article>
+            <article class="c c5">
+              <a href="https://www.amdouglas.com/2016/08/why-the-new-fetch-api-is-broken.html">
+                <h3>Why the new fetch API is broken</h3>
+                <p><time datetime="2016-08-19">18 August 2016</time></p>
+              </a>
+            </article>
+            <article class="c c6">
+              <a href="https://www.amdouglas.com/2016/07/stripe-custom-form-in-vanilla-javascript.html">
+                <h3>Stripe Custom Form in vanilla JavaScript (Part 1)</h3>
+                <p><time datetime="2016-08-12">12 August 2016</time></p>
+              </a>
+            </article>
+            <article class="c c7">
+              <a href="https://www.amdouglas.com/2016/03/css-selectors-you-really-may-not-have-heard-of.html">
+                <h3>CSS selectors you really may not have heard of</h3>
+                <p><time datetime="2016-03-12">12 March 2016</time></p>
+              </a>
+            </article>
+            <article class="c c8">
+              <a href="https://www.amdouglas.com/2016/01/some-css-pointers.html">
+                <h3>Some CSS pointers</h3>
+                <p><time datetime="2016-01-28">28 January 2016</time></p>
+              </a>
+            </article>
+            <article class="c c9">
+              <a href="https://www.amdouglas.com/2015/12/future-css-grids.html">
+                <h3>Future CSS Grids</h3>
+                <p><time datetime="2015-12-16">16 December 2015</time></p>
+              </a>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="labs">
+      <div class="bg-outer">
+        <div class="bg-inner">
+          <h2>
+            <span>Labs</span>
+            <a href="https://static.amdouglas.com/labs/">&raquo; View all</a>
+          </h2>
+          <div class="container">
+            <article class="c c1">
+              <a href="https://github.com/seoscribe/jsearch/">
+                <h3>JSearch</h3>
+                <p>Super-fast client-side search engine</p>
+              </a>
+            </article>
+            <article class="c c2">
+              <a href="https://toad.js.org/">
+                <h3>toad.js</h3>
+                <p>Lazyload images and CSS background images</p>
+              </a>
+            </article>
+            <article class="c c3">
+              <a href="https://embedlam.js.org/">
+                <h3>embedlam.js</h3>
+                <p>Blisteringly fast auto-embed library</p>
+              </a>
+            </article>
+            <article class="c c4">
+              <a href="https://pivot.js.org/">
+                <h3>pivot.js</h3>
+                <p>Create 3D hover effects à la Apple TV</p>
+              </a>
+            </article>
+            <article class="c c5">
+              <a href="https://stabs.js.org/">
+                <h3>stabs.js</h3>
+                <p>Easily create tabbed elements of your website</p>
+              </a>
+            </article>
+            <article class="c c6">
+              <a href="https://github.com/wnda/autoform/">
+                <h3>autoform.js</h3>
+                <p>Automatically submit forms via AJAX</p>
+              </a>
+            </article>
+            <article class="c c7">
+              <a href="https://static.amdouglas.com/labs/nojs-carousel/">
+                <h3>The no-JS carousel</h3>
+                <p>An image slider requiring no JavaScript</p>
+              </a>
+            </article>
+            <article class="c c8">
+              <a href="https://github.com/wnda/ghost-search/">
+                <h3>ghost-search</h3>
+                <p>Add AJAX search to your Ghost CMS site</p>
+              </a>
+            </article>
+            <article class="c c9">
+              <a href="https://github.com/wnda/ghost-contact/">
+                <h3>ghost-contact</h3>
+                <p>Add contact forms to your Ghost CMS site</p>
+              </a>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="talk">
+      <div class="bg-outer">
+        <div class="bg-inner">
+          <h2>
+            <span>Talk</span>
+          </h2>
+          <div class="container container-f">
+            <article class="f">
+              <h3>Speak your mind!</h3>
+              <form method="POST" action="https://send.amdouglas.com/mail/" accept-charset="utf-8" enctype="application/x-www-form-urlencoded" autocomplete="off">
+                <fieldset>
+                  <legend>Let&rsquo;s discuss your project &mdash; be it a shiny new website, or a killer new JSON API, or perhaps even an existing website in need of some TLC&hellip;</legend>
+                  <div class="ff">
+                    <input type="text" id="name" name="name" pattern=".{1,}" required disabled>
+                    <label for="name"><span>Your Name</span></label>
+                  </div>
+                  <div class="ff">
+                    <input type="email" id="email" name="email" pattern=".{5,}" required disabled>
+                    <label for="email"><span>Your Email</span></label>
+                  </div>
+                  <div class="ff">
+                    <textarea rows="6" id="text" name="text" minlength="5" required disabled></textarea>
+                    <label for="text"><span>Your Message</span></label>
+                  </div>
+                  <div class="ff" hidden>
+                    <input type="text" name="confirm" value="" hidden disabled>
+                  </div>
+                  <div class="ff">
+                    <button type="submit">Send</button>
+                    <a href="#0" class="sms">Text me</a>
+                  </div>
+                </fieldset>
+              </form>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script async defer src="https://static.amdouglas.com/js/app.js"></script></MainPage><ArchivePage>
+    <h1>
+      <a href="https://www.amdouglas.com/"><$BlogTitle$></a>
+    </h1>
+    <nav>
+      <a href="https://www.amdouglas.com/">Home</a> &middot;
+      <a href="https://www.amdouglas.com/feeds/posts/default?alt=rss">RSS</a>
+    </nav>
+    <main>
+      <div>
+        <h2>Archive</h2><Blogger>
+        <a id="blog_<$BlogItemNumber$>" href="<$BlogItemPermalinkURL$>">
+          <header><$BlogItemSubject$></header>
+          <section>
+            <h3><$BlogItemTitle$></h3>
+            <p></p>
+            <hr>
+            <p><time datetime="<$BlogItemDateTime$>"><$BlogItemDateTime$></time></p>
+          </section>
+        </a></Blogger>
+      </div>
+    </main><Blogger>
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "NewsArticle",
+        "mainEntityOfPage": "<$BlogItemPermalinkURL$>",
+        "headline": "<$BlogItemTitle$>",
+        "datePublished": "<$BlogItemDateTime$>",
+        "dateModified": "<$BlogItemDateTime$>",
+        "description": "<$BlogItemSubject$>",
+        "author": {
+          "@type": "Person",
+          "name": "A. M. Douglas"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "A. M. Douglas",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://static.amdouglas.com/assets/img/apple-touch-icon-60x60.png",
+            "width": 60,
+            "height": 60
+          }
+        },
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://static.amdouglas.com/assets/img/apple-touch-icon-60x60.png",
+          "height": 60,
+          "width": 60
+        }
+      }
+    </script></Blogger>
+    <script async defer src="https://static.amdouglas.com/js/archive.js"></script></ArchivePage><ItemPage><Blogger>
+    <main>
+      <header>
+        <a href="https://www.amdouglas.com/"><$BlogTitle$></a>
+      </header>
+      <nav>
+        <a href="https://www.amdouglas.com/">Home</a> &bull;
+        <a href="https://www.amdouglas.com/2017/">Archive</a>
+      </nav>
+      <article id="post_<$BlogItemNumber$>">
+        <h1><$BlogItemTitle$></h1>
+        <section>
+        <$BlogItemBody$>
+        <p><span class="cursor">&#9608;</span></p>
+        </section>
+        <footer>
+          <a href="" data-next>
+          </a>
+          <a href="" data-prev>
+          </a>
+        </footer>
+        <section id="comments">
+        <BlogItemCommentsEnabled><h5><$I18NNumComments$>:</h5>
+        <dl id="comments-block">
+          <$CommentPager$><BlogItemComments>
+          <dt class="comment-data"><$I18NAtCommentTimeWithPermalink$>, <$I18NCommentAuthorSaid$></dt>
+          <dd class="comment-body">
+            <p><$BlogCommentBody$></p>
+  	        <$BlogCommentDeleteIcon$>
+          </dd></BlogItemComments>
+          <$CommentPager$><$BlogItemCreate$>
+        </dl></BlogItemCommentsEnabled>
+        </section>
+      </article>
+    </main>
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "NewsArticle",
+        "mainEntityOfPage": "<$BlogItemPermalinkURL$>",
+        "headline": "<$BlogItemTitle$>",
+        "datePublished": "<$BlogItemDateTime$>",
+        "dateModified": "<$BlogItemDateTime$>",
+        "description": "<$BlogItemSubject$>",
+        "author": {
+          "@type": "Person",
+          "name": "A. M. Douglas"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "A. M. Douglas",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://static.amdouglas.com/assets/img/apple-touch-icon-60x60.png",
+            "width": 60,
+            "height": 60
+          }
+        },
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://static.amdouglas.com/assets/img/apple-touch-icon-60x60.png",
+          "height": 60,
+          "width": 60
+        }
+      }
+    </script>
+    <script async defer src="https://static.amdouglas.com/js/article.js"></script></Blogger></ItemPage>
+    <script async defer src="https://static.amdouglas.com/js/cookiechoices.js"></script>
+    <script>
+      (function(win){
+        window.addEventListener('load', function(event) {
+          window.cookieChoices && cookieChoices.showCookieConsentBar && cookieChoices.showCookieConsentBar(
+            (window.cookieOptions && cookieOptions.msg) || 'By using this site, you consent to its use of cookies.',(window.cookieOptions && cookieOptions.close) || 'OK',(window.cookieOptions && cookieOptions.learn) || 'Learn more',(window.cookieOptions && cookieOptions.link) || 'https://www.blogger.com/go/blogspot-cookies');
+        });
+      })(window);
+    </script>
+  </body>
+</html>
