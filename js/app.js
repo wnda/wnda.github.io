@@ -22,6 +22,7 @@
     var j = 0;
     
     updateNavigation('#home');
+    loadStylesheets(['https://static.amdouglas.com/css/fonts.css']);
     appendJSONLD();
     win.removeEventListener('load', handleLoad, false);
     
@@ -64,6 +65,17 @@
     body.appendChild(uas);
     win.ga('create','UA-70873652-1','auto');
     win.ga('send','pageview');
+  }
+  
+  function loadStylesheets (urls) {
+    var css, i = 0;
+    for (; i < urls.length; ++i) {
+      css = doc.createElement('link');
+      css.rel = 'stylesheet';
+      css.href = urls[i];
+      (doc.head || doc.getElementsByTagName('head')[0]).appendChild(css);
+      css = null;
+    }
   }
 
   function appendTouchIcons () {
