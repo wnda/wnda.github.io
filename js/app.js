@@ -21,17 +21,16 @@
     var a = doc.querySelectorAll('input,textarea');
     var j = 0;
     
+    win.removeEventListener('load', handleLoad, false);
     updateNavigation('#home');
     loadStylesheets(['https://static.amdouglas.com/css/fonts.css']);
     appendJSONLD();
-    win.removeEventListener('load', handleLoad, false);
+    doc.querySelector('.sms').href = '\u0073\u006D\u0073\u003a\u002b\u0034\u0034\u0037\u0039\u0033\u0031\u0035\u0036\u0035\u0038\u0034\u0036';
     
-    for (;j < a.length; ++j){
+    for (;j < a.length; ++j) {
       a[j].removeAttribute('disabled');
       a[j].addEventListener('blur', function (e) { (e.target || this).className='_blur'; });
     }
-    
-    doc.querySelector('.sms').href = '\u0073\u006D\u0073\u003a\u002b\u0034\u0034\u0037\u0039\u0033\u0031\u0035\u0036\u0035\u0038\u0034\u0036';
     
     if (!!mbl) {
       doc.documentElement.style.overflow = 'hidden';
