@@ -93,19 +93,28 @@
   }
   
   function appendJSONLD () {
-    var xhr = new win.XMLHttpRequest();
-    var s_data = doc.createElement('script');
-    s_data.type = 'application/ld+json';
-    xhr.open('GET', 'https://static.amdouglas.com/data.json', true);
-    xhr.onreadystatechange = function () {
-      if (xhr.readyState === 4) {
-        if (xhr.status >= 200 && xhr.status < 300) {
-          s_data.textContent = xhr.responseText;
-          body.appendChild(s_data);
-        }
+    if (!('fetch' in win)) { return; }
+    win.fetch('https://www.amdouglas.com/feeds/posts/default').then(function (resp) {
+      if (resp.ok) {
+        return resp.text().then(function (resptxt) {
+          var _jsonld = [{"@context":"http://schema.org","@type":"Website","publisher":"A. M. Douglas","url":"https://amdouglas.com/","image":"https://amdouglas.com/assets/img/favicon-196x196.png","description":"I&#x27;m a freelance web developer, web development consultant and strategist. I make clean, modern websites and web apps with a focus on performance, security and accessibility. Let&#x27;s talk!"},{"@type":"Organization","@context":"http://schema.org","name":"A. M. Douglas","url":"https://amdouglas.com/","logo":"https://amdouglas.com/assets/img/amdouglas-logo.jpg","sameAs":["https://www.facebook.com/adam.michael.douglas","https://twitter.com/amdgls","https://plus.google.com/+AmdouglasCom","https://github.com/wnda","https://uk.linkedin.com/in/amdgls","http://careers.stackoverflow.com/amdouglas","https://instagram.com/amdgls","https://medium.com/@amdgls","http://amdouglas.tumblr.com","https://uk.pinterest.com/amdgls","https://about.me/amdouglas","https://news.ycombinator.com/user?id=wanda","https://www.designernews.co/users/4710/adam-m-douglas","https://lobste.rs/u/amdouglas","https://www.reddit.com/user/wander1pos/","https://ello.co/amdgls","http://ffffound.com/home/wanda/found/","https://dribbble.com/amdgls","https://developer.mozilla.org/en-US/profiles/wnda","http://codepen.io/amdouglas","https://keybase.io/wanda"]},{"@context":"http://schema.org","@type":"Person","name":"A. M. Douglas","jobTitle":"Digital developer","affiliation":"Freelance","additionalName":"Adam","url":"https://amdouglas.com","sameAs":["https://www.facebook.com/adam.michael.douglas","https://twitter.com/amdgls","https://plus.google.com/+AmdouglasCom","https://github.com/wnda","https://uk.linkedin.com/in/amdgls","http://careers.stackoverflow.com/amdouglas","https://instagram.com/amdgls","https://medium.com/@amdgls","http://amdouglas.tumblr.com","https://uk.pinterest.com/amdgls","https://about.me/amdouglas","https://news.ycombinator.com/user?id=wanda","https://www.designernews.co/users/4710/adam-m-douglas","https://lobste.rs/u/amdouglas","https://www.reddit.com/user/wander1pos/","https://ello.co/amdgls","http://ffffound.com/home/wanda/found/","https://dribbble.com/amdgls","https://developer.mozilla.org/en-US/profiles/wnda","http://codepen.io/amdouglas","https://keybase.io/wanda"]},{"@context":"http://schema.org","@type":"Blog","url":"https://amdouglas.com/","about":"A. M. Douglas, freelance web developer","description":"A blog by A. M. Douglas, senior web developer, concerning HTML5/CSS3/JavaScript, philosophy, operating systems, technology trends and start-ups.","creator":"A. M. Douglas","author":"A. M. Douglas","copyrightHolder":"A. M. Douglas","copyrightYear":"2016","dateCreated":"2014"}];
+          var _j = 0;
+          var _s;
+          var _articles = [].slice.call(
+            new win.DOMParser()
+              .parseFromString(resptxt, 'application/xml')
+                .getElementsByTagName('entry')
+            ).map(function (entry) {
+              return {"@context":"http://schema.org","@type":"NewsArticle","identifier":win.JSON.stringify(entry.querySelector('id').textContent),"mainEntityOfPage":win.JSON.stringify(entry.querySelector('link').getAttribute('href')),"headline":win.JSON.stringify(entry.querySelector('title').textContent),"datePublished":new win.Date(entry.querySelector('published').textContent).toJSON(),"dateModified":new win.Date(entry.querySelector('updated').textContent).toJSON(),"description":win.JSON.stringify(entry.querySelector('summary').textContent),"keywords":win.JSON.stringify([].slice.call(entry.querySelectorAll('category')).map(function(tag){return tag.textContent}).join(',')),"author":{"@type":"Person","name":win.JSON.stringify(entry.querySelector('author').querySelector('name').textContent)},"publisher":{"@type":"Organization","name":win.JSON.stringify(entry.querySelector('author').querySelector('name').textContent),"logo":{"@type":"ImageObject","url":"https://static.amdouglas.com/assets/img/apple-touch-icon-60x60.png","width":60,"height":60}},"image":{"@type":"ImageObject","url":"https://static.amdouglas.com/assets/img/apple-touch-icon-60x60.png","height":60,"width":60}};
+          });
+          for (; _articles.length > _j; ++_j) { _jsonld[_jsonld.length] = _articles[_j]; }
+          _s = doc.createElement('script');
+          _s.type = 'application/ld+json';
+          _s.textContent = win.JSON.stringify(_jsonld);
+          doc.body.appendChild(_s);
+        });
       }
-    };
-    xhr.send(null);
+    });
   }
 
   function rebounce (f) {
