@@ -1,4 +1,4 @@
-;(function (win, doc, head, body) {
+;(function (win, doc) {
   'use strict';
   var wdth = (win.innerWidth || doc.documentElement.clientWidth || doc.body.clientWidth);
   var hght = (win.innerHeight || doc.documentElement.clientHeight || doc.body.clientHeight);
@@ -278,4 +278,4 @@
     smoothScroll(node);
   }
 
-})(window, window.document, window.document.head, window.document.body);
+}) (window, window.document);
