@@ -1,0 +1,378 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimal-ui">
+    <title>Résumé &middot; AM Douglas</title>
+    <style>
+	    body {
+        background: #EEEEEE;
+        font: 12px "Times New Roman", Times, sans-serif;
+        line-height: 1.4;
+        margin: 40px 0;
+      }
+      em {
+        color: #999;
+      }
+      p {
+        line-height: 1.4;
+      }
+      ul {
+        margin-bottom: 0;
+      }
+      li {
+        margin-bottom: 2px;
+      }
+      a {
+        text-decoration: none;
+      }
+      
+      #resume {
+        margin: 0 auto;
+        max-width: 600px;
+        padding: 80px 100px;
+        background: #fff;
+        border: 1px solid #ccc;
+        box-shadow: 2px 2px 4px #aaa;
+        -webkit-box-shadow: 2px 2px 4px #aaa;
+      }
+      
+      .coursesList {
+        width: 28%;
+        vertical-align: top;
+        display: inline-block;
+      }
+      
+      .largeFont {
+        font-size: 20px;
+      }
+      
+      .smallFont {
+        font-size: 12px;
+      }
+      
+      .sectionBlock {
+        display: flex;
+        width: 100%;
+      }
+      
+      .sectionName {
+        width: 18%;
+        vertical-align: top;
+        display: inline-block;
+      }
+      
+      .sectionContent {
+        width: 80%;
+        vertical-align: top;
+        display: inline-block;
+      }
+      
+      .sectionContent ul {
+        padding-left: 20px;
+        margin-top: 4px;
+        list-style-type: circle;
+      }
+
+      .sectionContent .title {
+        font-weight: bold;
+      }
+      
+      .sectionContent .date {
+        float: right;
+      }
+      
+      .sectionContent .separator {
+        height: 14px;
+      }
+      
+      .sectionLine {
+        border-style: solid;
+        border-width: 1px;
+        border-color: #e1e1e1;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+      
+      .divider {
+        font-weight: bold;
+        margin-left: 5px;
+        margin-right: 5px;
+      }
+      
+      .summary {
+        margin-top: 6px;
+      }
+      
+      .skillBlock {
+        margin-bottom: 4px;
+      }
+      
+      .jobBlock {
+        page-break-inside: avoid;
+        margin-bottom: 12px;
+      }
+
+      .jobBlock:last-of-type {
+        margin-bottom: 0;
+      }
+      
+      #publications .highlights:first-of-type {
+        margin-bottom: 12px;
+      }
+      
+      /* Media Queries */
+      @media only screen and (max-width: 40em) {
+        body {
+          margin: 0;
+          font-size: 14px;
+        }
+        #resume {
+          margin: 0 auto;
+          max-width: 600px;
+          padding: 0.5em 1em;
+          border: none;
+        }
+        .sectionContent {
+          width: 100%;
+        }
+        .sectionContent .date {
+          padding-right: 2em;
+        }
+        .sectionName {
+          width: auto;
+        }
+        .largeFont {
+          font-size: 20px;
+        }
+        .smallFont {
+          font-size: 14px;
+        }
+      }
+
+      @media print {
+        #resume {
+          margin: 0 auto;
+          max-width: 600px;
+          padding: 0px 0px;
+          border: 0px;
+          background: #fff;
+          box-shadow: none;
+          -webkit-box-shadow: none;
+        }
+      
+        a {
+          color: black;
+        }
+      }
+	  </style>
+  </head>
+  <body>
+    <div id="resume">
+      <div id="nameBlock" class="largeFont">
+        <span class="name">Adam Michael Douglas,</span>
+        <span class="label">front-end web developer</span>
+      </div>
+      <div id="basicsBlock" class="smallFont">
+        <div class="contactBlock">
+          <span class="email">me@amdouglas.com</span>
+          <span class="divider">|</span>
+          <span class="phone">+370 (653) 18898</span>
+          <span class="divider">|</span>
+          <span class="address">Jonažolių, Vilnius, LT</span>
+        </div>
+        <div id="profilesBlock">
+          <span class="url">
+            <a href="https://github.com/wnda">github.com/wnda</a>
+          </span>
+          <span class="divider">|</span>
+          <span class="url"><a href="https://stackoverflow.com/users/851366/amdouglas">stackoverflow.com/users/851366/amdouglas</a></span>
+        </div>
+      </div>
+      <div class="sectionLine"></div>
+      <div id="summaryBlock" class="sectionBlock">
+        <div class="sectionName">
+          <span>SUMMARY</span>
+        </div>
+        <div class="sectionContent">
+          <span>Self-taught web developer hailing from the United Kingdom. Nine years working experience as both JavaScript programmer and web designer. Acquired a taste for front-end development through a love of both designing and building user interfaces.</span>
+        </div>
+      </div>
+      <div class="sectionLine"></div>
+      <div id="workBlock" class="sectionBlock">
+        <div class="sectionName">
+          <span>EXPERIENCE</span>
+        </div>
+        <div class="sectionContent">
+          <div class="jobBlock">
+            <div class="blockHeader">
+              <span class="title">Self-employed</span>
+              <span class="date">2010 &ndash; 2014; 2016 &ndash; 2017</span>
+            </div>
+            <div>
+              <a href="https://amdouglas.com">amdouglas.com</a>
+            </div>
+            <ul class="highlights">
+              <li>Front-end development with HTML5, CSS3 and plain JavaScript and occasionally jQuery</li>
+              <li>Back-end development with Perl, PHP, Node.js and ASP.NET (C# and VB)</li>
+              <li>Web design & search-engine optimisation consultations also delivered</li>
+              <li>System administration of Linux &amp; FreeBSD servers</li>
+            </ul>
+          </div>
+          <div class="jobBlock">
+            <div class="blockHeader">
+              <span class="title">Raw Creative Ltd.</span>
+              <span class="date">2015 &ndash; 2016</span>
+            </div>
+            <div>
+              <a href="http://rawcreativeltd.com">rawcreativeltd.com</a>
+            </div>
+            <ul class="highlights">
+              <li>Front-end web development with HTML5, CSS3 and JavaScript/jQuery</li>
+              <li>Back-end development also completed when required, with ASP.NET (VB) and MS SQL Server</li>
+              <li>System administration of Linux &amp; Windows servers</li>
+            </ul>
+          </div>
+          <div class="jobBlock">
+            <div class="blockHeader">
+              <span class="title">XMLi5 Ltd.</span>
+              <span class="date">2014 &ndash; 2015</span>
+            </div>
+            <div>
+              <a href="http://xmli5.com">xmli5.com</a>
+            </div>
+            <ul class="highlights">
+              <li>Primarily front-end web development with HTML5, CSS3 and JavaScript/jQuery</li>
+              <li>Back-end development also completed when required, with ASP.NET (VB) and MS SQL Server</li>
+              <li>Developed e-commerce websites plugging in to IBM hardware requiring DB2 &rarr; MS SQL integration</li>
+              <li>System administration of Windows-based servers</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="sectionLine"></div>
+      <div id="awards" class="sectionBlock">
+        <div class="sectionName">
+          <span>SIDE PROJECTS</span>
+        </div>
+        <div class="sectionContent">
+          <div class="blockHeader">
+            <span class="title">SEO Scribe</span>
+            <span class="date">2017</span>
+          </div>
+          <div class="website">
+            <a href="https://seoscribe.net/editor">seoscribe.net/editor</a>
+          </div>
+          <ul class="highlights">
+            <li>Text editor web app providing SEO-related metrics, built with JavaScript</li>
+          </ul>
+        </div>
+      </div>
+      <div class="sectionLine"></div>
+      <div id="publications">
+        <div class="sectionName">
+          <span>PUBLICATIONS</span>
+        </div>
+        <div class="sectionContent">
+          <div class="blockHeader">
+            <span class="title">Personal blog</span>
+            <span class="date">
+              <span class="releaseDate">2014 &ndash; present</span>
+            </span>
+          </div>
+          <div class="website">
+            <a href="https://amdouglas.com/#blog">amdouglas.com/#blog</a>
+          </div>
+          <ul class="highlights">
+            <li>Instructional posts on front-end development; topics incl. animation and performance</li>
+          </ul>
+          <div class="blockHeader">
+            <span class="title">SEO Scribe 'Meta' blog</span>
+            <span class="date">
+              <span class="releaseDate">2017 &ndash; present</span>
+            </span>
+          </div>
+          <div class="website">
+            <a href="https://medium.com/seo-scribe-meta-blog">medium.com/seo-scribe-meta-blog</a>
+          </div>
+          <ul class="highlights">
+            <li>Commentary on SEO, and on the search engine/social media industry</li>
+          </ul>
+        </div>
+      </div>
+      <div class="sectionLine"></div>
+      <div id="skills" class="sectionBlock">
+        <div class="sectionName">
+          <span>SKILLS</span>
+        </div>
+        <div class="sectionContent">
+          <div class="skillBlock">
+            <span class="title">Web development:</span>
+            <span>HTML</span>,
+            <span>CSS</span>,
+            <span>JavaScript (jQuery, React)</span>,
+            <span>SVG</span>,
+            <span>XML</span>,
+            <span>JSON</span>,
+            <span>Node.js/Express.js</span>,
+            <span>ASP.NET (Classic, WebForms &amp; MVC)</span>,
+            <span>Perl</span>,
+            <span>SQL</span>
+          </div>
+          <div class="skillBlock">
+            <span class="title">Other:</span>
+            <span>Adobe Photoshop</span>,
+            <span>Adobe Illustrator</span>,
+            <span>Adobe InDesign</span>,
+            <span>Content writing/editing</span>,
+            <span>Search engine optimisation</span>
+          </div>
+        </div>
+      </div>
+      <div class="sectionLine"></div>
+      <div id="education" class="sectionBlock">
+        <div class="sectionName">
+          <span>EDUCATION</span>
+        </div>
+        <div class="sectionContent">
+          <div class="educationBlock">
+            <span class="title">Havant College &amp; Chichester College</span>
+            <span class="date">2006 &ndash; 2009</span>
+            <div id="coursesBlock">
+              <ul class="coursesList">
+                <li class="course">Mathematics</li>
+              </ul>
+              <ul class="coursesList">
+                <li class="course">Further Mathematics</li>
+              </ul>
+              <ul class="coursesList">
+                <li class="course">Philosophy</li>
+              </ul>
+              <ul class="coursesList">
+                <li class="course">Computing</li>
+              </ul>
+              <ul class="coursesList">
+                <li class="course">English Literature</li>
+              </ul>
+              <ul class="coursesList">
+                <li class="course">Psychology</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sectionLine"></div>
+      <div id="languages" class="sectionBlock">
+        <div class="sectionName">
+          <span>LANGUAGES</span>
+        </div>
+        <div class="sectionContent">
+          <span class="language">English</span>
+          <span class="fluency">(Native)</span>,
+          <span class="language">Lithuanian</span>
+          <span class="fluency">(beginner)</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
